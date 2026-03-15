@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Your Procurement Transformation Stalled — And How to Fix It | Foley Strategic Advisory</title>
+<meta name="description" content="Most procurement transformations fail not because the strategy was wrong, but because the operating model couldn't sustain the change. Here's the pattern and the fix.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0B1D33;
+  --navy-deep: #06111F;
+  --gold: #D4A843;
+  --gold-light: #E8C566;
+  --cream: #F5F1EA;
+  --white: #FAFAF8;
+  --slate: #4A5568;
+  --slate-light: #718096;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; color: var(--navy); background: var(--white); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; padding: 1.5rem 4rem; display: flex; justify-content: space-between; align-items: center; background: rgba(11, 29, 51, 0.97); backdrop-filter: blur(12px); }
+.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream); text-decoration: none; }
+.nav-logo span { color: var(--gold); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a { color: rgba(245, 241, 234, 0.75); text-decoration: none; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s; }
+.nav-links a:hover { color: var(--gold); }
+.article-hero { background: var(--navy-deep); padding: 10rem 4rem 5rem; position: relative; }
+.article-hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0.3; }
+.article-hero-inner { max-width: 800px; margin: 0 auto; }
+.article-tag { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem; }
+.article-tag::before { content: ''; width: 40px; height: 1px; background: var(--gold); }
+.article-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 500; line-height: 1.15; color: var(--cream); margin-bottom: 1.5rem; }
+.article-meta { font-size: 0.85rem; color: rgba(245, 241, 234, 0.45); }
+.article-meta a { color: var(--gold); text-decoration: none; }
+.article-body { max-width: 800px; margin: 0 auto; padding: 4rem; }
+.article-body p { font-size: 1.05rem; color: var(--slate); line-height: 1.9; margin-bottom: 1.5rem; }
+.article-body p em { font-style: italic; color: var(--navy); }
+.article-body h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 600; color: var(--navy); margin-top: 3rem; margin-bottom: 1.25rem; padding-top: 2rem; border-top: 1px solid rgba(11, 29, 51, 0.06); }
+.article-body h2:first-of-type { border-top: none; padding-top: 0; margin-top: 2rem; }
+.article-body strong { color: var(--navy); font-weight: 600; }
+.article-cta { max-width: 800px; margin: 0 auto; padding: 0 4rem 4rem; }
+.cta-box { background: var(--cream); padding: 3rem; border-left: 4px solid var(--gold); }
+.cta-box p { font-size: 1.05rem; color: var(--slate); line-height: 1.8; margin-bottom: 1rem; }
+.cta-box p:last-child { margin-bottom: 0; }
+.cta-box a { color: var(--gold); text-decoration: none; font-weight: 600; }
+.article-author { max-width: 800px; margin: 0 auto; padding: 0 4rem 5rem; border-top: 1px solid rgba(11, 29, 51, 0.06); padding-top: 2.5rem; }
+.author-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--navy); margin-bottom: 0.25rem; }
+.author-info .author-title { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+.author-info p { font-size: 0.92rem; color: var(--slate-light); line-height: 1.75; }
+.author-info a { color: var(--navy); text-decoration: none; }
+.author-info a:hover { color: var(--gold); }
+footer { background: var(--navy-deep); padding: 3rem 4rem; display: flex; justify-content: space-between; align-items: center; }
+.footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream); }
+.footer-brand span { color: var(--gold); }
+.footer-copy { font-size: 0.78rem; color: rgba(245, 241, 234, 0.35); }
+@media (max-width: 768px) { nav { padding: 1.25rem 2rem; } .nav-links { display: none; } .article-hero { padding: 8rem 2rem 3rem; } .article-hero h1 { font-size: 2.2rem; } .article-body { padding: 3rem 2rem; } .article-cta { padding: 0 2rem 3rem; } .article-author { padding: 0 2rem 3rem; padding-top: 2rem; } footer { padding: 2rem; flex-direction: column; gap: 1rem; text-align: center; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Foley <span>Strategic</span> Advisory</a>
+  <ul class="nav-links">
+    <li><a href="/#about">About</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#industries">Industries</a></li>
+    <li><a href="/#insights">Insights</a></li>
+    <li><a href="/#contact">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<section class="article-hero">
+  <div class="article-hero-inner">
+    <div class="article-tag">Procurement</div>
+    <h1>Why Your Procurement Transformation Stalled — And How to Fix It</h1>
+    <div class="article-meta">By <a href="/#about">John Foley</a> &nbsp;|&nbsp; March 2026</div>
+  </div>
+</section>
+
+<article class="article-body">
+
+<p>You invested in the strategy. Maybe you hired a consultancy to redesign the category approach. Maybe you rolled out a new source-to-pay platform. Maybe you restructured the team, created centers of excellence, and wrote the playbook for how procurement was going to operate differently.</p>
+
+<p>And then, six months later, everything quietly reverted to the way it was before.</p>
+
+<p>If this sounds familiar, you're in good company. Most procurement transformations don't fail spectacularly. They fail gradually — through slow adoption, workarounds, organizational fatigue, and the gravitational pull of the status quo. The strategy was probably fine. The operating model wasn't built to sustain it.</p>
+
+<p>After twenty years leading and advising on these transformations, I've seen the same pattern repeat across industries. The good news is that once you recognize the pattern, the fix is straightforward. Not easy — but straightforward.</p>
+
+<h2>The Three Ways Transformations Stall</h2>
+
+<p><strong>Stall Pattern 1: Strategy without structure.</strong> The consultancy delivered a beautiful category strategy deck. The team is energized. But there's no operating model underneath it — no clear decision rights, no governance cadence, no defined roles for who owns what. The strategy sits in a shared drive while everyone goes back to doing what they did before, because the organizational infrastructure to execute the strategy was never built.</p>
+
+<p>I see this most often in companies that have gone through rapid growth or acquisitions. The procurement function has evolved organically — people doing what they've always done, in the way they've always done it, with no one stepping back to ask whether the structure matches the ambition.</p>
+
+<p><strong>Stall Pattern 2: Technology without process redesign.</strong> The company invested seven figures in a new S2P platform. Go-live happened. And then the team used the new system to replicate the same broken processes they were running before — just with a shinier interface. The technology was treated as the transformation, rather than as an enabler of a fundamentally different way of working.</p>
+
+<p>This is the most expensive way for a transformation to stall, because now you have the sunk cost of the platform plus the ongoing cost of underutilization. And there's organizational resistance to "transforming again" because everyone is exhausted from the implementation.</p>
+
+<p><strong>Stall Pattern 3: Quick wins without sustained change.</strong> The transformation launched with a burst of sourcing events — competitive bids, supplier consolidation, renegotiated contracts. Savings were captured. Leadership was pleased. And then the team ran out of momentum because there was no framework for continuous improvement, no capability building to replace the reliance on external support, and no performance management system to keep the function accountable to a higher standard.</p>
+
+<p>This is the most insidious stall because it <em>looks like success</em> for the first year. The savings are real. But they're not repeatable, because they were generated by one-time actions, not by a structurally better function.</p>
+
+<h2>What Actually Drives Sustained Transformation</h2>
+
+<p>The difference between transformations that stick and those that stall comes down to four elements. When all four are present, the transformation sustains itself. When any one is missing, it eventually reverts.</p>
+
+<p><strong>Element 1: An operating model that matches the strategy.</strong> If your strategy says "center-led category management" but your operating model has procurement reporting to six different business units with no shared governance, the strategy will lose. Every time. The operating model — structure, governance, decision rights, process, technology, and people — must be deliberately designed to support the strategic direction. This isn't an afterthought. It's the main event.</p>
+
+<p><strong>Element 2: Leadership that spans the supply chain.</strong> Procurement transformation doesn't happen in a procurement silo. It requires alignment with supply chain, logistics, operations, finance, and the business units that consume what procurement buys. Someone has to own the cross-functional view and have the organizational authority — or at least the influence — to drive alignment. In companies where this leadership exists, transformations accelerate. In companies where procurement is a back-office function reporting three levels below the C-suite, transformations stall because nobody with enough authority is championing the change.</p>
+
+<p><strong>Element 3: Capability building, not just consulting.</strong> The best-run procurement functions I've seen aren't staffed with ex-consultants who came in with a methodology and never left. They're staffed with internal talent that was developed — coached, trained, exposed to strategic thinking, given progressively more complex assignments, and held accountable for outcomes. If your transformation depends on external resources to sustain it, it's not a transformation. It's an outsourced function. True transformation means the internal team can operate at the new level after the external support is gone.</p>
+
+<p><strong>Element 4: A performance management system with teeth.</strong> You measure what matters. If procurement's KPIs are still "cost savings" and "PO cycle time," you're measuring the old function. A transformed procurement function is measured on total cost of ownership, supplier risk exposure, contract compliance, category strategy execution, stakeholder satisfaction, and contribution to business outcomes. And those metrics need to be reviewed regularly — not in an annual review, but in a monthly cadence where leaders are held accountable for trajectory.</p>
+
+<h2>The 90-Day Reset</h2>
+
+<p>If your transformation has stalled, you don't need to start over. You need a reset — a focused, time-boxed effort to diagnose what broke and fix the structural issues that are preventing the strategy from taking hold.</p>
+
+<p><strong>Days 1-30: Honest Assessment.</strong> Where are you actually performing versus where the transformation said you'd be? What's working and what isn't? Where have people reverted to old behaviors, and why? This isn't a consultant's benchmarking exercise — it's an honest, internal conversation about what the organization is capable of sustaining. Talk to the people doing the work, not just the people who sponsored the transformation.</p>
+
+<p><strong>Days 30-60: Operating Model Repair.</strong> Based on the assessment, fix the structural issues. This might mean clarifying decision rights between central and business unit procurement. It might mean redesigning the governance cadence so category reviews actually happen. It might mean redefining roles so people understand what's expected of them in the new model. It might mean simplifying — because often, the original transformation tried to change too many things at once.</p>
+
+<p><strong>Days 60-90: Relaunch with Accountability.</strong> Relaunch the transformation — not with a strategy deck, but with a clear set of milestones, owners, and a review rhythm that keeps everyone honest. Pick three to five high-impact initiatives that demonstrate what the new operating model can deliver. Execute them visibly. Use the wins to rebuild organizational confidence that the transformation is real, not just another program that will fade away.</p>
+
+<h2>When to Bring in Outside Help</h2>
+
+<p>Not every stalled transformation needs external support. If you have strong internal leadership and a clear diagnosis of what broke, you may be able to reset on your own.</p>
+
+<p>But there are three situations where outside help makes a meaningful difference.</p>
+
+<p><strong>When internal politics are blocking the diagnosis.</strong> Sometimes the honest assessment in Days 1-30 is politically impossible for an internal team to deliver. The people who sponsored the original transformation have careers invested in its success. An external perspective — someone who doesn't have organizational relationships to protect — can say what needs to be said.</p>
+
+<p><strong>When the capability gap is structural.</strong> If your team doesn't have the experience to design a target operating model, build a category strategy framework, or stand up a performance management system, bringing in someone who has done it before shortens the timeline dramatically. This isn't about smart versus not smart — it's about pattern recognition. Someone who has built five procurement operating models can see in weeks what a first-timer would take months to figure out.</p>
+
+<p><strong>When speed matters.</strong> A stalled transformation creates organizational cynicism. The longer it stays stalled, the harder the reset becomes. If speed to restoring momentum is critical — because of competitive pressure, an upcoming acquisition, or executive patience running thin — external support compresses the timeline in a way that's difficult to replicate internally.</p>
+
+<h2>The Bottom Line</h2>
+
+<p>Procurement transformations don't stall because people don't care. They stall because the operating infrastructure — the structure, governance, capability, and accountability systems — wasn't built to sustain the strategic ambition. Fix the infrastructure, and the strategy starts working again.</p>
+
+<p>The companies that get this right don't just save money. They build a procurement and supply chain function that creates competitive advantage — one that attracts better talent, earns more respect at the leadership table, and delivers value that goes far beyond cost reduction.</p>
+
+<p>That's the transformation worth fighting for.</p>
+
+</article>
+
+<div class="article-cta">
+  <div class="cta-box">
+    <p>If your procurement transformation has stalled or never fully delivered on its promise, Foley Strategic Advisory can help you diagnose what broke, repair the operating model, and relaunch with the structure and accountability to make it stick this time.</p>
+    <p><a href="mailto:john@foleysa.com">john@foleysa.com</a></p>
+  </div>
+</div>
+
+<div class="article-author">
+  <div class="author-info">
+    <h3>John Foley</h3>
+    <div class="author-title">Founder, Foley Strategic Advisory</div>
+    <p>20+ years of experience across global consulting, Fortune 50 corporate leadership, and complex operations leadership. Specializing in supply chain strategy, procurement transformation, and logistics optimization for mid-to-large enterprises.</p>
+    <p><a href="mailto:john@foleysa.com">john@foleysa.com</a></p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">Foley <span>Strategic</span> Advisory</div>
+  <div class="footer-copy">Project-Based &bull; Retainer &bull; Fractional Advisory &nbsp;|&nbsp; &copy; 2026 Foley Strategic Advisory</div>
+</footer>
+
+</body>
+</html>

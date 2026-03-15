@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tariff-Proofing Your Supply Chain: A Practitioner's Playbook | Foley Strategic Advisory</title>
+<meta name="description" content="Trade policy shifts faster than sourcing cycles. A framework for building the scenario readiness and supplier diversification that keeps your supply chain ahead of disruption.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0B1D33;
+  --navy-deep: #06111F;
+  --gold: #D4A843;
+  --gold-light: #E8C566;
+  --cream: #F5F1EA;
+  --white: #FAFAF8;
+  --slate: #4A5568;
+  --slate-light: #718096;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; color: var(--navy); background: var(--white); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; padding: 1.5rem 4rem; display: flex; justify-content: space-between; align-items: center; background: rgba(11, 29, 51, 0.97); backdrop-filter: blur(12px); }
+.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream); text-decoration: none; }
+.nav-logo span { color: var(--gold); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a { color: rgba(245, 241, 234, 0.75); text-decoration: none; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s; }
+.nav-links a:hover { color: var(--gold); }
+.article-hero { background: var(--navy-deep); padding: 10rem 4rem 5rem; position: relative; }
+.article-hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0.3; }
+.article-hero-inner { max-width: 800px; margin: 0 auto; }
+.article-tag { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem; }
+.article-tag::before { content: ''; width: 40px; height: 1px; background: var(--gold); }
+.article-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 500; line-height: 1.15; color: var(--cream); margin-bottom: 1.5rem; }
+.article-meta { font-size: 0.85rem; color: rgba(245, 241, 234, 0.45); }
+.article-meta a { color: var(--gold); text-decoration: none; }
+.article-body { max-width: 800px; margin: 0 auto; padding: 4rem; }
+.article-body p { font-size: 1.05rem; color: var(--slate); line-height: 1.9; margin-bottom: 1.5rem; }
+.article-body p em { font-style: italic; color: var(--navy); }
+.article-body h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 600; color: var(--navy); margin-top: 3rem; margin-bottom: 1.25rem; padding-top: 2rem; border-top: 1px solid rgba(11, 29, 51, 0.06); }
+.article-body h2:first-of-type { border-top: none; padding-top: 0; margin-top: 2rem; }
+.article-body strong { color: var(--navy); font-weight: 600; }
+.article-cta { max-width: 800px; margin: 0 auto; padding: 0 4rem 4rem; }
+.cta-box { background: var(--cream); padding: 3rem; border-left: 4px solid var(--gold); }
+.cta-box p { font-size: 1.05rem; color: var(--slate); line-height: 1.8; margin-bottom: 1rem; }
+.cta-box p:last-child { margin-bottom: 0; }
+.cta-box a { color: var(--gold); text-decoration: none; font-weight: 600; }
+.article-author { max-width: 800px; margin: 0 auto; padding: 0 4rem 5rem; border-top: 1px solid rgba(11, 29, 51, 0.06); padding-top: 2.5rem; }
+.author-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--navy); margin-bottom: 0.25rem; }
+.author-info .author-title { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+.author-info p { font-size: 0.92rem; color: var(--slate-light); line-height: 1.75; }
+.author-info a { color: var(--navy); text-decoration: none; }
+.author-info a:hover { color: var(--gold); }
+footer { background: var(--navy-deep); padding: 3rem 4rem; display: flex; justify-content: space-between; align-items: center; }
+.footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream); }
+.footer-brand span { color: var(--gold); }
+.footer-copy { font-size: 0.78rem; color: rgba(245, 241, 234, 0.35); }
+@media (max-width: 768px) { nav { padding: 1.25rem 2rem; } .nav-links { display: none; } .article-hero { padding: 8rem 2rem 3rem; } .article-hero h1 { font-size: 2.2rem; } .article-body { padding: 3rem 2rem; } .article-cta { padding: 0 2rem 3rem; } .article-author { padding: 0 2rem 3rem; padding-top: 2rem; } footer { padding: 2rem; flex-direction: column; gap: 1rem; text-align: center; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Foley <span>Strategic</span> Advisory</a>
+  <ul class="nav-links">
+    <li><a href="/#about">About</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#industries">Industries</a></li>
+    <li><a href="/#insights">Insights</a></li>
+    <li><a href="/#contact">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<section class="article-hero">
+  <div class="article-hero-inner">
+    <div class="article-tag">Supply Chain</div>
+    <h1>Tariff-Proofing Your Supply Chain: A Practitioner's Playbook</h1>
+    <div class="article-meta">By <a href="/#about">John Foley</a> &nbsp;|&nbsp; March 2026</div>
+  </div>
+</section>
+
+<article class="article-body">
+
+<p>In 2025, nearly half of mid-market manufacturers responded to tariff or policy changes within a single business week. That sounds fast. It wasn't. It was reactive, data-poor, and in most cases, it fractured planning cycles that took months to build.</p>
+
+<p>Here's the uncomfortable truth: you cannot tariff-proof your supply chain by reacting faster. You tariff-proof it by building a supply chain that doesn't need to react — one that has already modeled the scenarios, diversified the sourcing base, and pre-positioned the flexibility to absorb policy changes without breaking stride.</p>
+
+<p>That's not theory. That's how the best-run supply chains I've worked with operate. And the gap between companies that have this capability and companies that don't is widening every quarter.</p>
+
+<h2>Why Traditional Responses Fail</h2>
+
+<p>When a new tariff lands, most procurement and supply chain teams do some version of the same thing: scramble to quantify the cost impact, call the current suppliers to ask about pricing, look at alternative sources they should have qualified six months ago, and brief the CFO on a margin hit they can't immediately fix.</p>
+
+<p>This cycle repeats with every policy change. And it fails for three reasons.</p>
+
+<p><strong>First, it treats tariffs as one-time events instead of a permanent condition.</strong> Since 2018, the U.S. has moved from targeted trade actions to a posture where tariffs are a standing tool of economic and foreign policy. Planning as if each tariff is an anomaly that will self-correct is planning for a world that no longer exists.</p>
+
+<p><strong>Second, it relies on data that's too slow.</strong> When you find out about a tariff change from the news and then start pulling cost data from spreadsheets and supplier contracts, you're already behind. The companies that navigate tariff volatility well have real-time visibility into their landed cost structure — they know within hours what a duty change means for every SKU, every route, every supplier.</p>
+
+<p><strong>Third, it ignores the supply chain beyond Tier 1.</strong> A tariff on Chinese steel doesn't just affect your steel supplier. It affects every component, subassembly, and finished good that contains steel — including products sourced from countries that themselves depend on Chinese inputs. If you don't have visibility into your Tier 2 and Tier 3 supply base, you don't actually know your tariff exposure.</p>
+
+<h2>The Five Layers of Tariff Resilience</h2>
+
+<p>Based on what I've seen work across manufacturing, chemicals, and industrial supply chains, tariff resilience is built in five layers. Each one makes the next more effective.</p>
+
+<p><strong>Layer 1: Landed Cost Transparency.</strong> Before you can manage tariff risk, you need to know your actual landed cost structure — not just the purchase price, but the complete picture: unit cost, freight, duties, customs brokerage, insurance, handling, warehousing, and quality costs. Most companies I assess cannot produce this number accurately for more than a fraction of their purchased items. Building this visibility is the foundation. Without it, everything else is guesswork.</p>
+
+<p><strong>Layer 2: Scenario Modeling.</strong> Once you have landed cost transparency, you can model scenarios. What happens to our total cost if duties on Chinese imports increase by 25%? What if we shift 40% of Category X to a Mexican supplier? What if the EU imposes retaliatory tariffs on our export products? AI-driven scenario modeling tools can run hundreds of these simulations in minutes. But even a well-built spreadsheet model is better than no model. The point is to have the analysis done <em>before</em> the policy changes — not after.</p>
+
+<p><strong>Layer 3: Supplier Diversification.</strong> This is where most companies know what they should do but struggle to execute. Qualifying a new supplier takes months — sometimes years in regulated industries. The companies that are tariff-resilient have been building alternative supplier relationships continuously, not just when a crisis hits. Practical steps: maintain a qualified backup for every strategic category, invest in supplier development in tariff-friendly regions (Mexico, India, Vietnam, Eastern Europe), and pre-negotiate conditional agreements that activate when certain tariff thresholds are hit.</p>
+
+<p><strong>Layer 4: Logistics Flexibility.</strong> Tariffs don't just change what you pay — they change where it makes sense to ship, warehouse, and manufacture. A 25% duty on a component can make a previously uneconomic logistics route suddenly optimal. Building logistics flexibility means having relationships with multiple freight providers, understanding bonded warehouse and foreign trade zone options, and designing distribution networks that can shift routing without starting from scratch every time.</p>
+
+<p><strong>Layer 5: Contractual Agility.</strong> Long-term, fixed-price contracts look great when costs are stable. They become anchors when the trade landscape shifts. The most resilient supply chains use contract structures that explicitly address tariff variability — price adjustment mechanisms tied to duty changes, volume flexibility clauses, and exit provisions that don't penalize you for shifting sourcing in response to policy changes. Your legal and procurement teams should be reviewing every strategic contract through a tariff-resilience lens.</p>
+
+<h2>What to Do This Quarter</h2>
+
+<p>You don't build tariff resilience in a week. But you can start creating meaningful capability in 90 days with three focused actions.</p>
+
+<p><strong>Action 1: Map your actual tariff exposure.</strong> Pick your top 20 purchased categories by spend. For each one, identify the country of origin for both the direct supplier and the primary raw materials. Cross-reference against the current tariff schedule. You'll likely find that your real exposure is 2-3x larger than what procurement currently tracks, because nobody has looked past Tier 1.</p>
+
+<p><strong>Action 2: Run three scenarios.</strong> Take your top 5 categories by tariff exposure and model three scenarios: status quo, a 25% duty increase on the primary source country, and a complete supply disruption from that country. For each scenario, calculate the landed cost impact and identify the best available alternative. This exercise alone — even if the scenarios never happen — will reveal gaps in your supplier base that you should be addressing now.</p>
+
+<p><strong>Action 3: Start one diversification initiative.</strong> Pick the category with the highest tariff risk concentration and begin qualifying an alternative supplier in a different trade region. Don't wait for the tariff to hit. The companies that moved early on China+1 strategies are the ones who aren't scrambling today. The best time to diversify was two years ago. The second best time is this quarter.</p>
+
+<h2>The Leadership Dimension</h2>
+
+<p>Tariff resilience isn't just a procurement problem or a logistics problem. It's a leadership problem. It requires cross-functional coordination between procurement, supply chain, logistics, finance, legal, and commercial teams — because a tariff change affects cost structures, pricing decisions, inventory strategy, and customer commitments simultaneously.</p>
+
+<p>In the organizations that handle this well, there's someone at the leadership table who owns the end-to-end view and can drive decisions across functions. In organizations that don't, it gets managed in silos — procurement scrambles on suppliers, logistics scrambles on routes, finance scrambles on costs, and nobody connects the dots until the P&L takes the hit.</p>
+
+<p>If your organization doesn't have someone who owns the full supply chain picture and can translate tariff risk into coordinated action, that's the gap to close first. Everything else builds on that foundation.</p>
+
+</article>
+
+<div class="article-cta">
+  <div class="cta-box">
+    <p>If tariff volatility is affecting your supply chain and you don't have a clear framework for managing it, Foley Strategic Advisory can help you build the landed cost visibility, scenario models, and sourcing diversification to stay ahead of the disruption — not react to it.</p>
+    <p><a href="mailto:john@foleysa.com">john@foleysa.com</a></p>
+  </div>
+</div>
+
+<div class="article-author">
+  <div class="author-info">
+    <h3>John Foley</h3>
+    <div class="author-title">Founder, Foley Strategic Advisory</div>
+    <p>20+ years of experience across global consulting, Fortune 50 corporate leadership, and complex operations leadership. Specializing in supply chain strategy, procurement transformation, and logistics optimization for mid-to-large enterprises.</p>
+    <p><a href="mailto:john@foleysa.com">john@foleysa.com</a></p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">Foley <span>Strategic</span> Advisory</div>
+  <div class="footer-copy">Project-Based &bull; Retainer &bull; Fractional Advisory &nbsp;|&nbsp; &copy; 2026 Foley Strategic Advisory</div>
+</footer>
+
+</body>
+</html>
