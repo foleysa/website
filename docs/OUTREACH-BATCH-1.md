@@ -1,11 +1,55 @@
-# FSA OUTREACH DRAFTS — BATCH 1
+# FSA OUTREACH DRAFTS — BATCH 1 (UPDATED)
 ## Status: PENDING JOHN'S APPROVAL — Do NOT send until approved
-## Date: March 15, 2026
 
-## EMAIL 1: KENNAMETAL (~$2B, tooling & industrial materials)
+## GRACE — IMMEDIATE TASKS:
+
+### 1. POPULATE EMAILS FOR ALL 20 TARGET COMPANIES
+Research and find verified email addresses for the primary decision-maker (VP Procurement, VP Supply Chain, COO, or CPO) at each company in the Pipeline Tracker. Update the tracker with:
+- Contact name
+- Contact title  
+- Contact email (verified)
+- LinkedIn profile URL
+
+Priority order:
+- FIRST: Kennametal (Christopher Wu — verify email)
+- SECOND: Quaker Houghton (identify VP Procurement/Supply Chain + email)
+- THIRD: Watts Water Technologies (identify VP Supply Chain/Procurement + email)
+- THEN: All remaining 15 companies in the Pipeline Tracker
+
+### 2. UPDATE THE PIPELINE TRACKER
+The FSA-Pipeline-Tracker.xlsx should be in Google Drive. Update it with all contact info as you research each company.
+
+### 3. SCHEDULING & CALLS SETUP
+
+John is setting up a Google Calendar Appointment Schedule for discovery calls:
+- Title: "30-Minute Discovery Call with John Foley"
+- Duration: 30 minutes
+- Availability: Monday-Thursday, 10am-4pm Central
+- Buffer: 15 minutes between calls
+- Max: 3 calls per day
+- Location: Google Meet (auto-generated)
+
+Once John creates the booking page and shares the link:
+- Add the booking link to the website contact section
+- Include the booking link in all outreach email signatures
+- When a prospect agrees to talk, send them the booking link instead of going back and forth on times
+
+For calls that get booked:
+- Grace creates a 1-page briefing doc 1 hour before each call:
+  * Company overview (revenue, industry, key facts)
+  * Attendee background (LinkedIn, career history)
+  * Likely pain points based on research
+  * Recommended FSA service to discuss
+  * 3-5 talking points
+  * Save to Grace Files/Prospects/[company]-call-prep.md
+- Grace sends John the briefing via WhatsApp 1 hour before
+- Grace creates a calendar event with Google Meet link
+- After the call, John provides notes and Grace logs them in the Conversations sheet of the Pipeline Tracker
+
+### 4. OUTREACH EMAIL DRAFTS (3 ready for approval)
+
+## EMAIL 1: KENNAMETAL
 Target: Christopher Wu, Global Director of Procurement
-Signal: Declining organic sales, rising margins through cost initiatives. Active SC hiring.
-
 Subject: Kennametal's cost discipline — sustaining the momentum
 
 Hi Christopher,
@@ -20,12 +64,8 @@ R, JF
 Founder
 john@foleysa.com
 
----
-
-## EMAIL 2: QUAKER HOUGHTON (~$2B, specialty process fluids)
-Target: VP Procurement or VP Supply Chain (Grace to identify)
-Signal: Post-merger integration still maturing, raw material volatility.
-
+## EMAIL 2: QUAKER HOUGHTON
+Target: [Grace to identify VP Procurement/Supply Chain]
 Subject: Quaker Houghton — unlocking the next phase of integration value
 
 Hi [First Name],
@@ -40,12 +80,8 @@ R, JF
 Founder
 john@foleysa.com
 
----
-
-## EMAIL 3: WATTS WATER TECHNOLOGIES (~$2B, water products)
-Target: VP Supply Chain or VP Procurement (Grace to identify)
-Signal: Infrastructure spending tailwind, copper/brass commodity exposure, construction cyclicality.
-
+## EMAIL 3: WATTS WATER
+Target: [Grace to identify VP Supply Chain/Procurement]
 Subject: Watts Water — scaling the supply chain for infrastructure demand
 
 Hi [First Name],
@@ -60,15 +96,5 @@ R, JF
 Founder
 john@foleysa.com
 
----
-
-## GRACE NEXT STEPS (after John approves):
-1. Verify decision-maker names/emails for Quaker Houghton and Watts Water
-2. Send each email from grace@foleysa.com
-3. Log in FSA Pipeline as Outreach stage
-4. Set follow-up reminders for 5 business days
-5. If no reply in 5 days, draft Follow-Up #1 sharing the Tariff-Proofing or Fractional CPO article
-6. Report sends to John via WhatsApp
-
-## REGAL REXNORD — WATCH:
-Monitor for new CEO announcement. Draft congratulations email within 7 days. Alert John.
+## REGAL REXNORD — WATCH LIST
+Monitor for new CEO announcement. Draft congratulations email within 7 days. Alert John via WhatsApp.
