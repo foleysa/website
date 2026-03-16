@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Password Problem: A Supply Chain Cyber Risk Breakdown | Foley Strategic Advisory</title>
+<meta name="description" content="A visual breakdown of how one cyberattack shut down a $20B company's global supply chain — and what procurement leaders need to do about it.">
+<meta property="og:title" content="The Password Problem: Supply Chain Cyber Risk">
+<meta property="og:description" content="A $20B company got shut down by a password. Here's the visual breakdown every procurement leader needs to see.">
+<meta property="og:image" content="https://foleystrategicadvisory.com/articles/images/slide_1.png">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://foleystrategicadvisory.com/articles/cyber-supply-chain-carousel.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0B1D33;
+  --navy-deep: #06111F;
+  --gold: #D4A843;
+  --gold-light: #E8C566;
+  --cream: #F5F1EA;
+  --cream-dark: #E8E1D4;
+  --white: #FAFAF8;
+  --slate: #4A5568;
+  --slate-light: #718096;
+  --border: rgba(212, 168, 67, 0.2);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--navy);
+  background: var(--white);
+  line-height: 1.7;
+}
+
+/* Header */
+.site-header {
+  background: var(--navy-deep);
+  padding: 1rem 2rem;
+  text-align: center;
+}
+.site-header a {
+  color: var(--gold);
+  text-decoration: none;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+  padding: 4rem 2rem 3rem;
+  text-align: center;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--white);
+  max-width: 800px;
+  margin: 0 auto 1rem;
+  line-height: 1.2;
+}
+.hero .subtitle {
+  color: var(--gold-light);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.hero .byline {
+  color: var(--slate-light);
+  font-size: 0.9rem;
+  margin-top: 1.5rem;
+}
+
+/* Carousel Container */
+.carousel-section {
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.carousel-slide {
+  min-width: 100%;
+  flex-shrink: 0;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Navigation */
+.carousel-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.carousel-btn {
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-btn:hover {
+  background: var(--gold);
+  color: var(--navy);
+}
+.carousel-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 8px;
+}
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--cream-dark);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.carousel-dot.active {
+  background: var(--gold);
+  width: 28px;
+  border-radius: 5px;
+}
+
+.carousel-counter {
+  font-size: 0.9rem;
+  color: var(--slate-light);
+  text-align: center;
+  margin-top: 0.75rem;
+}
+
+/* Download PDF */
+.download-section {
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 700px;
+  padding: 0 1.5rem;
+}
+.download-btn {
+  display: inline-block;
+  background: var(--navy);
+  color: var(--gold);
+  text-decoration: none;
+  padding: 0.9rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+.download-btn:hover {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+/* Related Article */
+.related-section {
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 2rem 1.5rem;
+  background: var(--cream);
+  border-radius: 12px;
+  text-align: center;
+}
+.related-section h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+.related-section p {
+  color: var(--slate);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+.related-link {
+  display: inline-block;
+  color: var(--navy);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 2px;
+  transition: all 0.2s;
+}
+.related-link:hover {
+  color: var(--gold);
+}
+
+/* CTA */
+.cta-section {
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+  padding: 3rem 2rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+.cta-section h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+.cta-section p {
+  color: var(--slate-light);
+  max-width: 500px;
+  margin: 0 auto 1.5rem;
+}
+.cta-btn {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy-deep);
+  text-decoration: none;
+  padding: 0.9rem 2.5rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+.cta-btn:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--slate-light);
+  font-size: 0.85rem;
+}
+
+/* Touch swipe */
+.carousel-wrapper { touch-action: pan-y; }
+
+@media (max-width: 640px) {
+  .hero h1 { font-size: 1.8rem; }
+  .carousel-section { padding: 0 0.75rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="https://foleystrategicadvisory.com">Foley Strategic Advisory</a>
+</header>
+
+<section class="hero">
+  <h1>The Password Problem: A Supply Chain Cyber Risk Breakdown</h1>
+  <p class="subtitle">A visual breakdown of how one cyberattack shut down a $20B company's global supply chain — and the 5 questions every procurement leader should be asking this week.</p>
+  <p class="byline">By John Foley &bull; March 2026</p>
+</section>
+
+<section class="carousel-section">
+  <div class="carousel-wrapper" id="carousel">
+    <div class="carousel-track" id="track">
+      <div class="carousel-slide"><img src="images/slide_1.png" alt="A $20B company got shut down by a password" loading="eager"></div>
+      <div class="carousel-slide"><img src="images/slide_2.png" alt="What happened — Stryker cyberattack cascade" loading="lazy"></div>
+      <div class="carousel-slide"><img src="images/slide_3.png" alt="The real risk — ERP, vendors, integrations" loading="lazy"></div>
+      <div class="carousel-slide"><img src="images/slide_4.png" alt="By the numbers — cyber supply chain stats" loading="lazy"></div>
+      <div class="carousel-slide"><img src="images/slide_5.png" alt="5 questions to ask this week" loading="lazy"></div>
+      <div class="carousel-slide"><img src="images/slide_6.png" alt="Read the full analysis" loading="lazy"></div>
+    </div>
+  </div>
+
+  <nav class="carousel-nav">
+    <button class="carousel-btn" id="prevBtn" aria-label="Previous slide">&#8592;</button>
+    <div class="carousel-dots" id="dots"></div>
+    <button class="carousel-btn" id="nextBtn" aria-label="Next slide">&#8594;</button>
+  </nav>
+  <p class="carousel-counter" id="counter">1 / 6</p>
+</section>
+
+<section class="download-section">
+  <a href="images/cyber-supply-chain-carousel.pdf" class="download-btn" download>Download PDF</a>
+</section>
+
+<section class="related-section">
+  <h3>Read the Full Article</h3>
+  <p>This carousel summarizes the key points. For the complete analysis with actionable frameworks, read the full piece.</p>
+  <a href="cyber-supply-chain.html" class="related-link">Your Supply Chain's Biggest Vulnerability Isn't a Port — It's a Password &rarr;</a>
+</section>
+
+<section class="cta-section">
+  <h3>Need to pressure-test your supply chain's cyber resilience?</h3>
+  <p>We bring operational security thinking to supply chain strategy — informed by military planning discipline and Fortune 50 procurement experience.</p>
+  <a href="https://calendar.app.google/uazbkmwDjQB5nRUJ6" class="cta-btn">Schedule a Conversation</a>
+</section>
+
+<footer class="site-footer">
+  &copy; 2026 Foley Strategic Advisory. All rights reserved.
+</footer>
+
+<script>
+(function() {
+  const track = document.getElementById('track');
+  const slides = track.children;
+  const total = slides.length;
+  const dotsEl = document.getElementById('dots');
+  const counter = document.getElementById('counter');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  let current = 0;
+
+  // Build dots
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    dot.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(dot);
+  }
+
+  function goTo(n) {
+    current = Math.max(0, Math.min(n, total - 1));
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    counter.textContent = (current + 1) + ' / ' + total;
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === total - 1;
+    dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) => {
+      d.className = 'carousel-dot' + (i === current ? ' active' : '');
+    });
+  }
+
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+
+  // Keyboard
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') goTo(current - 1);
+    if (e.key === 'ArrowRight') goTo(current + 1);
+  });
+
+  // Touch swipe
+  let startX = 0;
+  const wrapper = document.getElementById('carousel');
+  wrapper.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+  wrapper.addEventListener('touchend', (e) => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      diff > 0 ? goTo(current + 1) : goTo(current - 1);
+    }
+  }, { passive: true });
+
+  goTo(0);
+})();
+</script>
+
+</body>
+</html>
