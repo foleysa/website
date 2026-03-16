@@ -98,17 +98,22 @@ body {
 .carousel-track {
   display: flex;
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  width: 100%;
 }
 
 .carousel-slide {
   min-width: 100%;
+  max-width: 100%;
   flex-shrink: 0;
+  overflow: hidden;
 }
 
 .carousel-slide img {
   width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
+  object-fit: contain;
 }
 
 /* Navigation */
@@ -270,8 +275,19 @@ body {
 .carousel-wrapper { touch-action: pan-y; }
 
 @media (max-width: 640px) {
-  .hero h1 { font-size: 1.8rem; }
-  .carousel-section { padding: 0 0.75rem; }
+  .hero { padding: 2.5rem 1.25rem 2rem; }
+  .hero h1 { font-size: 1.6rem; }
+  .hero .subtitle { font-size: 0.95rem; }
+  .carousel-section { padding: 0 0.5rem; margin: 1.5rem auto; }
+  .carousel-wrapper { border-radius: 10px; }
+  .carousel-btn { width: 44px; height: 44px; font-size: 1.1rem; }
+  .carousel-nav { gap: 1rem; margin-top: 1rem; }
+  .carousel-counter { margin-top: 0.5rem; }
+  .download-section { margin: 1.5rem auto; }
+  .related-section { margin: 2rem 0.75rem; padding: 1.5rem 1rem; }
+  .related-section h3 { font-size: 1.25rem; }
+  .cta-section { padding: 2rem 1.25rem; }
+  .cta-section h3 { font-size: 1.4rem; }
 }
 </style>
 </head>
