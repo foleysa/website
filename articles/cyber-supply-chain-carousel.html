@@ -54,7 +54,7 @@ body { font-family: 'DM Sans', sans-serif; color: #333; background: #FAFAF8; lin
   flex-shrink: 0;
   background: linear-gradient(165deg, #0F1923 0%, #152233 40%, #0F1923 100%);
   padding: 2.5rem 2rem;
-  min-height: 420px;
+  /* No min-height — let content drive size */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -244,7 +244,7 @@ body { font-family: 'DM Sans', sans-serif; color: #333; background: #FAFAF8; lin
 .carousel-wrapper { touch-action: pan-y; }
 
 @media (min-width: 640px) {
-  .slide { padding: 3rem 2.5rem; min-height: 580px; }
+  .slide { padding: 3rem 2.5rem; }
   .slide h2 { font-size: 2rem; }
   .stat-card .stat-num { font-size: 3rem; }
 }
@@ -410,14 +410,10 @@ body { font-family: 'DM Sans', sans-serif; color: #333; background: #FAFAF8; lin
   <p class="carousel-counter" id="counter">1 / 6</p>
 </section>
 
-<section class="download-section">
-  <a href="images/cyber-supply-chain-carousel.pdf" class="download-btn" download>Download PDF</a>
-</section>
-
 <section class="related-section">
-  <h3>Read the Full Article</h3>
-  <p>This carousel summarizes the key points. For the complete analysis, read the full piece.</p>
-  <a href="cyber-supply-chain.html" class="related-link">Your Supply Chain's Biggest Vulnerability Isn't a Port — It's a Password &rarr;</a>
+  <h3>Read the Full Analysis</h3>
+  <p>This carousel summarizes the key points. For the complete breakdown with actionable frameworks, read the full article.</p>
+  <a href="cyber-supply-chain.html" class="related-link">Read the Full Article &rarr;</a>
 </section>
 
 <section class="cta-section">
