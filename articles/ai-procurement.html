@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI in Procurement: Why the Gap Between Leaders and Laggards Is About to Become a Chasm | Foley Strategic Advisory</title>
+<meta name="description" content="The gap between AI-adopting procurement leaders and everyone else is compounding fast. Here's what mid-market procurement leaders need to do — and what to avoid.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0B1D33;
+  --navy-deep: #06111F;
+  --gold: #D4A843;
+  --gold-light: #E8C566;
+  --cream: #F5F1EA;
+  --cream-dark: #E8E1D4;
+  --white: #FAFAF8;
+  --slate: #4A5568;
+  --slate-light: #718096;
+  --border: rgba(212, 168, 67, 0.2);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--navy);
+  background: var(--white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+nav {
+  position: fixed;
+  top: 0; left: 0; width: 100%; z-index: 100;
+  padding: 1.5rem 4rem;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(11, 29, 51, 0.97);
+  backdrop-filter: blur(12px);
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--cream); text-decoration: none;
+}
+.nav-logo span { color: var(--gold); }
+
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  color: rgba(245, 241, 234, 0.75); text-decoration: none;
+  font-size: 0.8rem; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--gold); }
+
+.article-hero {
+  background: var(--navy-deep);
+  padding: 10rem 4rem 5rem;
+  position: relative;
+}
+
+.article-hero::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.3;
+}
+
+.article-hero-inner {
+  max-width: 800px; margin: 0 auto;
+}
+
+.article-tag {
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 2rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.article-tag::before {
+  content: ''; width: 40px; height: 1px; background: var(--gold);
+}
+
+.article-hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem; font-weight: 500; line-height: 1.15;
+  color: var(--cream); margin-bottom: 1.5rem;
+}
+
+.article-meta {
+  font-size: 0.85rem; color: rgba(245, 241, 234, 0.45);
+}
+.article-meta a { color: var(--gold); text-decoration: none; }
+
+.article-body {
+  max-width: 800px; margin: 0 auto;
+  padding: 4rem;
+}
+
+.article-body p {
+  font-size: 1.05rem; color: var(--slate);
+  line-height: 1.9; margin-bottom: 1.5rem;
+}
+
+.article-body p em {
+  font-style: italic; color: var(--navy);
+}
+
+.article-body h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem; font-weight: 600;
+  color: var(--navy); margin-top: 3rem; margin-bottom: 1.25rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(11, 29, 51, 0.06);
+}
+
+.article-body h2:first-of-type {
+  border-top: none; padding-top: 0; margin-top: 2rem;
+}
+
+.article-body h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; font-weight: 600;
+  color: var(--navy); margin-top: 2rem; margin-bottom: 1rem;
+}
+
+.article-body strong {
+  color: var(--navy); font-weight: 600;
+}
+
+.article-body ul, .article-body ol {
+  margin-bottom: 1.5rem; padding-left: 1.5rem;
+}
+
+.article-body li {
+  font-size: 1.05rem; color: var(--slate);
+  line-height: 1.9; margin-bottom: 0.5rem;
+}
+
+.article-cta {
+  max-width: 800px; margin: 0 auto;
+  padding: 0 4rem 4rem;
+}
+
+.cta-box {
+  background: var(--cream);
+  padding: 3rem;
+  border-left: 4px solid var(--gold);
+}
+
+.cta-box p {
+  font-size: 1.05rem; color: var(--slate);
+  line-height: 1.8; margin-bottom: 1rem;
+}
+
+.cta-box p:last-child { margin-bottom: 0; }
+
+.cta-box a {
+  color: var(--gold); text-decoration: none; font-weight: 600;
+}
+
+.article-author {
+  max-width: 800px; margin: 0 auto;
+  padding: 0 4rem 5rem;
+  border-top: 1px solid rgba(11, 29, 51, 0.06);
+  padding-top: 2.5rem;
+}
+
+.author-card {
+  display: flex; gap: 2rem; align-items: start;
+}
+
+.author-info h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 600; color: var(--navy);
+  margin-bottom: 0.25rem;
+}
+
+.author-info .author-title {
+  font-size: 0.8rem; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.75rem;
+}
+
+.author-info p {
+  font-size: 0.92rem; color: var(--slate-light); line-height: 1.75;
+}
+
+.author-info a { color: var(--navy); text-decoration: none; }
+.author-info a:hover { color: var(--gold); }
+
+footer {
+  background: var(--navy-deep);
+  padding: 3rem 4rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream);
+}
+.footer-brand span { color: var(--gold); }
+.footer-copy { font-size: 0.78rem; color: rgba(245, 241, 234, 0.35); }
+
+@media (max-width: 768px) {
+  nav { padding: 1.25rem 2rem; }
+  .nav-links { display: none; }
+  .article-hero { padding: 8rem 2rem 3rem; }
+  .article-hero h1 { font-size: 2.2rem; }
+  .article-body { padding: 3rem 2rem; }
+  .article-cta { padding: 0 2rem 3rem; }
+  .article-author { padding: 0 2rem 3rem; padding-top: 2rem; }
+  footer { padding: 2rem; flex-direction: column; gap: 1rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Foley <span>Strategic</span> Advisory</a>
+  <ul class="nav-links">
+    <li><a href="/#about">About</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#industries">Industries</a></li>
+    <li><a href="/#insights">Insights</a></li>
+    <li><a href="/#contact">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<section class="article-hero">
+  <div class="article-hero-inner">
+    <div class="article-tag">AI &amp; Digital Procurement</div>
+    <h1>AI in Procurement: Why the Gap Between Leaders and Laggards Is About to Become a Chasm</h1>
+    <div class="article-meta">By <a href="/#about">John Foley</a> &nbsp;|&nbsp; March 2026</div>
+  </div>
+</section>
+
+<article class="article-body">
+
+<p>I've spent decades in procurement — leading billion-dollar sourcing operations at a Fortune 50, advising global organizations at Accenture, and before all of that, learning how to make high-stakes decisions under pressure as a Lt Col in the United States Air Force. One thing I've learned across all of those environments: when the gap between who adapts and who doesn't starts to widen, it doesn't close on its own. It accelerates.</p>
+
+<p>That's exactly what's happening right now in procurement and supply chain.</p>
+
+<h2>The Data Is Clear — and It's Uncomfortable</h2>
+
+<p>BCG's latest research on supply chain performance confirms what many of us have been seeing on the ground: the gap between leaders and laggards isn't just growing — it's compounding. Top-performing supply chain organizations are pulling away from the pack at an increasing rate, and the organizations stuck in the middle are losing ground faster than they realize.</p>
+
+<p>This isn't about one company having a better ERP system or a smarter VP of Supply Chain. It's structural. BCG identifies four factors driving the divergence: <strong>decision clarity, process design, data quality, and technology adoption.</strong> Leaders are strong across all four. Laggards are weak in at least two. And the uncomfortable truth is that most mid-market procurement organizations are laggards who think they're somewhere in the middle.</p>
+
+<h2>AI Is the Accelerant</h2>
+
+<p>What's turning a performance gap into a chasm? Artificial intelligence — specifically, AI-driven autonomous supply chain planning and procurement automation.</p>
+
+<p>The convergence of reporting on this is hard to ignore. PYMNTS is covering the shift toward AI-powered procurement platforms reshaping how companies manage spend. ProcureKey is documenting how AI is moving from pilot projects to production deployments. Boss Magazine is highlighting the competitive advantages accruing to early movers. Clarkston Consulting is laying out the case that AI-powered procurement has shifted from a nice-to-have to a competitive necessity.</p>
+
+<p>When that many independent voices converge on the same message, pay attention. This isn't hype. This is a market moving.</p>
+
+<p>Leaders are already deploying AI to automate demand forecasting, optimize supplier selection, flag contract risks, and accelerate cycle times. They're not doing it because it's trendy — they're doing it because it works. They're seeing measurable improvements in cost savings, cycle time reduction, and risk mitigation. And every quarter they operate with these capabilities while their competitors don't, the gap widens.</p>
+
+<h2>The Mid-Market Problem</h2>
+
+<p>Here's where I get concerned. The Fortune 100 companies have the budgets, the data infrastructure, and the internal talent to move on AI adoption. They're not all doing it well, but they're doing it.</p>
+
+<p>The mid-market? They're stuck. They see the headlines. They attend the conferences. They know AI is going to matter. But when they sit down on Monday morning and look at their procurement operation — the messy data, the manual processes, the patchwork of systems — they don't know where to start. So they don't start.</p>
+
+<p>Or worse, they start wrong. They buy a shiny platform they don't have the data quality to support. They launch a pilot with no clear success metrics. They hire a Big 4 firm that delivers a 200-slide strategy deck and a six-figure invoice, and six months later nothing has changed.</p>
+
+<p>I've seen this movie before. At Accenture, I watched it play out across industries — organizations that confused strategy with execution, that thought buying technology was the same as adopting it. In the Air Force, we had a saying: no plan survives first contact with the enemy. The procurement equivalent is: no AI strategy survives first contact with your actual data.</p>
+
+<h2>What to Do Instead</h2>
+
+<p>If you're a mid-market procurement leader reading this and feeling the pressure, here's my advice. It's the same advice I give every client, and it's unglamorous by design.</p>
+
+<p><strong>Step 1: Start with a data quality audit.</strong> Before you evaluate a single AI tool, understand the state of your data. What's clean? What's a mess? Where are the gaps? AI is only as good as what you feed it. If your spend data is inconsistent, your supplier master is full of duplicates, and your contract repository is a shared drive with 10,000 unsorted PDFs, no AI platform in the world is going to save you. Fix the foundation first.</p>
+
+<p><strong>Step 2: Identify 2-3 high-value automation targets.</strong> Don't try to transform your entire procurement function at once. Look for processes that are high-volume, rules-based, and currently manual. Invoice matching. Supplier qualification screening. Demand forecasting for routine categories. These are the places where AI delivers ROI fast and builds organizational confidence for bigger moves.</p>
+
+<p><strong>Step 3: Build a phased roadmap.</strong> Map out a 12-18 month plan that starts with quick wins and builds toward more sophisticated capabilities. Phase 1 might be automating tactical processes. Phase 2 could be deploying predictive analytics for spend management. Phase 3 might introduce AI-assisted strategic sourcing. Each phase should have clear metrics and decision gates.</p>
+
+<p><strong>Step 4: Don't try to boil the ocean.</strong> This is the most important one. The organizations that succeed with AI in procurement are the ones that resist the temptation to do everything at once. They pick their spots, execute well, learn, and expand. The ones that fail are the ones that try to leapfrog from manual spreadsheets to fully autonomous procurement in one budget cycle.</p>
+
+<h2>You Don't Need a $5M Platform</h2>
+
+<p>Let me be direct: you don't need a $5 million platform to start capturing value from AI in procurement. What you need is a clear-eyed assessment of where AI actually moves the needle in <em>your</em> procurement function. Not a generic maturity model. Not a vendor's demo environment. An honest look at your processes, your data, your people, and your pain points — and a realistic plan to close the gaps that matter most.</p>
+
+<p>That's a very different exercise than what most organizations are doing. And it's where the gap between leaders and laggards is really being decided — not in the technology itself, but in the quality of the decisions about <em>how</em> to adopt it.</p>
+
+</article>
+
+<div class="article-cta">
+  <div class="cta-box">
+    <p>At Foley Strategic Advisory, we sit in the space between the Big 4 strategy decks and actual implementation — the space where most procurement transformations stall out. Our AI maturity assessments are designed to lead to action, not slide decks. We help mid-market procurement leaders figure out where they actually are, where AI can create real value, and how to get there without blowing the budget or the timeline. If you're a procurement leader who knows AI matters but isn't sure where to start, <a href="https://calendar.app.google/uazbkmwDjQB5nRUJ6">let's talk</a>.</p>
+  </div>
+</div>
+
+<div class="article-author">
+  <div class="author-card">
+    <div class="author-info">
+      <h3>John Foley</h3>
+      <div class="author-title">Founder, Foley Strategic Advisory</div>
+      <p>20+ years of experience across global consulting, Fortune 50 corporate leadership, and complex operations leadership. Specializing in supply chain strategy, procurement transformation, and logistics optimization for mid-to-large enterprises.</p>
+      <p><a href="mailto:john@foleysa.com">john@foleysa.com</a></p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">Foley <span>Strategic</span> Advisory</div>
+  <div class="footer-copy">Project-Based &bull; Retainer &bull; Fractional Advisory &nbsp;|&nbsp; &copy; 2026 Foley Strategic Advisory</div>
+</footer>
+
+</body>
+</html>

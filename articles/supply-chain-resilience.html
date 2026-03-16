@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Supply Chain Resilience in the Hormuz Era: A Practical Framework | Foley Strategic Advisory</title>
+<meta name="description" content="The Strait of Hormuz closure is the largest supply disruption in modern history. A practical four-step resilience framework for mid-market companies that need to act now.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0B1D33;
+  --navy-deep: #06111F;
+  --gold: #D4A843;
+  --gold-light: #E8C566;
+  --cream: #F5F1EA;
+  --cream-dark: #E8E1D4;
+  --white: #FAFAF8;
+  --slate: #4A5568;
+  --slate-light: #718096;
+  --border: rgba(212, 168, 67, 0.2);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--navy);
+  background: var(--white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+nav {
+  position: fixed;
+  top: 0; left: 0; width: 100%; z-index: 100;
+  padding: 1.5rem 4rem;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(11, 29, 51, 0.97);
+  backdrop-filter: blur(12px);
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--cream); text-decoration: none;
+}
+.nav-logo span { color: var(--gold); }
+
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  color: rgba(245, 241, 234, 0.75); text-decoration: none;
+  font-size: 0.8rem; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--gold); }
+
+.article-hero {
+  background: var(--navy-deep);
+  padding: 10rem 4rem 5rem;
+  position: relative;
+}
+
+.article-hero::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.3;
+}
+
+.article-hero-inner {
+  max-width: 800px; margin: 0 auto;
+}
+
+.article-tag {
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 2rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.article-tag::before {
+  content: ''; width: 40px; height: 1px; background: var(--gold);
+}
+
+.article-hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem; font-weight: 500; line-height: 1.15;
+  color: var(--cream); margin-bottom: 1.5rem;
+}
+
+.article-meta {
+  font-size: 0.85rem; color: rgba(245, 241, 234, 0.45);
+}
+.article-meta a { color: var(--gold); text-decoration: none; }
+
+.article-body {
+  max-width: 800px; margin: 0 auto;
+  padding: 4rem;
+}
+
+.article-body p {
+  font-size: 1.05rem; color: var(--slate);
+  line-height: 1.9; margin-bottom: 1.5rem;
+}
+
+.article-body p em {
+  font-style: italic; color: var(--navy);
+}
+
+.article-body h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem; font-weight: 600;
+  color: var(--navy); margin-top: 3rem; margin-bottom: 1.25rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(11, 29, 51, 0.06);
+}
+
+.article-body h2:first-of-type {
+  border-top: none; padding-top: 0; margin-top: 2rem;
+}
+
+.article-body h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; font-weight: 600;
+  color: var(--navy); margin-top: 2rem; margin-bottom: 1rem;
+}
+
+.article-body strong {
+  color: var(--navy); font-weight: 600;
+}
+
+.article-body ul, .article-body ol {
+  margin-bottom: 1.5rem; padding-left: 1.5rem;
+}
+
+.article-body li {
+  font-size: 1.05rem; color: var(--slate);
+  line-height: 1.9; margin-bottom: 0.5rem;
+}
+
+.article-cta {
+  max-width: 800px; margin: 0 auto;
+  padding: 0 4rem 4rem;
+}
+
+.cta-box {
+  background: var(--cream);
+  padding: 3rem;
+  border-left: 4px solid var(--gold);
+}
+
+.cta-box p {
+  font-size: 1.05rem; color: var(--slate);
+  line-height: 1.8; margin-bottom: 1rem;
+}
+
+.cta-box p:last-child { margin-bottom: 0; }
+
+.cta-box a {
+  color: var(--gold); text-decoration: none; font-weight: 600;
+}
+
+.article-author {
+  max-width: 800px; margin: 0 auto;
+  padding: 0 4rem 5rem;
+  border-top: 1px solid rgba(11, 29, 51, 0.06);
+  padding-top: 2.5rem;
+}
+
+.author-card {
+  display: flex; gap: 2rem; align-items: start;
+}
+
+.author-info h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 600; color: var(--navy);
+  margin-bottom: 0.25rem;
+}
+
+.author-info .author-title {
+  font-size: 0.8rem; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.75rem;
+}
+
+.author-info p {
+  font-size: 0.92rem; color: var(--slate-light); line-height: 1.75;
+}
+
+.author-info a { color: var(--navy); text-decoration: none; }
+.author-info a:hover { color: var(--gold); }
+
+footer {
+  background: var(--navy-deep);
+  padding: 3rem 4rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream);
+}
+.footer-brand span { color: var(--gold); }
+.footer-copy { font-size: 0.78rem; color: rgba(245, 241, 234, 0.35); }
+
+@media (max-width: 768px) {
+  nav { padding: 1.25rem 2rem; }
+  .nav-links { display: none; }
+  .article-hero { padding: 8rem 2rem 3rem; }
+  .article-hero h1 { font-size: 2.2rem; }
+  .article-body { padding: 3rem 2rem; }
+  .article-cta { padding: 0 2rem 3rem; }
+  .article-author { padding: 0 2rem 3rem; padding-top: 2rem; }
+  footer { padding: 2rem; flex-direction: column; gap: 1rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Foley <span>Strategic</span> Advisory</a>
+  <ul class="nav-links">
+    <li><a href="/#about">About</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#industries">Industries</a></li>
+    <li><a href="/#insights">Insights</a></li>
+    <li><a href="/#contact">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<section class="article-hero">
+  <div class="article-hero-inner">
+    <div class="article-tag">Supply Chain Resilience</div>
+    <h1>Supply Chain Resilience in the Hormuz Era: A Practical Framework for Mid-Market Companies</h1>
+    <div class="article-meta">By <a href="/#about">John Foley</a> &nbsp;|&nbsp; March 2026</div>
+  </div>
+</section>
+
+<article class="article-body">
+
+<p>Two weeks ago, the Strait of Hormuz effectively closed. If your company has any exposure to Gulf-sourced materials, energy, or suppliers — and you haven't already started war-gaming your response — you're behind.</p>
+
+<p>Let me be blunt: this is the largest supply disruption in modern history. Not a stress test. Not a drill. The real thing.</p>
+
+<h2>What Just Happened</h2>
+
+<p>On February 28, the escalating US-Israeli conflict with Iran shut down transit through the Strait of Hormuz. Twenty percent of global oil supply — gone from the market overnight. WTI crude surged from roughly $70 to $96-98 per barrel in days, and that number isn't coming back down soon. Gulf state oil production has dropped more than 10 million barrels per day.</p>
+
+<p>On March 4, QatarEnergy declared force majeure on all LNG shipments. That's not a partial curtailment — that's a full stop on liquefied natural gas from the world's largest LNG exporter. Bahrain's Alba aluminum smelter, one of the world's largest, cut production by 19%. These are dominoes, and they're still falling.</p>
+
+<p>If you're running a mid-market company and think this is someone else's problem, think again. Energy costs feed into everything: transportation, manufacturing, raw materials, packaging, logistics. Even if you don't source a single component from the Gulf, your suppliers might. Their suppliers almost certainly do.</p>
+
+<h2>Why Mid-Market Companies Are Most Exposed</h2>
+
+<p>Fortune 100 companies have entire risk management teams, eight-figure consulting engagements, and diversified global supply networks built over decades. They'll absorb this hit. It'll hurt, but they'll survive.</p>
+
+<p>Mid-market companies — $100M to $2B in revenue — typically don't have that infrastructure. Most have lean procurement teams running hard just to keep operations moving. Supply chain risk management, if it exists at all, is a spreadsheet someone updates quarterly.</p>
+
+<p>I've seen this from both sides. During my time at Accenture, I helped large enterprises build the kind of resilience frameworks that let them weather disruptions. As a procurement leader inside Fortune 50 operations, I watched those frameworks get tested — and I saw which ones held and which ones didn't. The difference was never budget. It was preparation and speed of response.</p>
+
+<p>Mid-market companies can build resilience. But they can't do it the way the big shops do — with 18-month transformation programs and seven-figure strategy decks. They need a framework they can execute in weeks, not quarters.</p>
+
+<h2>A Practical Framework: Four Steps to Resilience</h2>
+
+<p>Here's what I'd tell any mid-market CEO or COO right now. This isn't theory. This is what works.</p>
+
+<h3>1. Map Your Exposure — Ruthlessly and Quickly</h3>
+
+<p>You need to know, within the next 72 hours, exactly where your supply chain touches the Gulf. Not just Tier 1 suppliers — go at least to Tier 2, and ideally Tier 3.</p>
+
+<p>Start with energy. What percentage of your energy costs are tied to natural gas or petroleum products that originate from Gulf states? Then move to raw materials. Petrochemicals, aluminum, specialty chemicals, plastics feedstocks — all of these have significant Gulf exposure.</p>
+
+<p>Don't overthink this. You're not building a perfect model. You're building a heat map. Red means "this breaks us if it goes away for 90 days." Yellow means "painful but survivable." Green means "minimal exposure." Anything you can't categorize goes in red until proven otherwise.</p>
+
+<p>From my Air Force days: in operational planning, imperfect intelligence acted on quickly beats perfect intelligence that arrives too late. Same principle applies here.</p>
+
+<h3>2. Identify Alternatives — Before You Need Them</h3>
+
+<p>For every red-zone dependency, you need at least one alternative source identified. Not contracted — identified. Know who they are, where they are, what their capacity looks like, and what the lead time is to switch.</p>
+
+<p>This is where most companies stall. They look at their primary supplier, see that switching costs are high, and decide to wait it out. That's a bet. And right now, it's a bad one. Nobody knows when Hormuz reopens. Could be weeks. Could be months. Could be longer.</p>
+
+<p>Alternative sourcing doesn't mean you abandon existing relationships. It means you have options. Options are leverage, and leverage is survival.</p>
+
+<h3>3. Build Buffer Stock Strategies</h3>
+
+<p>If you haven't already adjusted your inventory posture, you're competing with everyone else who just realized they should. Spot markets for Gulf-dependent materials are already moving. Prices will continue to climb as the disruption persists.</p>
+
+<p>Determine your critical materials — the ones that shut down your operations if they run out. Calculate your current days-of-supply. Then make a hard decision about how much buffer you need to carry and what that costs versus the cost of a production shutdown.</p>
+
+<p>This isn't just about physical inventory. It's about financial hedging, contract flexibility, and having pre-negotiated agreements with alternative suppliers that you can activate on short notice.</p>
+
+<h3>4. Stress-Test Your Supplier Network</h3>
+
+<p>Take your top 20 suppliers by spend and ask them a simple question: "What is your exposure to Gulf-sourced energy and materials, and what is your contingency plan?"</p>
+
+<p>You'll learn two things very quickly. First, which suppliers have actually thought about this. Second, which ones are about to become your biggest risk. The suppliers who can't answer that question coherently are the ones most likely to fail you in the next 60-90 days.</p>
+
+<p>I ran supplier stress tests during my Accenture years for companies navigating far less severe disruptions than this. The pattern is always the same: about 30% of suppliers have real contingency plans, about 40% have something on paper that won't survive contact with reality, and about 30% have nothing. Knowing which bucket your suppliers fall into is the first step toward managing the risk.</p>
+
+<h2>Speed Is the Variable That Matters</h2>
+
+<p>Every framework is only as good as its execution speed. The companies that will come through this disruption strongest are the ones acting now — not the ones commissioning a six-month supply chain review.</p>
+
+<p>Mid-market companies actually have an advantage here: shorter decision cycles, less bureaucracy, more direct access between leadership and operations. Use that. A mid-market procurement team that moves fast will outperform an enterprise team stuck in approval chains.</p>
+
+<p>But speed requires focus. You need someone who has done this before, who knows what to look for, and who can drive a resilience assessment to actionable recommendations in weeks, not months.</p>
+
+<h2>The Bottom Line</h2>
+
+<p>The Hormuz closure isn't a temporary disruption — it's a structural shift that will reshape supply chains for years. Companies that build resilience now will have a competitive advantage that compounds over time. Companies that wait will be playing catch-up from a position of weakness.</p>
+
+</article>
+
+<div class="article-cta">
+  <div class="cta-box">
+    <p>This is exactly the kind of work we do at Foley Strategic Advisory. We run fast, practical supply chain resilience assessments designed for mid-market companies that need answers now — not a 200-slide deck in Q3. If your team is staring at a supply chain heat map full of red and isn't sure what to do next, <a href="https://calendar.app.google/uazbkmwDjQB5nRUJ6">let's talk</a>.</p>
+  </div>
+</div>
+
+<div class="article-author">
+  <div class="author-card">
+    <div class="author-info">
+      <h3>John Foley</h3>
+      <div class="author-title">Founder, Foley Strategic Advisory</div>
+      <p>Former Air Force Lieutenant Colonel, former Accenture consultant, and Fortune 50 procurement leader specializing in supply chain resilience, strategic sourcing, and operational risk management.</p>
+      <p><a href="mailto:john@foleysa.com">john@foleysa.com</a></p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">Foley <span>Strategic</span> Advisory</div>
+  <div class="footer-copy">Project-Based &bull; Retainer &bull; Fractional Advisory &nbsp;|&nbsp; &copy; 2026 Foley Strategic Advisory</div>
+</footer>
+
+</body>
+</html>

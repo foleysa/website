@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navigating the Post-IEEPA Tariff Landscape: What Procurement Leaders Need to Do Now | Foley Strategic Advisory</title>
+<meta name="description" content="The Supreme Court struck down IEEPA tariffs. Here's where we actually stand on tariff policy — and the specific steps mid-market procurement leaders need to take now.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0B1D33;
+  --navy-deep: #06111F;
+  --gold: #D4A843;
+  --gold-light: #E8C566;
+  --cream: #F5F1EA;
+  --cream-dark: #E8E1D4;
+  --white: #FAFAF8;
+  --slate: #4A5568;
+  --slate-light: #718096;
+  --border: rgba(212, 168, 67, 0.2);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--navy);
+  background: var(--white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+nav {
+  position: fixed;
+  top: 0; left: 0; width: 100%; z-index: 100;
+  padding: 1.5rem 4rem;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(11, 29, 51, 0.97);
+  backdrop-filter: blur(12px);
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--cream); text-decoration: none;
+}
+.nav-logo span { color: var(--gold); }
+
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  color: rgba(245, 241, 234, 0.75); text-decoration: none;
+  font-size: 0.8rem; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--gold); }
+
+.article-hero {
+  background: var(--navy-deep);
+  padding: 10rem 4rem 5rem;
+  position: relative;
+}
+
+.article-hero::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.3;
+}
+
+.article-hero-inner {
+  max-width: 800px; margin: 0 auto;
+}
+
+.article-tag {
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 2rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.article-tag::before {
+  content: ''; width: 40px; height: 1px; background: var(--gold);
+}
+
+.article-hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem; font-weight: 500; line-height: 1.15;
+  color: var(--cream); margin-bottom: 1.5rem;
+}
+
+.article-meta {
+  font-size: 0.85rem; color: rgba(245, 241, 234, 0.45);
+}
+.article-meta a { color: var(--gold); text-decoration: none; }
+
+.article-body {
+  max-width: 800px; margin: 0 auto;
+  padding: 4rem;
+}
+
+.article-body p {
+  font-size: 1.05rem; color: var(--slate);
+  line-height: 1.9; margin-bottom: 1.5rem;
+}
+
+.article-body p em {
+  font-style: italic; color: var(--navy);
+}
+
+.article-body h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem; font-weight: 600;
+  color: var(--navy); margin-top: 3rem; margin-bottom: 1.25rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(11, 29, 51, 0.06);
+}
+
+.article-body h2:first-of-type {
+  border-top: none; padding-top: 0; margin-top: 2rem;
+}
+
+.article-body h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; font-weight: 600;
+  color: var(--navy); margin-top: 2rem; margin-bottom: 1rem;
+}
+
+.article-body strong {
+  color: var(--navy); font-weight: 600;
+}
+
+.article-body ul, .article-body ol {
+  margin-bottom: 1.5rem; padding-left: 1.5rem;
+}
+
+.article-body li {
+  font-size: 1.05rem; color: var(--slate);
+  line-height: 1.9; margin-bottom: 0.5rem;
+}
+
+.article-cta {
+  max-width: 800px; margin: 0 auto;
+  padding: 0 4rem 4rem;
+}
+
+.cta-box {
+  background: var(--cream);
+  padding: 3rem;
+  border-left: 4px solid var(--gold);
+}
+
+.cta-box p {
+  font-size: 1.05rem; color: var(--slate);
+  line-height: 1.8; margin-bottom: 1rem;
+}
+
+.cta-box p:last-child { margin-bottom: 0; }
+
+.cta-box a {
+  color: var(--gold); text-decoration: none; font-weight: 600;
+}
+
+.article-author {
+  max-width: 800px; margin: 0 auto;
+  padding: 0 4rem 5rem;
+  border-top: 1px solid rgba(11, 29, 51, 0.06);
+  padding-top: 2.5rem;
+}
+
+.author-card {
+  display: flex; gap: 2rem; align-items: start;
+}
+
+.author-info h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 600; color: var(--navy);
+  margin-bottom: 0.25rem;
+}
+
+.author-info .author-title {
+  font-size: 0.8rem; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.75rem;
+}
+
+.author-info p {
+  font-size: 0.92rem; color: var(--slate-light); line-height: 1.75;
+}
+
+.author-info a { color: var(--navy); text-decoration: none; }
+.author-info a:hover { color: var(--gold); }
+
+footer {
+  background: var(--navy-deep);
+  padding: 3rem 4rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream);
+}
+.footer-brand span { color: var(--gold); }
+.footer-copy { font-size: 0.78rem; color: rgba(245, 241, 234, 0.35); }
+
+@media (max-width: 768px) {
+  nav { padding: 1.25rem 2rem; }
+  .nav-links { display: none; }
+  .article-hero { padding: 8rem 2rem 3rem; }
+  .article-hero h1 { font-size: 2.2rem; }
+  .article-body { padding: 3rem 2rem; }
+  .article-cta { padding: 0 2rem 3rem; }
+  .article-author { padding: 0 2rem 3rem; padding-top: 2rem; }
+  footer { padding: 2rem; flex-direction: column; gap: 1rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Foley <span>Strategic</span> Advisory</a>
+  <ul class="nav-links">
+    <li><a href="/#about">About</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#industries">Industries</a></li>
+    <li><a href="/#insights">Insights</a></li>
+    <li><a href="/#contact">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<section class="article-hero">
+  <div class="article-hero-inner">
+    <div class="article-tag">Procurement Strategy</div>
+    <h1>Navigating the Post-IEEPA Tariff Landscape: What Procurement Leaders Need to Do Now</h1>
+    <div class="article-meta">By <a href="/#about">John Foley</a> &nbsp;|&nbsp; March 2026</div>
+  </div>
+</section>
+
+<article class="article-body">
+
+<p>On February 20th, the Supreme Court did what many of us expected but few planned for: it struck down the IEEPA-based tariffs in a 6-3 ruling. The Court held that the International Emergency Economic Powers Act was never intended to serve as a blanket trade policy tool, and that using it to impose sweeping tariffs exceeded executive authority.</p>
+
+<p>If you're a procurement leader and you weren't scenario-planning for this, you're already behind. But you're not out of the game yet.</p>
+
+<p>Let me walk you through where we actually stand — and more importantly, what you need to do about it.</p>
+
+<h2>The New Tariff Reality</h2>
+
+<p>The administration moved fast after the ruling. Within days, President Trump pivoted to Section 122 of the Trade Act of 1974, imposing a 10% universal tariff on imports. Here's the critical detail most people are glossing over: <strong>Section 122 tariffs have a statutory 150-day limit.</strong> That clock started ticking, and it expires on July 24, 2026.</p>
+
+<p>So yes, we went from the IEEPA tariff regime to a temporary backstop. That's not stability — that's a countdown.</p>
+
+<p>Meanwhile, the tariffs that were <em>not</em> struck down remain firmly in place:</p>
+
+<ul>
+<li><strong>Section 232:</strong> Steel at 25% and aluminum at 25%. These were upheld on national security grounds and aren't going anywhere.</li>
+<li><strong>Section 301:</strong> Multiple active investigations are ongoing. These move slower, but they carry real teeth and can target specific countries and product categories with surgical precision.</li>
+</ul>
+
+<p>The net effect? The weighted average applied tariff rate has dropped from roughly 13.8% to about 10.3%. That's meaningful — but it's not a return to normal. And if you're running your supply chain like it is, you're making a mistake.</p>
+
+<h2>The Refund Opportunity You Shouldn't Ignore</h2>
+
+<p>Here's something that should be on every CFO's radar right now: the Court of International Trade ruled on March 4th that importers who paid IEEPA-based tariffs may be eligible for refunds.</p>
+
+<p>Read that again. If your company paid duties under the IEEPA tariff regime, you may have money sitting at Customs waiting to be claimed.</p>
+
+<p>The process won't be automatic. You'll need to file with the Court of International Trade, document what you paid and under which tariff authority, and likely engage trade counsel. But for companies that were importing significant volume under IEEPA rates, the recovery could be substantial.</p>
+
+<p>This isn't theoretical — it's actionable, and the window to file won't stay open forever. If you haven't already directed your trade compliance team to assess your refund eligibility, do it today. Not next quarter. Today.</p>
+
+<h2>What Mid-Market Procurement Leaders Should Do Now</h2>
+
+<p>I spent years at Accenture advising Fortune 500 companies on supply chain transformation. Before that, I spent over two decades in the Air Force, where mission planning wasn't optional — it was survival. What I learned in both worlds is this: the organizations that win aren't the ones with the best predictions. They're the ones with the best preparation.</p>
+
+<p>Here's what I'm telling every mid-market client right now:</p>
+
+<h3>1. Run a Tariff Impact Assessment — A Real One</h3>
+
+<p>Not a spreadsheet your analyst threw together. A comprehensive review of your import spend by HTS code, country of origin, and applicable tariff authority. You need to know exactly what you're paying under Section 232, what falls under the temporary Section 122 rate, and what's exposed to potential Section 301 actions.</p>
+
+<p>Most mid-market companies I work with don't have this visibility. They rely on their brokers to handle classification and assume it's correct. That assumption is expensive.</p>
+
+<h3>2. Review Every Contract with a Tariff Clause</h3>
+
+<p>If your supplier contracts were written before 2025, there's a good chance they don't adequately address the current tariff environment. Who absorbs tariff costs? What happens when a tariff is imposed, modified, or removed? Is there a mechanism for pass-through adjustments?</p>
+
+<p>The IEEPA ruling just demonstrated that tariffs can disappear overnight. Your contracts need to handle both directions — increases <em>and</em> decreases. If your supplier was passing through IEEPA tariffs and those tariffs just got struck down, you should be asking for a price adjustment. Right now.</p>
+
+<h3>3. Diversify Your Sourcing — But Do It Strategically</h3>
+
+<p>"Diversify supply chains" has become the most overused advice in procurement. Everyone says it; few do it well. Shifting sourcing isn't just about finding a new supplier in a different country. It's about total landed cost analysis, quality validation, lead time impact, logistics infrastructure, and — critically — understanding the tariff exposure of the <em>new</em> source.</p>
+
+<p>Moving production from China to Vietnam doesn't help you if Vietnam ends up in the crosshairs of a Section 301 investigation. Think two moves ahead.</p>
+
+<h3>4. Build Real Scenario Plans</h3>
+
+<p>The Section 122 tariff expires in July. What happens next? Maybe Congress acts. Maybe the administration finds another statutory authority. Maybe rates go up. Maybe they go down. You don't know — and neither does anyone else.</p>
+
+<p>What you <em>can</em> do is build three or four realistic scenarios and map your supply chain response to each one. What's your playbook if the 10% universal tariff expires and isn't replaced? What if Section 301 tariffs hit one of your key sourcing countries? What if Section 232 rates increase?</p>
+
+<p>In the military, we called this contingency planning. In consulting, we called it scenario modeling. Whatever you call it, the point is the same: when the situation changes, you don't freeze — you execute.</p>
+
+<h2>The Execution Gap</h2>
+
+<p>Here's what frustrates me about this industry. There's no shortage of strategy decks. The Big 4 firms will happily sell you a hundred slides on tariff risk with beautiful charts and high-level recommendations. And then they leave.</p>
+
+<p>The gap isn't in knowing what to do. It's in actually doing it. Reclassifying HTS codes. Renegotiating supplier contracts. Filing refund claims. Standing up a sourcing diversification program with real timelines and accountability. Running tabletop exercises on tariff scenarios with your procurement team.</p>
+
+<p>That's the work. It's not glamorous, and it doesn't fit neatly into a PowerPoint. But it's what separates companies that navigate disruption from companies that get caught flat-footed.</p>
+
+<h2>The Bottom Line</h2>
+
+<p>The post-IEEPA landscape isn't simpler — it's different. The tariff rates are lower on average, but the legal and political uncertainty is arguably higher than it's been in decades. The Section 122 clock is ticking. Section 301 investigations are expanding. And the refund opportunity from IEEPA overpayments has a limited shelf life.</p>
+
+<p>Mid-market companies don't have the luxury of dedicated trade policy teams or Washington lobbyists. But they also don't need to figure this out alone.</p>
+
+</article>
+
+<div class="article-cta">
+  <div class="cta-box">
+    <p>At Foley Strategic Advisory, we help mid-market procurement and supply chain leaders navigate exactly this kind of complexity — not with strategy decks, but with hands-on execution. Tariff impact assessments, contract reviews, sourcing diversification, scenario planning. If you need a partner who's done this at scale and can move at your speed, <a href="https://calendar.app.google/uazbkmwDjQB5nRUJ6">let's talk</a>.</p>
+  </div>
+</div>
+
+<div class="article-author">
+  <div class="author-card">
+    <div class="author-info">
+      <h3>John Foley</h3>
+      <div class="author-title">Founder, Foley Strategic Advisory</div>
+      <p>20+ years of experience across global consulting, Fortune 50 corporate leadership, and complex operations leadership. Specializing in supply chain strategy, procurement transformation, and logistics optimization for mid-to-large enterprises.</p>
+      <p><a href="mailto:john@foleysa.com">john@foleysa.com</a></p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">Foley <span>Strategic</span> Advisory</div>
+  <div class="footer-copy">Project-Based &bull; Retainer &bull; Fractional Advisory &nbsp;|&nbsp; &copy; 2026 Foley Strategic Advisory</div>
+</footer>
+
+</body>
+</html>
