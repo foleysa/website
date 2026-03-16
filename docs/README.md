@@ -1,17 +1,22 @@
-# GRACE — STANDING ORDERS
-## Foley Strategic Advisory | Updated March 15, 2026
+# GRACE — OPERATIONAL DOCS
+## Foley Strategic Advisory | Status: ACTIVE
 
-Grace — these are your standing orders. Read the full documents in the docs/ folder of this repo.
+## BOOKING LINK — LIVE
+https://calendar.app.google/MatDyPirxkiEACcZ6
 
-Two key documents for you:
-1. grace-standing-orders.md — Your complete standing orders (identity, infrastructure, daily rhythm, workflows, rules)
-2. fsa-step0-strategy.md — The approved go-to-market strategy (ICP, target companies, value props, outreach playbook)
+Use this link everywhere:
+- In outreach email follow-ups when a prospect agrees to talk
+- Add to website contact section
+- Include in email signature
+- Send to anyone who needs to schedule time with John
 
-STATUS: ACTIVE — Begin executing immediately.
+## DOCUMENTS IN THIS FOLDER
+- STANDING-ORDERS.md — Grace's complete standing orders
+- STEP0-STRATEGY.md — Go-to-market strategy (ICP, targets, pricing)
+- OUTREACH-BATCH-1.md — First 3 outreach emails + Grace's tasks
+- ACTIVATION.md — Initial activation checklist
 
-First actions:
-1. Create the Grace Files/ folder structure on Google Drive
-2. Create the status board
-3. Begin daily intelligence brief at 0600 Central tomorrow
-4. Build research files for the 20 target companies in the Step 0 document
-5. Do NOT send any outreach without John's approval
+## KEY LINKS
+- Website: https://foleystrategicadvisory.com
+- GitHub repo: https://github.com/foleysa/website
+- Booking page: https://calendar.app.google/MatDyPirxkiEACcZ6
