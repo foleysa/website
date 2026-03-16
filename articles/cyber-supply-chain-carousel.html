@@ -42,7 +42,7 @@ body { font-family: 'DM Sans', sans-serif; color: #333; background: #FAFAF8; lin
   position: relative;
   overflow: hidden;
   border-radius: 16px;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.25), 0 0 0 1px rgba(232,93,58,0.1);
   background: var(--bg);
 }
 
@@ -52,41 +52,70 @@ body { font-family: 'DM Sans', sans-serif; color: #333; background: #FAFAF8; lin
   min-width: 100%;
   width: 0;
   flex-shrink: 0;
-  background: var(--bg);
+  background: linear-gradient(165deg, #0F1923 0%, #152233 40%, #0F1923 100%);
   padding: 2.5rem 2rem;
   min-height: 420px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+/* Subtle geometric accent shape */
+.slide::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(232,93,58,0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.slide::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent);
 }
 
 /* Slide Typography */
-.slide .label { color: var(--accent); font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.75rem; }
+.slide .label { color: var(--accent); font-size: 0.7rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 0.75rem; position: relative; padding-left: 1.5rem; }
+.slide .label::before { content: ''; position: absolute; left: 0; top: 50%; width: 14px; height: 2px; background: var(--accent); }
 .slide h2 { color: var(--white); font-size: 1.6rem; font-weight: 700; line-height: 1.25; margin-bottom: 1rem; }
 .slide h2 .accent { color: var(--accent); }
+.slide h2 .light { font-weight: 300; color: var(--gray); }
 .slide .body-text { color: var(--gray); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem; }
 .slide .author { color: var(--gray); font-size: 0.8rem; margin-top: auto; padding-top: 1.5rem; }
-.slide .swipe { color: var(--accent); font-size: 0.8rem; font-weight: 600; }
 
 /* Cards inside slides */
 .info-card {
-  background: var(--card);
+  background: linear-gradient(135deg, var(--card) 0%, #1E3040 100%);
   border-radius: 12px;
   padding: 1.25rem;
   margin-bottom: 0.75rem;
+  border: 1px solid rgba(232,93,58,0.08);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+  position: relative;
 }
 .info-card .num {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px; height: 32px;
-  background: var(--accent);
+  width: 34px; height: 34px;
+  background: linear-gradient(135deg, var(--accent), #D04820);
   border-radius: 50%;
   color: var(--white);
   font-size: 0.85rem;
   font-weight: 700;
   margin-right: 0.75rem;
   flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(232,93,58,0.35);
 }
 .info-card .card-title { color: var(--white); font-weight: 600; font-size: 0.95rem; margin-bottom: 0.35rem; }
 .info-card .card-desc { color: var(--gray); font-size: 0.8rem; line-height: 1.5; }
@@ -95,49 +124,83 @@ body { font-family: 'DM Sans', sans-serif; color: #333; background: #FAFAF8; lin
 
 /* Stat cards */
 .stat-card {
-  background: var(--card);
+  background: linear-gradient(135deg, var(--card) 0%, #1E3040 100%);
   border-radius: 12px;
   padding: 1.25rem;
   margin-bottom: 0.75rem;
   display: flex;
   align-items: center;
   gap: 1.25rem;
+  border: 1px solid rgba(232,93,58,0.08);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  position: relative;
+  overflow: hidden;
 }
-.stat-card .stat-num { color: var(--accent); font-size: 2.5rem; font-weight: 700; line-height: 1; flex-shrink: 0; min-width: 80px; }
+.stat-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--accent), transparent);
+  border-radius: 2px;
+}
+.stat-card .stat-num { color: var(--accent); font-size: 2.5rem; font-weight: 700; line-height: 1; flex-shrink: 0; min-width: 80px; padding-left: 0.5rem; }
 .stat-card .stat-text { color: var(--gray); font-size: 0.85rem; line-height: 1.4; }
 .stat-card .stat-text strong { color: var(--white); }
 
 /* Question cards */
 .q-card {
-  background: var(--card);
+  background: linear-gradient(135deg, var(--card) 0%, #1E3040 100%);
   border-radius: 12px;
   padding: 1rem 1.25rem;
   margin-bottom: 0.6rem;
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
+  border: 1px solid rgba(232,93,58,0.08);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
 }
 .q-card .q-num {
   display: flex;
   align-items: center;
   justify-content: center;
   min-width: 28px; height: 28px;
-  background: var(--accent);
+  background: linear-gradient(135deg, var(--accent), #D04820);
   border-radius: 50%;
   color: var(--white);
   font-size: 0.8rem;
   font-weight: 700;
   margin-top: 2px;
+  box-shadow: 0 2px 8px rgba(232,93,58,0.35);
 }
 .q-card .q-text { color: var(--white); font-size: 0.85rem; line-height: 1.5; }
 
 /* CTA slide */
 .slide .cta-url { color: var(--white); font-size: 1.1rem; font-weight: 600; }
 .slide .cta-hint { color: var(--accent); font-size: 0.85rem; margin-top: 0.5rem; }
-.slide .divider { height: 2px; background: var(--accent); margin: 1.5rem 0; opacity: 0.5; }
+.slide .divider { height: 2px; background: linear-gradient(90deg, transparent, var(--accent), transparent); margin: 1.5rem 0; }
 
-/* Arrow between cards */
-.arrow-down { text-align: center; color: var(--accent); font-size: 1rem; margin: 0.25rem 0; }
+/* Arrow between cards — dashed connector style */
+.arrow-down {
+  text-align: center;
+  color: var(--accent);
+  font-size: 0.8rem;
+  margin: 0.15rem 0;
+  position: relative;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.arrow-down::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 6px;
+  width: 0;
+  border-left: 2px dashed rgba(232,93,58,0.4);
+}
 
 /* Footer in slide */
 .slide-footer { color: var(--gray); font-size: 0.75rem; text-align: center; margin-top: auto; padding-top: 1rem; }
