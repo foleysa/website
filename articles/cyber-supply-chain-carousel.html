@@ -61,7 +61,7 @@ body { font-family: 'DM Sans', sans-serif; color: #333; background: var(--white)
   border: 1px solid var(--border);
 }
 
-.carousel-track { display: flex; transition: transform 0.4s ease; }
+.carousel-track { display: flex; transition: transform 0.4s ease; align-items: flex-start; }
 
 .slide {
   min-width: 100%;
@@ -568,6 +568,9 @@ body { font-family: 'DM Sans', sans-serif; color: #333; background: var(--white)
     dotsEl.appendChild(dot);
   }
 
+  const wrapper = document.getElementById('carousel');
+  const slides = track.children;
+
   function goTo(n) {
     current = Math.max(0, Math.min(n, total - 1));
     track.style.transform = 'translateX(-' + (current * 100) + '%)';
@@ -577,6 +580,10 @@ body { font-family: 'DM Sans', sans-serif; color: #333; background: var(--white)
     dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) => {
       d.className = 'carousel-dot' + (i === current ? ' active' : '');
     });
+    // Dynamically size wrapper to current slide
+    var h = slides[current].scrollHeight;
+    wrapper.style.height = h + 'px';
+    wrapper.style.transition = 'height 0.3s ease';
   }
 
   prevBtn.addEventListener('click', () => goTo(current - 1));
