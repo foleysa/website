@@ -13,310 +13,337 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
+  --bg: #0F1923;
+  --card: #1A2836;
+  --accent: #E85D3A;
+  --white: #FFFFFF;
+  --gray: #B0BEC5;
+  --red: #EF5350;
   --navy: #0B1D33;
-  --navy-deep: #06111F;
   --gold: #D4A843;
-  --gold-light: #E8C566;
   --cream: #F5F1EA;
-  --cream-dark: #E8E1D4;
-  --white: #FAFAF8;
-  --slate: #4A5568;
-  --slate-light: #718096;
-  --border: rgba(212, 168, 67, 0.2);
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'DM Sans', sans-serif;
-  color: var(--navy);
-  background: var(--white);
-  line-height: 1.7;
-}
+body { font-family: 'DM Sans', sans-serif; color: #333; background: #FAFAF8; line-height: 1.6; }
 
 /* Header */
-.site-header {
-  background: var(--navy-deep);
-  padding: 1rem 2rem;
-  text-align: center;
-}
-.site-header a {
-  color: var(--gold);
-  text-decoration: none;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-}
+.site-header { background: #06111F; padding: 1rem 2rem; text-align: center; }
+.site-header a { color: var(--gold); text-decoration: none; font-size: 1.1rem; font-weight: 600; letter-spacing: 1px; }
 
-/* Hero */
-.hero {
-  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
-  padding: 4rem 2rem 3rem;
-  text-align: center;
-}
-.hero h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--white);
-  max-width: 800px;
-  margin: 0 auto 1rem;
-  line-height: 1.2;
-}
-.hero .subtitle {
-  color: var(--gold-light);
-  font-size: 1.1rem;
-  max-width: 600px;
-  margin: 0 auto;
-}
-.hero .byline {
-  color: var(--slate-light);
-  font-size: 0.9rem;
-  margin-top: 1.5rem;
-}
-
-/* Carousel Container */
-.carousel-section {
-  max-width: 700px;
-  margin: 3rem auto;
-  padding: 0 1.5rem;
-}
+/* Carousel */
+.carousel-section { max-width: 480px; margin: 2rem auto; padding: 0 1rem; }
 
 .carousel-wrapper {
   position: relative;
-  width: 100%;
   overflow: hidden;
   border-radius: 16px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+  background: var(--bg);
 }
 
-.carousel-track {
-  display: flex;
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  width: 100%;
-}
+.carousel-track { display: flex; transition: transform 0.4s ease; }
 
-.carousel-slide {
+.slide {
   min-width: 100%;
   width: 0;
   flex-shrink: 0;
-  overflow: hidden;
-}
-
-.carousel-slide img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Navigation */
-.carousel-nav {
+  background: var(--bg);
+  padding: 2.5rem 2rem;
+  min-height: 500px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
 }
 
+/* Slide Typography */
+.slide .label { color: var(--accent); font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.75rem; }
+.slide h2 { color: var(--white); font-size: 1.6rem; font-weight: 700; line-height: 1.25; margin-bottom: 1rem; }
+.slide h2 .accent { color: var(--accent); }
+.slide .body-text { color: var(--gray); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem; }
+.slide .author { color: var(--gray); font-size: 0.8rem; margin-top: auto; padding-top: 1.5rem; }
+.slide .swipe { color: var(--accent); font-size: 0.8rem; font-weight: 600; }
+
+/* Cards inside slides */
+.info-card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+.info-card .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px; height: 32px;
+  background: var(--accent);
+  border-radius: 50%;
+  color: var(--white);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+.info-card .card-title { color: var(--white); font-weight: 600; font-size: 0.95rem; margin-bottom: 0.35rem; }
+.info-card .card-desc { color: var(--gray); font-size: 0.8rem; line-height: 1.5; }
+.info-card .card-header { display: flex; align-items: center; margin-bottom: 0.5rem; }
+.info-card .red-bar { width: 4px; background: var(--red); border-radius: 2px; align-self: stretch; margin-right: 1rem; flex-shrink: 0; }
+
+/* Stat cards */
+.stat-card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.stat-card .stat-num { color: var(--accent); font-size: 2.5rem; font-weight: 700; line-height: 1; flex-shrink: 0; min-width: 80px; }
+.stat-card .stat-text { color: var(--gray); font-size: 0.85rem; line-height: 1.4; }
+.stat-card .stat-text strong { color: var(--white); }
+
+/* Question cards */
+.q-card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+.q-card .q-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px; height: 28px;
+  background: var(--accent);
+  border-radius: 50%;
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-top: 2px;
+}
+.q-card .q-text { color: var(--white); font-size: 0.85rem; line-height: 1.5; }
+
+/* CTA slide */
+.slide .cta-url { color: var(--white); font-size: 1.1rem; font-weight: 600; }
+.slide .cta-hint { color: var(--accent); font-size: 0.85rem; margin-top: 0.5rem; }
+.slide .divider { height: 2px; background: var(--accent); margin: 1.5rem 0; opacity: 0.5; }
+
+/* Arrow between cards */
+.arrow-down { text-align: center; color: var(--accent); font-size: 1rem; margin: 0.25rem 0; }
+
+/* Footer in slide */
+.slide-footer { color: var(--gray); font-size: 0.75rem; text-align: center; margin-top: auto; padding-top: 1rem; }
+
+/* Nav */
+.carousel-nav { display: flex; justify-content: center; align-items: center; gap: 1.25rem; margin-top: 1.25rem; }
 .carousel-btn {
   background: var(--navy);
   color: var(--white);
   border: none;
-  width: 48px;
-  height: 48px;
+  width: 48px; height: 48px;
   border-radius: 50%;
   font-size: 1.2rem;
   cursor: pointer;
   transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
 }
-.carousel-btn:hover {
-  background: var(--gold);
-  color: var(--navy);
-}
-.carousel-btn:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-}
+.carousel-btn:hover { background: var(--gold); color: var(--navy); }
+.carousel-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.carousel-dots { display: flex; gap: 6px; }
+.carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: #555; border: none; cursor: pointer; transition: all 0.2s; }
+.carousel-dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+.carousel-counter { text-align: center; color: #888; font-size: 0.85rem; margin-top: 0.5rem; }
 
-.carousel-dots {
-  display: flex;
-  gap: 8px;
-}
-.carousel-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--cream-dark);
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.carousel-dot.active {
-  background: var(--gold);
-  width: 28px;
-  border-radius: 5px;
-}
+/* Sections below */
+.download-section { text-align: center; margin: 2rem auto; }
+.download-btn { display: inline-block; background: var(--navy); color: var(--gold); text-decoration: none; padding: 0.8rem 2rem; border-radius: 8px; font-weight: 600; transition: all 0.2s; }
+.download-btn:hover { background: var(--gold); color: var(--navy); }
 
-.carousel-counter {
-  font-size: 0.9rem;
-  color: var(--slate-light);
-  text-align: center;
-  margin-top: 0.75rem;
-}
+.related-section { max-width: 480px; margin: 2rem auto; padding: 1.5rem; background: var(--cream); border-radius: 12px; text-align: center; }
+.related-section h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+.related-section p { color: #4A5568; font-size: 0.9rem; margin-bottom: 1rem; }
+.related-link { color: var(--navy); font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--gold); }
 
-/* Download PDF */
-.download-section {
-  text-align: center;
-  margin: 2rem auto;
-  max-width: 700px;
-  padding: 0 1.5rem;
-}
-.download-btn {
-  display: inline-block;
-  background: var(--navy);
-  color: var(--gold);
-  text-decoration: none;
-  padding: 0.9rem 2rem;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: all 0.2s;
-}
-.download-btn:hover {
-  background: var(--gold);
-  color: var(--navy);
-}
+.cta-section { background: #06111F; padding: 2.5rem 1.5rem; text-align: center; margin-top: 2rem; }
+.cta-section h3 { color: var(--white); font-size: 1.3rem; margin-bottom: 1rem; }
+.cta-btn { display: inline-block; background: var(--gold); color: #06111F; text-decoration: none; padding: 0.8rem 2rem; border-radius: 8px; font-weight: 700; }
 
-/* Related Article */
-.related-section {
-  max-width: 700px;
-  margin: 3rem auto;
-  padding: 2rem 1.5rem;
-  background: var(--cream);
-  border-radius: 12px;
-  text-align: center;
-}
-.related-section h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.5rem;
-  margin-bottom: 0.75rem;
-}
-.related-section p {
-  color: var(--slate);
-  margin-bottom: 1.5rem;
-  font-size: 0.95rem;
-}
-.related-link {
-  display: inline-block;
-  color: var(--navy);
-  font-weight: 600;
-  text-decoration: none;
-  border-bottom: 2px solid var(--gold);
-  padding-bottom: 2px;
-  transition: all 0.2s;
-}
-.related-link:hover {
-  color: var(--gold);
-}
+.site-footer { text-align: center; padding: 1.5rem; color: #999; font-size: 0.8rem; }
 
-/* CTA */
-.cta-section {
-  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
-  padding: 3rem 2rem;
-  text-align: center;
-  margin-top: 3rem;
-}
-.cta-section h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.8rem;
-  color: var(--white);
-  margin-bottom: 1rem;
-}
-.cta-section p {
-  color: var(--slate-light);
-  max-width: 500px;
-  margin: 0 auto 1.5rem;
-}
-.cta-btn {
-  display: inline-block;
-  background: var(--gold);
-  color: var(--navy-deep);
-  text-decoration: none;
-  padding: 0.9rem 2.5rem;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 1rem;
-  transition: all 0.2s;
-}
-.cta-btn:hover {
-  background: var(--gold-light);
-  transform: translateY(-1px);
-}
-
-/* Footer */
-.site-footer {
-  text-align: center;
-  padding: 2rem;
-  color: var(--slate-light);
-  font-size: 0.85rem;
-}
-
-/* Touch swipe */
 .carousel-wrapper { touch-action: pan-y; }
 
-@media (max-width: 640px) {
-  .hero { padding: 2.5rem 1.25rem 2rem; }
-  .hero h1 { font-size: 1.6rem; }
-  .hero .subtitle { font-size: 0.95rem; }
-  .carousel-section { padding: 0 0.5rem; margin: 1.5rem auto; }
-  .carousel-wrapper { border-radius: 10px; }
-  .carousel-btn { width: 44px; height: 44px; font-size: 1.1rem; }
-  .carousel-nav { gap: 1rem; margin-top: 1rem; }
-  .carousel-counter { margin-top: 0.5rem; }
-  .download-section { margin: 1.5rem auto; }
-  .related-section { margin: 2rem 0.75rem; padding: 1.5rem 1rem; }
-  .related-section h3 { font-size: 1.25rem; }
-  .cta-section { padding: 2rem 1.25rem; }
-  .cta-section h3 { font-size: 1.4rem; }
+@media (min-width: 640px) {
+  .slide { padding: 3rem 2.5rem; min-height: 580px; }
+  .slide h2 { font-size: 2rem; }
+  .stat-card .stat-num { font-size: 3rem; }
 }
 </style>
 </head>
 <body>
 
 <header class="site-header">
-  <a href="https://foleystrategicadvisory.com">Foley Strategic Advisory</a>
+  <a href="https://foleystrategicadvisory.com">FOLEY STRATEGIC ADVISORY</a>
 </header>
-
-<section class="hero">
-  <h1>The Password Problem: A Supply Chain Cyber Risk Breakdown</h1>
-  <p class="subtitle">A visual breakdown of how one cyberattack shut down a $20B company's global supply chain — and the 5 questions every procurement leader should be asking this week.</p>
-  <p class="byline">By John Foley &bull; March 2026</p>
-</section>
 
 <section class="carousel-section">
   <div class="carousel-wrapper" id="carousel">
     <div class="carousel-track" id="track">
-      <div class="carousel-slide"><img src="images/slide_1.png" alt="A $20B company got shut down by a password" loading="eager"></div>
-      <div class="carousel-slide"><img src="images/slide_2.png" alt="What happened — Stryker cyberattack cascade" loading="lazy"></div>
-      <div class="carousel-slide"><img src="images/slide_3.png" alt="The real risk — ERP, vendors, integrations" loading="lazy"></div>
-      <div class="carousel-slide"><img src="images/slide_4.png" alt="By the numbers — cyber supply chain stats" loading="lazy"></div>
-      <div class="carousel-slide"><img src="images/slide_5.png" alt="5 questions to ask this week" loading="lazy"></div>
-      <div class="carousel-slide"><img src="images/slide_6.png" alt="Read the full analysis" loading="lazy"></div>
+
+      <!-- SLIDE 1: Hook -->
+      <div class="slide">
+        <p class="label">Cyber Supply Chain Risk</p>
+        <h2>A $20B company got shut down <span class="accent">by a password.</span></h2>
+        <p class="body-text">Your supply chain's biggest vulnerability isn't a port. It's your digital infrastructure.</p>
+        <p class="body-text" style="font-size:0.8rem;">Stryker. March 2026. A single cyber breach shut down a global medical supply chain.</p>
+        <div style="display:flex; gap:0.75rem; margin-top:1.5rem;">
+          <div class="info-card" style="flex:1; margin-bottom:0;">
+            <div style="color:var(--accent); font-size:2rem; font-weight:700;">80%</div>
+            <div class="card-desc">of breaches: credentials</div>
+          </div>
+          <div class="info-card" style="flex:1; margin-bottom:0;">
+            <div style="color:var(--accent); font-size:2rem; font-weight:700;">197</div>
+            <div class="card-desc">days to detect</div>
+          </div>
+        </div>
+        <div class="author">John Foley <span class="swipe" style="float:right;">SWIPE &rarr;</span></div>
+        <div class="slide-footer">1 / 6</div>
+      </div>
+
+      <!-- SLIDE 2: What Happened -->
+      <div class="slide">
+        <p class="label">What Happened</p>
+        <h2>How One Breach Took Down Global Healthcare Supply</h2>
+        <div class="info-card">
+          <div class="card-header"><span class="num">01</span><span class="card-title">Credentials Exploited</span></div>
+          <p class="card-desc">Iran-linked attackers targeted a digital vulnerability in Stryker's systems.</p>
+        </div>
+        <div class="arrow-down">&#9660;</div>
+        <div class="info-card">
+          <div class="card-header"><span class="num">02</span><span class="card-title">Systems Compromised</span></div>
+          <p class="card-desc">Order processing, manufacturing, and shipping systems — all went dark.</p>
+        </div>
+        <div class="arrow-down">&#9660;</div>
+        <div class="info-card">
+          <div class="card-header"><span class="num">03</span><span class="card-title">Hospitals Left Scrambling</span></div>
+          <p class="card-desc">NHS and global health systems lost access to critical surgical instruments.</p>
+        </div>
+        <div class="arrow-down">&#9660;</div>
+        <div class="info-card">
+          <div class="card-header"><span class="num">04</span><span class="card-title">No Fallback Existed</span></div>
+          <p class="card-desc">Specialized medical devices have no alternate sources at scale.</p>
+        </div>
+        <div class="slide-footer">2 / 6</div>
+      </div>
+
+      <!-- SLIDE 3: The Real Risk -->
+      <div class="slide">
+        <p class="label">The Real Risk</p>
+        <h2>This Isn't IT's Problem. <span class="accent">It's Yours.</span></h2>
+        <div class="info-card" style="display:flex;">
+          <div class="red-bar"></div>
+          <div>
+            <div class="card-title" style="color:var(--accent);">YOUR ERP</div>
+            <p class="card-desc">The central nervous system of your supply chain — supplier data, pricing, demand forecasts, payments. One breach takes it all down.</p>
+          </div>
+        </div>
+        <div class="info-card" style="display:flex;">
+          <div class="red-bar"></div>
+          <div>
+            <div class="card-title" style="color:var(--accent);">YOUR VENDORS</div>
+            <p class="card-desc">Tier 2 suppliers connected to your systems with credentials that haven't been rotated since 2019. They get breached, you get breached.</p>
+          </div>
+        </div>
+        <div class="info-card" style="display:flex;">
+          <div class="red-bar"></div>
+          <div>
+            <div class="card-title" style="color:var(--accent);">YOUR INTEGRATIONS</div>
+            <p class="card-desc">Built by people who left. Documented in files nobody can find. Secured by protocols nobody has audited. Every connection is an unlocked door.</p>
+          </div>
+        </div>
+        <div class="slide-footer">3 / 6</div>
+      </div>
+
+      <!-- SLIDE 4: By The Numbers -->
+      <div class="slide">
+        <p class="label">By The Numbers</p>
+        <h2>Why This Can't Wait</h2>
+        <div class="stat-card">
+          <div class="stat-num">80%</div>
+          <div class="stat-text"><strong>of breaches</strong> start with compromised credentials</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">197</div>
+          <div class="stat-text"><strong>days</strong> average time to detect a breach</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">$4.5M</div>
+          <div class="stat-text"><strong>average cost</strong> of a supply chain breach</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">1</div>
+          <div class="stat-text"><strong>password</strong> is all it takes to shut everything down</div>
+        </div>
+        <div class="slide-footer">4 / 6</div>
+      </div>
+
+      <!-- SLIDE 5: Your Move -->
+      <div class="slide">
+        <p class="label">Your Move</p>
+        <h2>5 Questions to Ask This Week</h2>
+        <div class="q-card">
+          <span class="q-num">1</span>
+          <span class="q-text">When was the last cyber risk assessment of your supply chain systems specifically?</span>
+        </div>
+        <div class="q-card">
+          <span class="q-num">2</span>
+          <span class="q-text">Have you audited your critical vendors' security posture? Do contracts require it?</span>
+        </div>
+        <div class="q-card">
+          <span class="q-num">3</span>
+          <span class="q-text">Do you have an incident response plan for when procurement systems go dark?</span>
+        </div>
+        <div class="q-card">
+          <span class="q-num">4</span>
+          <span class="q-text">Is your digital infrastructure diversified or one breach from total shutdown?</span>
+        </div>
+        <div class="q-card">
+          <span class="q-num">5</span>
+          <span class="q-text">Is cyber risk a standing item in procurement leadership meetings?</span>
+        </div>
+        <div class="slide-footer">5 / 6</div>
+      </div>
+
+      <!-- SLIDE 6: CTA -->
+      <div class="slide" style="text-align:center; justify-content:center;">
+        <div class="divider"></div>
+        <h2 style="margin-bottom:0.5rem;">Your supply chain's biggest vulnerability isn't a port.</h2>
+        <h2><span class="accent" style="font-size:1.8rem;">It's a password.</span></h2>
+        <div class="divider"></div>
+        <p class="body-text">Read the full breakdown:</p>
+        <p class="cta-url">foleystrategicadvisory.com</p>
+        <p class="cta-hint">Link in comments</p>
+        <div style="margin-top:2rem;">
+          <p style="color:var(--white); font-weight:600;">John Foley</p>
+          <p style="color:var(--gray); font-size:0.85rem;">Procurement & Supply Chain Leader</p>
+        </div>
+        <div class="slide-footer">6 / 6</div>
+      </div>
+
     </div>
   </div>
 
   <nav class="carousel-nav">
-    <button class="carousel-btn" id="prevBtn" aria-label="Previous slide">&#8592;</button>
+    <button class="carousel-btn" id="prevBtn" aria-label="Previous">&larr;</button>
     <div class="carousel-dots" id="dots"></div>
-    <button class="carousel-btn" id="nextBtn" aria-label="Next slide">&#8594;</button>
+    <button class="carousel-btn" id="nextBtn" aria-label="Next">&rarr;</button>
   </nav>
   <p class="carousel-counter" id="counter">1 / 6</p>
 </section>
@@ -327,18 +354,16 @@ body {
 
 <section class="related-section">
   <h3>Read the Full Article</h3>
-  <p>This carousel summarizes the key points. For the complete analysis with actionable frameworks, read the full piece.</p>
+  <p>This carousel summarizes the key points. For the complete analysis, read the full piece.</p>
   <a href="cyber-supply-chain.html" class="related-link">Your Supply Chain's Biggest Vulnerability Isn't a Port — It's a Password &rarr;</a>
 </section>
 
 <section class="cta-section">
-  <h3>More insights at</h3>
+  <h3 style="color:#fff;">More insights at</h3>
   <a href="https://foleystrategicadvisory.com" class="cta-btn">foleystrategicadvisory.com</a>
 </section>
 
-<footer class="site-footer">
-  &copy; 2026 Foley Strategic Advisory. All rights reserved.
-</footer>
+<footer class="site-footer">&copy; 2026 Foley Strategic Advisory. All rights reserved.</footer>
 
 <script>
 (function() {
@@ -351,11 +376,10 @@ body {
   const nextBtn = document.getElementById('nextBtn');
   let current = 0;
 
-  // Build dots
   for (let i = 0; i < total; i++) {
     const dot = document.createElement('button');
     dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    dot.setAttribute('aria-label', 'Slide ' + (i + 1));
     dot.addEventListener('click', () => goTo(i));
     dotsEl.appendChild(dot);
   }
@@ -373,27 +397,21 @@ body {
 
   prevBtn.addEventListener('click', () => goTo(current - 1));
   nextBtn.addEventListener('click', () => goTo(current + 1));
-
-  // Keyboard
   document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') goTo(current - 1);
     if (e.key === 'ArrowRight') goTo(current + 1);
   });
 
-  // Touch swipe
   let startX = 0;
   const wrapper = document.getElementById('carousel');
   wrapper.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
   wrapper.addEventListener('touchend', (e) => {
     const diff = startX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) {
-      diff > 0 ? goTo(current + 1) : goTo(current - 1);
-    }
+    if (Math.abs(diff) > 50) { diff > 0 ? goTo(current + 1) : goTo(current - 1); }
   }, { passive: true });
 
   goTo(0);
 })();
 </script>
-
 </body>
 </html>
