@@ -219,18 +219,19 @@ footer {
 }
 </style>
 <style>
-.article-layout { display:flex; gap:2rem; max-width:1100px; margin:0 auto; padding:0 1.5rem; }
-.article-content { flex:1; min-width:0; }
-.article-sidebar { width:380px; flex-shrink:0; position:sticky; top:2rem; align-self:flex-start; max-height:calc(100vh - 4rem); overflow-y:auto; }
-.article-sidebar iframe { width:100%; min-height:600px; border:none; border-radius:10px; box-shadow:0 2px 12px rgba(0,0,0,0.08); }
+/* Infographic Sidebar Layout */
+.article-layout { display:flex; gap:2.5rem; max-width:1200px; margin:0 auto; padding:0 1.5rem; }
+.article-content { flex:1; min-width:0; max-width:none; margin:0; text-align:left; }
+.article-content p, .article-content h2, .article-content h3, .article-content ul, .article-content ol { max-width:none; margin-left:0; margin-right:0; }
+.article-sidebar { width:400px; flex-shrink:0; position:sticky; top:2rem; align-self:flex-start; }
+.article-sidebar iframe { width:100%; height:calc(100vh - 4rem); border:none; border-radius:10px; box-shadow:0 2px 16px rgba(0,0,0,0.1); }
 .sidebar-label { font-size:0.7rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#B8943E; margin-bottom:0.5rem; }
-
-.article-body { max-width: 1100px !important; }
-.article-content { max-width: 680px; }
-
+.article-body { max-width:1200px !important; }
 @media (max-width:900px) {
   .article-layout { flex-direction:column; padding:0 1rem; }
-  .article-sidebar { width:100%; position:static; order:-1; max-height:500px; margin-bottom:1.5rem; }
+  .article-sidebar { width:100%; position:static; order:-1; margin-bottom:1.5rem; }
+  .article-sidebar iframe { height:500px; }
+  .article-body { max-width:800px !important; }
 }
 </style>
 </head>
