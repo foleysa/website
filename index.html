@@ -1373,7 +1373,8 @@ footer {
  <h2>The Weekly Supply Chain Brief</h2>
  <p>Curated market intelligence, procurement trends, and strategic insights delivered to your inbox every week. Written for leaders who make decisions, not just follow them.</p>
  <div class="newsletter-form">
- 
+ <input type="email" placeholder="Your email address" id="newsletter-email">
+ <button type="button" onclick="var e=document.getElementById('newsletter-email').value;if(e&&e.includes('@')){alert('Thank you for subscribing to The Weekly Supply Chain Brief. You will receive your first edition this coming Monday. — Foley Strategic Advisory');document.getElementById('newsletter-email').value='';}else{alert('Please enter a valid email address.');}">Subscribe</button>
  </div>
  </div>
 </div>
