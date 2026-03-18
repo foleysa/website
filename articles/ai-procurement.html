@@ -3,338 +3,224 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI in Procurement: Why the Gap Between Leaders and Laggards Is About to Become a Chasm | Foley Strategic Advisory</title>
-<meta name="description" content="The gap between AI-adopting procurement leaders and everyone else is compounding fast. Here's what mid-market procurement leaders need to do — and what to avoid.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>AI in Procurement: Leaders vs. Laggards — Foley Strategic Advisory</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root {
- --navy: #0B1D33;
- --navy-deep: #06111F;
- --gold: #D4A843;
- --gold-light: #E8C566;
- --cream: #F5F1EA;
- --cream-dark: #E8E1D4;
- --white: #FAFAF8;
- --slate: #4A5568;
- --slate-light: #718096;
- --border: rgba(212, 168, 67, 0.2);
-}
-
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-
-body {
+ *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+ html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+ body {
+ background: linear-gradient(170deg, #0B1D33 0%, #06111F 100%);
+ min-min-height: 100vh;
+ color: #8A9BB5;
  font-family: 'DM Sans', sans-serif;
- color: var(--navy);
- background: var(--white);
- line-height: 1.7;
+ font-size: 18px;
+ line-height: 1.65;
  -webkit-font-smoothing: antialiased;
-}
+ }
+ .top-bar { height: 4px; background: linear-gradient(90deg, #D4A843, #E8C566, #D4A843); position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
+ .page { max-width: 900px; margin: 0 auto; padding: 3rem 2.5rem; padding-top: 2.5rem; }
+ .firm-name { text-align: center; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #D4A843; margin-bottom: 1.75rem; }
+ .section-label { font-family: 'DM Sans', sans-serif; color: #D4A843; font-size: 0.65rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+ .section-label::before { content: ''; width: 20px; height: 1px; background: #D4A843; flex-shrink: 0; }
+ .title { font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 700; color: #FFFFFF; line-height: 1.2; margin-bottom: 0.5rem; }
+ .subtitle { font-family: 'DM Sans', sans-serif; font-size: 0.85rem; color: #8A9BB5; margin-bottom: 1rem; line-height: 1.45; }
+ .divider { height: 1px; background: linear-gradient(90deg, transparent, #D4A843, transparent); margin: 1.25rem 0; }
 
-nav {
- position: fixed;
- top: 0; left: 0; width: 100%; z-index: 100;
- padding: 1.5rem 4rem;
- display: flex; justify-content: space-between; align-items: center;
- background: rgba(11, 29, 51, 0.97);
- backdrop-filter: blur(12px);
-}
+ /* === COMPARISON SECTION === */
+ .compare-grid { display: flex; gap: 0.6rem; }
+ .compare-col { flex: 1; }
+ .compare-header {
+ font-family: 'DM Sans', sans-serif;
+ font-size: 0.65rem;
+ font-weight: 700;
+ letter-spacing: 2px;
+ text-transform: uppercase;
+ text-align: center;
+ padding: 0.5rem;
+ border-radius: 6px 6px 0 0;
+ margin-bottom: 0;
+ }
+ .compare-header.leaders { background: rgba(40, 167, 69, 0.15); color: #28A745; border: 1px solid rgba(40, 167, 69, 0.3); border-bottom: none; }
+ .compare-header.laggards { background: rgba(220, 53, 69, 0.15); color: #DC3545; border: 1px solid rgba(220, 53, 69, 0.3); border-bottom: none; }
+ .compare-list {
+ background: rgba(18, 39, 66, 0.6);
+ padding: 0.75rem 0.65rem;
+ border-radius: 0 0 6px 6px;
+ backdrop-filter: blur(4px);
+ }
+ .compare-list.leaders-list { border: 1px solid rgba(40, 167, 69, 0.2); border-top: none; }
+ .compare-list.laggards-list { border: 1px solid rgba(220, 53, 69, 0.2); border-top: none; }
+ .compare-item {
+ font-size: 0.72rem;
+ line-height: 1.4;
+ padding: 0.35rem 0;
+ border-bottom: 1px solid rgba(255,255,255,0.05);
+ }
+ .compare-item:last-child { border-bottom: none; }
+ .compare-item.green { color: #8ec8a0; }
+ .compare-item.red { color: #c88e8e; }
 
-.nav-logo {
- font-family: 'Cormorant Garamond', serif;
- font-size: 1.25rem; font-weight: 600;
- letter-spacing: 0.12em; text-transform: uppercase;
- color: var(--cream); text-decoration: none;
-}
-.nav-logo span { color: var(--gold); }
+ /* === MINI STATS === */
+ .mini-stats { display: flex; gap: 0.6rem; }
+ .mini-stat {
+ flex: 1;
+ background: rgba(18, 39, 66, 0.6);
+ border: 1px solid rgba(212, 168, 67, 0.2);
+ border-radius: 10px;
+ padding: 0.85rem 0.5rem;
+ text-align: center;
+ backdrop-filter: blur(4px);
+ box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+ }
+ .mini-stat .ms-num { color: #D4A843; font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 700; line-height: 1; }
+ .mini-stat .ms-num-small { color: #D4A843; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; line-height: 1; }
+ .mini-stat .ms-label { color: #8A9BB5; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; margin-top: 0.25rem; line-height: 1.3; }
 
-.nav-links { display: flex; gap: 2.5rem; list-style: none; }
-.nav-links a {
- color: rgba(245, 241, 234, 0.75); text-decoration: none;
- font-size: 0.8rem; font-weight: 500;
- letter-spacing: 0.1em; text-transform: uppercase;
- transition: color 0.3s;
-}
-.nav-links a:hover { color: var(--gold); }
-
-.article-hero {
- background: var(--navy-deep);
- padding: 10rem 4rem 5rem;
- position: relative;
-}
-
-.article-hero::after {
- content: '';
- position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
- background: linear-gradient(90deg, transparent, var(--gold), transparent);
- opacity: 0.3;
-}
-
-.article-hero-inner {
- max-width: 800px; margin: 0 auto;
-}
-
-.article-tag {
- font-size: 0.7rem; font-weight: 600;
- letter-spacing: 0.25em; text-transform: uppercase;
- color: var(--gold); margin-bottom: 2rem;
- display: flex; align-items: center; gap: 1rem;
-}
-.article-tag::before {
- content: ''; width: 40px; height: 1px; background: var(--gold);
-}
-
-.article-hero h1 {
- font-family: 'Cormorant Garamond', serif;
- font-size: 3rem; font-weight: 500; line-height: 1.15;
- color: var(--cream); margin-bottom: 1.5rem;
-}
-
-.article-meta {
- font-size: 0.85rem; color: rgba(245, 241, 234, 0.45);
-}
-.article-meta a { color: var(--gold); text-decoration: none; }
-
-.article-body {
- max-width: 800px; margin: 0 auto;
- padding: 4rem;
-}
-
-.article-body p {
- font-size: 1.05rem; color: var(--slate);
- line-height: 1.9; margin-bottom: 1.5rem;
-}
-
-.article-body p em {
- font-style: italic; color: var(--navy);
-}
-
-.article-body h2 {
- font-family: 'Cormorant Garamond', serif;
- font-size: 1.8rem; font-weight: 600;
- color: var(--navy); margin-top: 3rem; margin-bottom: 1.25rem;
- padding-top: 2rem;
- border-top: 1px solid rgba(11, 29, 51, 0.06);
-}
-
-.article-body h2:first-of-type {
- border-top: none; padding-top: 0; margin-top: 2rem;
-}
-
-.article-body h3 {
- font-family: 'Cormorant Garamond', serif;
- font-size: 1.4rem; font-weight: 600;
- color: var(--navy); margin-top: 2rem; margin-bottom: 1rem;
-}
-
-.article-body strong {
- color: var(--navy); font-weight: 600;
-}
-
-.article-body ul, .article-body ol {
- margin-bottom: 1.5rem; padding-left: 1.5rem;
-}
-
-.article-body li {
- font-size: 1.05rem; color: var(--slate);
- line-height: 1.9; margin-bottom: 0.5rem;
-}
-
-.article-cta {
- max-width: 800px; margin: 0 auto;
- padding: 0 4rem 4rem;
-}
-
-.cta-box {
- background: var(--cream);
- padding: 3rem;
- border-left: 4px solid var(--gold);
-}
-
-.cta-box p {
- font-size: 1.05rem; color: var(--slate);
- line-height: 1.8; margin-bottom: 1rem;
-}
-
-.cta-box p:last-child { margin-bottom: 0; }
-
-.cta-box a {
- color: var(--gold); text-decoration: none; font-weight: 600;
-}
-
-.article-author {
- max-width: 800px; margin: 0 auto;
- padding: 0 4rem 5rem;
- border-top: 1px solid rgba(11, 29, 51, 0.06);
- padding-top: 2.5rem;
-}
-
-.author-card {
- display: flex; gap: 2rem; align-items: start;
-}
-
-.author-info h3 {
- font-family: 'Cormorant Garamond', serif;
- font-size: 1.3rem; font-weight: 600; color: var(--navy);
- margin-bottom: 0.25rem;
-}
-
-.author-info .author-title {
- font-size: 0.8rem; font-weight: 500;
- letter-spacing: 0.08em; text-transform: uppercase;
- color: var(--gold); margin-bottom: 0.75rem;
-}
-
-.author-info p {
- font-size: 0.92rem; color: var(--slate-light); line-height: 1.75;
-}
-
-.author-info a { color: var(--navy); text-decoration: none; }
-.author-info a:hover { color: var(--gold); }
-
-footer {
- background: var(--navy-deep);
- padding: 3rem 4rem;
- display: flex; justify-content: space-between; align-items: center;
-}
-.footer-brand {
- font-family: 'Cormorant Garamond', serif;
- font-size: 1rem; font-weight: 600;
- letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream);
-}
-.footer-brand span { color: var(--gold); }
-.footer-copy { font-size: 0.78rem; color: rgba(245, 241, 234, 0.35); }
-
-@media (max-width: 768px) {
- nav { padding: 1.25rem 2rem; }
- .nav-links { display: none; }
- .article-hero { padding: 8rem 2rem 3rem; }
- .article-hero h1 { font-size: 2.2rem; }
- .article-body { padding: 3rem 2rem; }
- .article-cta { padding: 0 2rem 3rem; }
- .article-author { padding: 0 2rem 3rem; padding-top: 2rem; }
- footer { padding: 2rem; flex-direction: column; gap: 1rem; text-align: center; }
-}
-</style>
-<style>
-/* Infographic Sidebar Layout */
-.article-layout { display:flex; gap:2.5rem; max-width:1200px; margin:0 auto; padding:0 1.5rem; }
-.article-content { flex:1; min-width:0; max-width:none; margin:0; text-align:left; }
-.article-content p, .article-content h2, .article-content h3, .article-content ul, .article-content ol { max-width:none; margin-left:0; margin-right:0; }
-.article-sidebar { width:400px; flex-shrink:0; position:sticky; top:1rem; align-self:flex-start; }
-.article-sidebar iframe { width:200%; height:200vh; border:none; border-radius:10px; box-shadow:0 2px 16px rgba(0,0,0,0.1); transform:scale(0.5); transform-origin:top left; }
-.sidebar-label { font-size:0.7rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#B8943E; margin-bottom:0.5rem; }
-.sidebar-frame-wrap { width:400px; height:calc(100vh - 3rem); overflow:hidden; border-radius:10px; }
-.article-body { max-width:1200px !important; }
-@media (max-width:900px) {
-  .article-layout { flex-direction:column; padding:0 1rem; }
-  .article-sidebar { width:100%; position:static; order:-1; margin-bottom:1.5rem; }
-  .sidebar-frame-wrap { width:100%; height:80vh; }
-  .article-sidebar iframe { width:200%; height:200vh; }
-  .article-body { max-width:800px !important; }
-}
+ /* === STEP CARDS === */
+ .step-card {
+ background: rgba(18, 39, 66, 0.6);
+ border: 1px solid rgba(212, 168, 67, 0.2);
+ border-left: 3px solid #D4A843;
+ border-radius: 0 10px 10px 0;
+ padding: 1rem 1.15rem;
+ backdrop-filter: blur(4px);
+ box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+ }
+ .step-header { display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.5rem; }
+ .step-num { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: linear-gradient(135deg, #D4A843, #E8C566); border-radius: 6px; color: #06111F; font-size: 0.85rem; font-weight: 700; font-family: 'DM Sans', sans-serif; flex-shrink: 0; }
+ .step-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 700; color: #FFFFFF; line-height: 1.25; }
+ .step-body { font-size: 0.78rem; color: #8A9BB5; line-height: 1.5; }
+ .step-emphasis { color: #cdd6e4; font-weight: 500; }
+ .connector { display: flex; align-items: center; justify-content: center; height: 24px; position: relative; }
+ .connector::before { content: ''; position: absolute; left: 50%; top: 0; height: 16px; border-left: 2px dashed rgba(212, 168, 67, 0.3); }
+ .connector::after { content: ''; position: absolute; bottom: 0; left: calc(50% - 5px); border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 6px solid #D4A843; opacity: 0.5; }
+ .callout { background: rgba(212, 168, 67, 0.08); border: 1px solid rgba(212, 168, 67, 0.25); border-left: 3px solid #D4A843; border-radius: 0 10px 10px 0; padding: 1rem 1.25rem; }
+ .callout-text { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 500; color: #FFFFFF; line-height: 1.45; font-style: italic; }
+ .footer { text-align: center; margin-top: 1.5rem; padding-top: 0.75rem; }
+ .footer-name { font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 600; color: #FFFFFF; margin-bottom: 0.15rem; }
+ .footer-url { font-family: 'DM Sans', sans-serif; font-size: 0.85rem; color: #D4A843; letter-spacing: 0.5px; }
+ .footer-url a { color: #D4A843; text-decoration: none; }
+ @media (max-width: 420px) {
+ .page { padding: 1.5rem 1.15rem; padding-top: 2rem; }
+ .title { font-size: 1.4rem; }
+ .mini-stat .ms-num { font-size: 1.5rem; }
+ .mini-stat .ms-num-small { font-size: 1.2rem; }
+ .compare-item { font-size: 0.68rem; }
+ }
 </style>
 </head>
 <body>
 
-<nav>
- <a href="/" class="nav-logo">Foley <span>Strategic</span> Advisory</a>
- <ul class="nav-links">
- <li><a href="/#about">About</a></li>
- <li><a href="/#services">Services</a></li>
- <li><a href="/#industries">Industries</a></li>
- <li><a href="/#insights">Insights</a></li>
- <li><a href="/#about">About</a></li>
- </ul>
-</nav>
+<div class="top-bar"></div>
 
-<section class="article-hero">
- <div class="article-hero-inner">
- <div class="article-tag">AI &amp; Digital Procurement</div>
- <h1>AI in Procurement: Why the Gap Between Leaders and Laggards Is About to Become a Chasm</h1>
- <div class="article-meta">By <a href="/#about">John Foley</a> &nbsp;|&nbsp; March 2026</div>
- </div>
-</section>
+<div class="page">
 
-<article class="article-body">
-<div class="article-layout">
-<div class="article-content">
+ <div class="firm-name">Foley Strategic Advisory</div>
 
-<p>One thing decades in procurement has taught me: the gap between who adapts and who doesn't starts to widen, and it doesn't close on its own. It accelerates.</p>
+ <div class="section-label">AI &amp; Procurement</div>
 
-<p>That's exactly what's happening right now in procurement and supply chain.</p>
+ <h1 class="title">AI in Procurement: Leaders vs. Laggards</h1>
 
-<h2>The Data Is Clear — and It's Uncomfortable</h2>
+ <p class="subtitle">The gap is accelerating. Which side are you on?</p>
 
-<p>BCG's latest research on supply chain performance confirms what many of us have been seeing on the ground: the gap between leaders and laggards isn't just growing — it's compounding. Top-performing supply chain organizations are pulling away from the pack at an increasing rate, and the organizations stuck in the middle are losing ground faster than they realize.</p>
+ <div class="divider"></div>
 
-<p>This isn't about one company having a better ERP system or a smarter VP of Supply Chain. It's structural. BCG identifies four factors driving the divergence: <strong>decision clarity, process design, data quality, and technology adoption.</strong> Leaders are strong across all four. Laggards are weak in at least two. And the uncomfortable truth is that most mid-market procurement organizations are laggards who think they're somewhere in the middle.</p>
-
-<h2>AI Is the Accelerant</h2>
-
-<p>What's turning a performance gap into a chasm? Artificial intelligence — specifically, AI-driven autonomous supply chain planning and procurement automation.</p>
-
-<p>The convergence of reporting on this is hard to ignore. PYMNTS is covering the shift toward AI-powered procurement platforms reshaping how companies manage spend. ProcureKey is documenting how AI is moving from pilot projects to production deployments. Boss Magazine is highlighting the competitive advantages accruing to early movers. Clarkston Consulting is laying out the case that AI-powered procurement has shifted from a nice-to-have to a competitive necessity.</p>
-
-<p>When that many independent voices converge on the same message, pay attention. This isn't hype. This is a market moving.</p>
-
-<p>Leaders are already deploying AI to automate demand forecasting, optimize supplier selection, flag contract risks, and accelerate cycle times. They're not doing it because it's trendy — they're doing it because it works. They're seeing measurable improvements in cost savings, cycle time reduction, and risk mitigation. And every quarter they operate with these capabilities while their competitors don't, the gap widens.</p>
-
-<h2>The Mid-Market Problem</h2>
-
-<p>Here's where I get concerned. The Fortune 100 companies have the budgets, the data infrastructure, and the internal talent to move on AI adoption. They're not all doing it well, but they're doing it.</p>
-
-<p>The mid-market? They're stuck. They see the headlines. They attend the conferences. They know AI is going to matter. But when they sit down on Monday morning and look at their procurement operation — the messy data, the manual processes, the patchwork of systems — they don't know where to start. So they don't start.</p>
-
-<p>Or worse, they start wrong. They buy a shiny platform they don't have the data quality to support. They launch a pilot with no clear success metrics. They hire a Big 4 firm that delivers a 200-slide strategy deck and a six-figure invoice, and six months later nothing has changed.</p>
-
-<p>I've seen this movie before. The procurement equivalent is: no AI strategy survives first contact with your actual data.</p>
-
-<h2>What to Do Instead</h2>
-
-<p>If you're a mid-market procurement leader reading this and feeling the pressure, here's my advice. It's the same advice I give every client, and it's unglamorous by design.</p>
-
-<p><strong>Step 1: Start with a data quality audit.</strong> Before you evaluate a single AI tool, understand the state of your data. What's clean? What's a mess? Where are the gaps? AI is only as good as what you feed it. If your spend data is inconsistent, your supplier master is full of duplicates, and your contract repository is a shared drive with 10,000 unsorted PDFs, no AI platform in the world is going to save you. Fix the foundation first.</p>
-
-<p><strong>Step 2: Identify 2-3 high-value automation targets.</strong> Don't try to transform your entire procurement function at once. Look for processes that are high-volume, rules-based, and currently manual. Invoice matching. Supplier qualification screening. Demand forecasting for routine categories. These are the places where AI delivers ROI fast and builds organizational confidence for bigger moves.</p>
-
-<p><strong>Step 3: Build a phased roadmap.</strong> Map out a 12-18 month plan that starts with quick wins and builds toward more sophisticated capabilities. Phase 1 might be automating tactical processes. Phase 2 could be deploying predictive analytics for spend management. Phase 3 might introduce AI-assisted strategic sourcing. Each phase should have clear metrics and decision gates.</p>
-
-<p><strong>Step 4: Don't try to boil the ocean.</strong> This is the most important one. The organizations that succeed with AI in procurement are the ones that resist the temptation to do everything at once. They pick their spots, execute well, learn, and expand. The ones that fail are the ones that try to leapfrog from manual spreadsheets to fully autonomous procurement in one budget cycle.</p>
-
-<h2>You Don't Need a $5M Platform</h2>
-
-<p>Let me be direct: you don't need a $5 million platform to start capturing value from AI in procurement. What you need is a clear-eyed assessment of where AI actually moves the needle in <em>your</em> procurement function. Not a generic maturity model. Not a vendor's demo environment. An honest look at your processes, your data, your people, and your pain points — and a realistic plan to close the gaps that matter most.</p>
-
-<p>That's a very different exercise than what most organizations are doing. And it's where the gap between leaders and laggards is really being decided — not in the technology itself, but in the quality of the decisions about <em>how</em> to adopt it.</p>
-
-</div>
-<div class="article-sidebar">
-<div class="sidebar-label">Visual Summary</div>
-<div class="sidebar-frame-wrap"><iframe src="ai-procurement-infographic.html" title="Infographic"></iframe></div>
-</div>
-</div>
-</article>
-
-
-
-<div class="article-author">
- <div class="author-card">
- <div class="author-info">
- <h3>John Foley</h3>
- <div class="author-title">Founder, Foley Strategic Advisory</div>
- <p>Specializing in supply chain strategy, procurement transformation, and logistics optimization for mid-to-large enterprises.</p>
- 
+ <!-- COMPARISON -->
+ <div class="compare-grid">
+ <div class="compare-col">
+ <div class="compare-header leaders">Leaders</div>
+ <div class="compare-list leaders-list">
+ <div class="compare-item green">Predictive risk monitoring</div>
+ <div class="compare-item green">AI-assisted sourcing decisions</div>
+ <div class="compare-item green">Real-time spend visibility</div>
+ <div class="compare-item green">Scenario modeling in hours</div>
  </div>
  </div>
-</div>
+ <div class="compare-col">
+ <div class="compare-header laggards">Laggards</div>
+ <div class="compare-list laggards-list">
+ <div class="compare-item red">Reactive firefighting</div>
+ <div class="compare-item red">Manual RFPs and spreadsheets</div>
+ <div class="compare-item red">Quarterly spend reports</div>
+ <div class="compare-item red">Gut-feel decisions</div>
+ </div>
+ </div>
+ </div>
 
-<footer>
- <div class="footer-brand">Foley <span>Strategic</span> Advisory</div>
- <div class="footer-copy">Project-Based &bull; Retainer &bull; Fractional Advisory &nbsp;|&nbsp; &copy; 2026 Foley Strategic Advisory</div>
-</footer>
+ <div class="divider"></div>
+
+ <!-- IMPACT STATS -->
+ <div class="mini-stats">
+ <div class="mini-stat">
+ <div class="ms-num-small">15-25%</div>
+ <div class="ms-label">more savings from AI-enabled teams</div>
+ </div>
+ <div class="mini-stat">
+ <div class="ms-num-small">3-6 mo</div>
+ <div class="ms-label">earlier risk detection</div>
+ </div>
+ <div class="mini-stat">
+ <div class="ms-num-small">8-12%</div>
+ <div class="ms-label">hidden savings found in 90 days</div>
+ </div>
+ </div>
+
+ <div class="divider"></div>
+
+ <!-- 4 STEPS -->
+ <div class="section-label">4 Steps to Close the Gap</div>
+
+ <div class="step-card">
+ <div class="step-header">
+ <span class="step-num">01</span>
+ <span class="step-title">Start with Spend Analytics</span>
+ </div>
+ <div class="step-body">Classify and clean your spend data using AI. Most companies have <span class="step-emphasis">15-30% of spend that's misclassified or invisible.</span> This is the highest-ROI first step — find savings before you change anything else.</div>
+ </div>
+
+ <div class="connector"></div>
+
+ <div class="step-card">
+ <div class="step-header">
+ <span class="step-num">02</span>
+ <span class="step-title">Automate Tactical, Focus on Strategic</span>
+ </div>
+ <div class="step-body">AI handles PO matching, invoice processing, contract extraction, compliance checking. <span class="step-emphasis">Humans focus on supplier relationships, negotiation strategy, and category strategy.</span> The goal isn't fewer people — it's people doing higher-value work.</div>
+ </div>
+
+ <div class="connector"></div>
+
+ <div class="step-card">
+ <div class="step-header">
+ <span class="step-num">03</span>
+ <span class="step-title">Build Predictive Risk Models</span>
+ </div>
+ <div class="step-body">Move from reactive to predictive. Monitor supplier financial health, news, geographic risk, and demand signals with AI. <span class="step-emphasis">Detect bankruptcy indicators months before the force majeure notice arrives.</span></div>
+ </div>
+
+ <div class="connector"></div>
+
+ <div class="step-card">
+ <div class="step-header">
+ <span class="step-num">04</span>
+ <span class="step-title">Embed AI in Sourcing Decisions</span>
+ </div>
+ <div class="step-body">AI-assisted should-cost models that account for total cost of ownership. Scenario modeling: <span class="step-emphasis">"If Hormuz stays closed for 6 months, what's our optimal sourcing mix?"</span> Not replacing judgment — augmenting it with better data.</div>
+ </div>
+
+ <div class="divider"></div>
+
+ <div class="callout">
+ <p class="callout-text">"The question isn't whether AI transforms procurement. It's whether you lead or scramble to catch up."</p>
+ <p style="margin-top: 0.6rem; font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: #D4A843; font-style: normal;">— John Foley</p>
+ </div>
+
+ <div class="footer">
+ <div class="footer-name">John Foley</div>
+ <div class="footer-url"><a href="https://foleystrategicadvisory.com">foleystrategicadvisory.com</a></div>
+ </div>
+
+</div>
 
 </body>
 </html>

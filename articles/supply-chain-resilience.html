@@ -3,362 +3,624 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Supply Chain Resilience in the Hormuz Era: A Practical Framework | Foley Strategic Advisory</title>
-<meta name="description" content="The Strait of Hormuz closure is the largest supply disruption in modern history. A practical four-step resilience framework for mid-market companies that need to act now.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Supply Chain Resilience in the Hormuz Era — Foley Strategic Advisory</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root {
- --navy: #0B1D33;
- --navy-deep: #06111F;
- --gold: #D4A843;
- --gold-light: #E8C566;
- --cream: #F5F1EA;
- --cream-dark: #E8E1D4;
- --white: #FAFAF8;
- --slate: #4A5568;
- --slate-light: #718096;
- --border: rgba(212, 168, 67, 0.2);
-}
+ *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+ html {
+ -webkit-text-size-adjust: 100%;
+ scroll-behavior: smooth;
+ }
 
-body {
+ body {
+ background: linear-gradient(170deg, #0B1D33 0%, #06111F 100%);
+ min-min-height: 100vh;
+ color: #8A9BB5;
  font-family: 'DM Sans', sans-serif;
- color: var(--navy);
- background: var(--white);
- line-height: 1.7;
+ font-size: 18px;
+ line-height: 1.65;
  -webkit-font-smoothing: antialiased;
-}
+ }
 
-nav {
+ /* === TOP ACCENT BAR === */
+ .top-bar {
+ height: 4px;
+ background: linear-gradient(90deg, #D4A843, #E8C566, #D4A843);
  position: fixed;
- top: 0; left: 0; width: 100%; z-index: 100;
- padding: 1.5rem 4rem;
- display: flex; justify-content: space-between; align-items: center;
- background: rgba(11, 29, 51, 0.97);
- backdrop-filter: blur(12px);
-}
+ top: 0;
+ left: 0;
+ right: 0;
+ z-index: 100;
+ }
 
-.nav-logo {
- font-family: 'Cormorant Garamond', serif;
- font-size: 1.25rem; font-weight: 600;
- letter-spacing: 0.12em; text-transform: uppercase;
- color: var(--cream); text-decoration: none;
-}
-.nav-logo span { color: var(--gold); }
-
-.nav-links { display: flex; gap: 2.5rem; list-style: none; }
-.nav-links a {
- color: rgba(245, 241, 234, 0.75); text-decoration: none;
- font-size: 0.8rem; font-weight: 500;
- letter-spacing: 0.1em; text-transform: uppercase;
- transition: color 0.3s;
-}
-.nav-links a:hover { color: var(--gold); }
-
-.article-hero {
- background: var(--navy-deep);
- padding: 10rem 4rem 5rem;
- position: relative;
-}
-
-.article-hero::after {
- content: '';
- position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
- background: linear-gradient(90deg, transparent, var(--gold), transparent);
- opacity: 0.3;
-}
-
-.article-hero-inner {
- max-width: 800px; margin: 0 auto;
-}
-
-.article-tag {
- font-size: 0.7rem; font-weight: 600;
- letter-spacing: 0.25em; text-transform: uppercase;
- color: var(--gold); margin-bottom: 2rem;
- display: flex; align-items: center; gap: 1rem;
-}
-.article-tag::before {
- content: ''; width: 40px; height: 1px; background: var(--gold);
-}
-
-.article-hero h1 {
- font-family: 'Cormorant Garamond', serif;
- font-size: 3rem; font-weight: 500; line-height: 1.15;
- color: var(--cream); margin-bottom: 1.5rem;
-}
-
-.article-meta {
- font-size: 0.85rem; color: rgba(245, 241, 234, 0.45);
-}
-.article-meta a { color: var(--gold); text-decoration: none; }
-
-.article-body {
- max-width: 800px; margin: 0 auto;
- padding: 4rem;
-}
-
-.article-body p {
- font-size: 1.05rem; color: var(--slate);
- line-height: 1.9; margin-bottom: 1.5rem;
-}
-
-.article-body p em {
- font-style: italic; color: var(--navy);
-}
-
-.article-body h2 {
- font-family: 'Cormorant Garamond', serif;
- font-size: 1.8rem; font-weight: 600;
- color: var(--navy); margin-top: 3rem; margin-bottom: 1.25rem;
- padding-top: 2rem;
- border-top: 1px solid rgba(11, 29, 51, 0.06);
-}
-
-.article-body h2:first-of-type {
- border-top: none; padding-top: 0; margin-top: 2rem;
-}
-
-.article-body h3 {
- font-family: 'Cormorant Garamond', serif;
- font-size: 1.4rem; font-weight: 600;
- color: var(--navy); margin-top: 2rem; margin-bottom: 1rem;
-}
-
-.article-body strong {
- color: var(--navy); font-weight: 600;
-}
-
-.article-body ul, .article-body ol {
- margin-bottom: 1.5rem; padding-left: 1.5rem;
-}
-
-.article-body li {
- font-size: 1.05rem; color: var(--slate);
- line-height: 1.9; margin-bottom: 0.5rem;
-}
-
-.article-cta {
- max-width: 800px; margin: 0 auto;
- padding: 0 4rem 4rem;
-}
-
-.cta-box {
- background: var(--cream);
- padding: 3rem;
- border-left: 4px solid var(--gold);
-}
-
-.cta-box p {
- font-size: 1.05rem; color: var(--slate);
- line-height: 1.8; margin-bottom: 1rem;
-}
-
-.cta-box p:last-child { margin-bottom: 0; }
-
-.cta-box a {
- color: var(--gold); text-decoration: none; font-weight: 600;
-}
-
-.article-author {
- max-width: 800px; margin: 0 auto;
- padding: 0 4rem 5rem;
- border-top: 1px solid rgba(11, 29, 51, 0.06);
+ /* === PAGE WRAPPER === */
+ .page {
+ max-width: 900px;
+ margin: 0 auto;
+ padding: 3rem 2.5rem;
  padding-top: 2.5rem;
-}
+ }
 
-.author-card {
- display: flex; gap: 2rem; align-items: start;
-}
+ /* === FIRM NAME === */
+ .firm-name {
+ text-align: center;
+ font-family: 'DM Sans', sans-serif;
+ font-size: 0.85rem;
+ font-weight: 600;
+ letter-spacing: 2px;
+ text-transform: uppercase;
+ color: #D4A843;
+ margin-bottom: 1.75rem;
+ }
 
-.author-info h3 {
+ /* === SECTION LABELS === */
+ .section-label {
+ font-family: 'DM Sans', sans-serif;
+ color: #D4A843;
+ font-size: 0.65rem;
+ font-weight: 700;
+ letter-spacing: 3px;
+ text-transform: uppercase;
+ display: flex;
+ align-items: center;
+ gap: 0.5rem;
+ margin-bottom: 0.75rem;
+ }
+ .section-label::before {
+ content: '';
+ width: 20px;
+ height: 1px;
+ background: #D4A843;
+ flex-shrink: 0;
+ }
+
+ /* === TITLE === */
+ .title {
  font-family: 'Cormorant Garamond', serif;
- font-size: 1.3rem; font-weight: 600; color: var(--navy);
+ font-size: 1.65rem;
+ font-weight: 700;
+ color: #FFFFFF;
+ line-height: 1.2;
+ margin-bottom: 0.5rem;
+ }
+
+ /* === SUBTITLE === */
+ .subtitle {
+ font-family: 'DM Sans', sans-serif;
+ font-size: 0.85rem;
+ color: #8A9BB5;
+ margin-bottom: 1rem;
+ line-height: 1.45;
+ }
+
+ /* === STATUS ROW === */
+ .status-row {
+ display: flex;
+ align-items: center;
+ gap: 0.75rem;
  margin-bottom: 0.25rem;
-}
+ flex-wrap: wrap;
+ }
 
-.author-info .author-title {
- font-size: 0.8rem; font-weight: 500;
- letter-spacing: 0.08em; text-transform: uppercase;
- color: var(--gold); margin-bottom: 0.75rem;
-}
+ /* === BADGES === */
+ .badge {
+ display: inline-block;
+ padding: 0.15rem 0.6rem;
+ border-radius: 4px;
+ font-size: 0.65rem;
+ font-weight: 700;
+ letter-spacing: 1px;
+ text-transform: uppercase;
+ font-family: 'DM Sans', sans-serif;
+ }
+ .badge-critical { background: #DC3545; color: #fff; }
+ .badge-high { background: #E85D3A; color: #fff; }
+ .badge-medium { background: rgba(212,168,67,0.2); color: #D4A843; border: 1px solid #D4A843; }
+ .badge-low { background: rgba(40,167,69,0.15); color: #28A745; border: 1px solid #28A745; }
 
-.author-info p {
- font-size: 0.92rem; color: var(--slate-light); line-height: 1.75;
-}
+ .status-date {
+ font-size: 0.75rem;
+ color: #8A9BB5;
+ font-weight: 400;
+ }
 
-.author-info a { color: var(--navy); text-decoration: none; }
-.author-info a:hover { color: var(--gold); }
+ /* === GOLD DIVIDER === */
+ .divider {
+ height: 1px;
+ background: linear-gradient(90deg, transparent, #D4A843, transparent);
+ margin: 1.25rem 0;
+ }
 
-footer {
- background: var(--navy-deep);
- padding: 3rem 4rem;
- display: flex; justify-content: space-between; align-items: center;
-}
-.footer-brand {
+ /* === MINI STATS === */
+ .mini-stats {
+ display: flex;
+ gap: 0.6rem;
+ }
+ .mini-stat {
+ flex: 1;
+ background: rgba(18, 39, 66, 0.6);
+ border: 1px solid rgba(212, 168, 67, 0.2);
+ border-radius: 10px;
+ padding: 0.85rem 0.5rem;
+ text-align: center;
+ backdrop-filter: blur(4px);
+ box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+ }
+ .mini-stat .ms-num {
+ color: #D4A843;
  font-family: 'Cormorant Garamond', serif;
- font-size: 1rem; font-weight: 600;
- letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream);
-}
-.footer-brand span { color: var(--gold); }
-.footer-copy { font-size: 0.78rem; color: rgba(245, 241, 234, 0.35); }
+ font-size: 1.8rem;
+ font-weight: 700;
+ line-height: 1;
+ }
+ .mini-stat .ms-label {
+ color: #8A9BB5;
+ font-family: 'DM Sans', sans-serif;
+ font-size: 0.85rem;
+ margin-top: 0.25rem;
+ line-height: 1.3;
+ }
 
-@media (max-width: 768px) {
- nav { padding: 1.25rem 2rem; }
- .nav-links { display: none; }
- .article-hero { padding: 8rem 2rem 3rem; }
- .article-hero h1 { font-size: 2.2rem; }
- .article-body { padding: 3rem 2rem; }
- .article-cta { padding: 0 2rem 3rem; }
- .article-author { padding: 0 2rem 3rem; padding-top: 2rem; }
- footer { padding: 2rem; flex-direction: column; gap: 1rem; text-align: center; }
-}
-</style>
-<style>
-/* Infographic Sidebar Layout */
-.article-layout { display:flex; gap:2.5rem; max-width:1200px; margin:0 auto; padding:0 1.5rem; }
-.article-content { flex:1; min-width:0; max-width:none; margin:0; text-align:left; }
-.article-content p, .article-content h2, .article-content h3, .article-content ul, .article-content ol { max-width:none; margin-left:0; margin-right:0; }
-.article-sidebar { width:400px; flex-shrink:0; position:sticky; top:1rem; align-self:flex-start; }
-.article-sidebar iframe { width:200%; height:200vh; border:none; border-radius:10px; box-shadow:0 2px 16px rgba(0,0,0,0.1); transform:scale(0.5); transform-origin:top left; }
-.sidebar-label { font-size:0.7rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#B8943E; margin-bottom:0.5rem; }
-.sidebar-frame-wrap { width:400px; height:calc(100vh - 3rem); overflow:hidden; border-radius:10px; }
-.article-body { max-width:1200px !important; }
-@media (max-width:900px) {
-  .article-layout { flex-direction:column; padding:0 1rem; }
-  .article-sidebar { width:100%; position:static; order:-1; margin-bottom:1.5rem; }
-  .sidebar-frame-wrap { width:100%; height:80vh; }
-  .article-sidebar iframe { width:200%; height:200vh; }
-  .article-body { max-width:800px !important; }
-}
+ /* === STEP CARDS === */
+ .card {
+ background: rgba(18, 39, 66, 0.6);
+ border: 1px solid rgba(212, 168, 67, 0.2);
+ border-radius: 10px;
+ padding: 1rem 1.15rem;
+ backdrop-filter: blur(4px);
+ box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+ }
+ .step-card {
+ background: rgba(18, 39, 66, 0.6);
+ border: 1px solid rgba(212, 168, 67, 0.2);
+ border-left: 3px solid #D4A843;
+ border-radius: 0 10px 10px 0;
+ padding: 1rem 1.15rem;
+ backdrop-filter: blur(4px);
+ box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+ }
+ .step-header {
+ display: flex;
+ align-items: center;
+ gap: 0.65rem;
+ margin-bottom: 0.6rem;
+ }
+ .step-num {
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ width: 32px;
+ height: 32px;
+ background: linear-gradient(135deg, #D4A843, #E8C566);
+ border-radius: 6px;
+ color: #06111F;
+ font-size: 0.85rem;
+ font-weight: 700;
+ font-family: 'DM Sans', sans-serif;
+ flex-shrink: 0;
+ }
+ .step-title {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 1.15rem;
+ font-weight: 700;
+ color: #FFFFFF;
+ line-height: 1.25;
+ }
+ .step-body {
+ font-size: 0.8rem;
+ color: #8A9BB5;
+ line-height: 1.65;
+ }
+ .step-body p {
+ margin-bottom: 0.4rem;
+ }
+ .step-body p:last-child {
+ margin-bottom: 0;
+ }
+ .step-emphasis {
+ color: #cdd6e4;
+ font-weight: 500;
+ }
+
+ /* === HEAT MAP LEGEND === */
+ .heat-legend {
+ display: flex;
+ gap: 0.5rem;
+ margin-top: 0.65rem;
+ flex-wrap: wrap;
+ }
+ .heat-item {
+ display: flex;
+ align-items: center;
+ gap: 0.3rem;
+ font-size: 0.85rem;
+ font-weight: 600;
+ }
+ .heat-dot {
+ width: 10px;
+ height: 10px;
+ border-radius: 2px;
+ flex-shrink: 0;
+ }
+ .heat-dot.red { background: #DC3545; }
+ .heat-dot.yellow { background: #E8C566; }
+ .heat-dot.green { background: #28A745; }
+
+ /* === INLINE MINI STATS (for step 4) === */
+ .inline-stats {
+ display: flex;
+ gap: 0.4rem;
+ margin-top: 0.65rem;
+ }
+ .inline-stat {
+ flex: 1;
+ background: rgba(11, 29, 51, 0.6);
+ border: 1px solid rgba(212, 168, 67, 0.15);
+ border-radius: 6px;
+ padding: 0.5rem 0.35rem;
+ text-align: center;
+ }
+ .inline-stat .is-num {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 1.25rem;
+ font-weight: 700;
+ line-height: 1;
+ }
+ .inline-stat .is-label {
+ font-size: 0.6rem;
+ color: #8A9BB5;
+ margin-top: 0.15rem;
+ line-height: 1.25;
+ }
+ .is-num.real { color: #28A745; }
+ .is-num.paper { color: #E8C566; }
+ .is-num.none { color: #DC3545; }
+
+ /* === EXAMPLE SCENARIO === */
+ .example-card {
+ background: rgba(18, 39, 66, 0.6);
+ border: 1px solid rgba(212, 168, 67, 0.2);
+ border-radius: 10px;
+ padding: 1rem 1.15rem;
+ backdrop-filter: blur(4px);
+ box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+ }
+ .example-title {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 1.1rem;
+ font-weight: 700;
+ color: #FFFFFF;
+ margin-bottom: 0.75rem;
+ }
+ .example-scenario {
+ font-size: 0.8rem;
+ color: #8A9BB5;
+ margin-bottom: 0.85rem;
+ line-height: 1.65;
+ padding-bottom: 0.75rem;
+ border-bottom: 1px solid rgba(212, 168, 67, 0.1);
+ }
+ .example-steps {
+ display: flex;
+ flex-direction: column;
+ gap: 0.6rem;
+ }
+ .ex-step {
+ display: flex;
+ gap: 0.6rem;
+ align-items: flex-start;
+ }
+ .ex-step-num {
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ width: 22px;
+ height: 22px;
+ background: linear-gradient(135deg, #D4A843, #E8C566);
+ border-radius: 4px;
+ color: #06111F;
+ font-size: 0.65rem;
+ font-weight: 700;
+ font-family: 'DM Sans', sans-serif;
+ flex-shrink: 0;
+ margin-top: 1px;
+ }
+ .ex-step-content {
+ font-size: 0.75rem;
+ color: #8A9BB5;
+ line-height: 1.5;
+ }
+ .ex-step-content strong {
+ color: #cdd6e4;
+ font-weight: 600;
+ }
+ .ex-step-content .ex-red { color: #DC3545; font-weight: 600; }
+ .ex-step-content .ex-yellow { color: #E8C566; font-weight: 600; }
+ .ex-step-content .ex-green { color: #28A745; font-weight: 600; }
+ .ex-result {
+ margin-top: 0.75rem;
+ padding-top: 0.65rem;
+ border-top: 1px solid rgba(212, 168, 67, 0.1);
+ font-size: 0.75rem;
+ color: #cdd6e4;
+ font-weight: 500;
+ line-height: 1.5;
+ }
+
+ /* === CONNECTOR === */
+ .connector {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ height: 24px;
+ position: relative;
+ }
+ .connector::before {
+ content: '';
+ position: absolute;
+ left: 50%;
+ top: 0;
+ height: 16px;
+ border-left: 2px dashed rgba(212, 168, 67, 0.3);
+ }
+ .connector::after {
+ content: '';
+ position: absolute;
+ bottom: 0;
+ left: calc(50% - 5px);
+ border-left: 5px solid transparent;
+ border-right: 5px solid transparent;
+ border-top: 6px solid #D4A843;
+ opacity: 0.5;
+ }
+
+ /* === CALLOUT BOX === */
+ .callout {
+ background: rgba(212, 168, 67, 0.08);
+ border: 1px solid rgba(212, 168, 67, 0.25);
+ border-left: 3px solid #D4A843;
+ border-radius: 0 10px 10px 0;
+ padding: 1rem 1.25rem;
+ }
+ .callout-text {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 1.05rem;
+ font-weight: 500;
+ color: #FFFFFF;
+ line-height: 1.45;
+ font-style: italic;
+ }
+
+ /* === FOOTER === */
+ .footer {
+ text-align: center;
+ margin-top: 1.5rem;
+ padding-top: 0.75rem;
+ }
+ .footer-name {
+ font-family: 'DM Sans', sans-serif;
+ font-size: 0.8rem;
+ font-weight: 600;
+ color: #FFFFFF;
+ margin-bottom: 0.15rem;
+ }
+ .footer-url {
+ font-family: 'DM Sans', sans-serif;
+ font-size: 0.85rem;
+ color: #D4A843;
+ letter-spacing: 0.5px;
+ }
+ .footer-url a {
+ color: #D4A843;
+ text-decoration: none;
+ }
+
+ /* === RESPONSIVE === */
+ @media (max-width: 420px) {
+ .page {
+ padding: 1.5rem 1.15rem;
+ padding-top: 2rem;
+ }
+ .title {
+ font-size: 1.4rem;
+ }
+ .mini-stat .ms-num {
+ font-size: 1.5rem;
+ }
+ .mini-stat .ms-label {
+ font-size: 0.65rem;
+ }
+ .mini-stat {
+ padding: 0.7rem 0.35rem;
+ }
+ .heat-legend {
+ gap: 0.35rem;
+ }
+ }
 </style>
 </head>
 <body>
 
-<nav>
- <a href="/" class="nav-logo">Foley <span>Strategic</span> Advisory</a>
- <ul class="nav-links">
- <li><a href="/#about">About</a></li>
- <li><a href="/#services">Services</a></li>
- <li><a href="/#industries">Industries</a></li>
- <li><a href="/#insights">Insights</a></li>
- <li><a href="/#about">About</a></li>
- </ul>
-</nav>
+<div class="top-bar"></div>
 
-<section class="article-hero">
- <div class="article-hero-inner">
- <div class="article-tag">Supply Chain Resilience</div>
- <h1>Supply Chain Resilience in the Hormuz Era: A Practical Framework for Mid-Market Companies</h1>
- <div class="article-meta">By <a href="/#about">John Foley</a> &nbsp;|&nbsp; March 2026</div>
+<div class="page">
+
+ <!-- SECTION LABEL -->
+ <div class="section-label">Supply Chain Strategy</div>
+
+ <!-- TITLE -->
+ <h1 class="title">Supply Chain Resilience in the Hormuz Era</h1>
+
+ <!-- SUBTITLE -->
+ <p class="subtitle">A practical 4-step framework for procurement leaders navigating the most significant energy supply disruption in decades.</p>
+
+ <!-- STATUS -->
+ <div class="status-row">
+ <span class="badge badge-critical">Critical Disruption</span>
+ <span class="status-date">February 2026 — Ongoing</span>
  </div>
-</section>
 
-<article class="article-body">
-<div class="article-layout">
-<div class="article-content">
+ <!-- DIVIDER -->
+ <div class="divider"></div>
 
-<p>Two weeks ago, the Strait of Hormuz effectively closed. If your company has any exposure to Gulf-sourced materials, energy, or suppliers — and you haven't already started war-gaming your response — you're behind.</p>
-
-<p>Let me be blunt: this is the largest supply disruption in modern history. Not a stress test. Not a drill. The real thing.</p>
-
-<h2>What Just Happened</h2>
-
-<p>On February 28, the escalating US-Israeli conflict with Iran shut down transit through the Strait of Hormuz. Twenty percent of global oil supply — gone from the market overnight. WTI crude surged from roughly $70 to $96-98 per barrel in days, and that number isn't coming back down soon. Gulf state oil production has dropped more than 10 million barrels per day.</p>
-
-<p>On March 4, QatarEnergy declared force majeure on all LNG shipments. That's not a partial curtailment — that's a full stop on liquefied natural gas from the world's largest LNG exporter. Bahrain's Alba aluminum smelter, one of the world's largest, cut production by 19%. These are dominoes, and they're still falling.</p>
-
-<p>If you're running a mid-market company and think this is someone else's problem, think again. Energy costs feed into everything: transportation, manufacturing, raw materials, packaging, logistics. Even if you don't source a single component from the Gulf, your suppliers might. Their suppliers almost certainly do.</p>
-
-<h2>Why Mid-Market Companies Are Most Exposed</h2>
-
-<p>Fortune 100 companies have entire risk management teams, eight-figure consulting engagements, and diversified global supply networks built over decades. They'll absorb this hit. It'll hurt, but they'll survive.</p>
-
-<p>Mid-market companies — $100M to $2B in revenue — typically don't have that infrastructure. Most have lean procurement teams running hard just to keep operations moving. Supply chain risk management, if it exists at all, is a spreadsheet someone updates quarterly.</p>
-
-<p>I've seen this from both sides. During my time The difference was never budget. It was preparation and speed of response.</p>
-
-<p>Mid-market companies can build resilience. But they can't do it the way the big shops do — with 18-month transformation programs and seven-figure strategy decks. They need a framework they can execute in weeks, not quarters.</p>
-
-<h2>A Practical Framework: Four Steps to Resilience</h2>
-
-<p>Here's what I'd tell any mid-market CEO or COO right now. This isn't theory. This is what works.</p>
-
-<h3>1. Map Your Exposure — Ruthlessly and Quickly</h3>
-
-<p>You need to know, within the next 72 hours, exactly where your supply chain touches the Gulf. Not just Tier 1 suppliers — go at least to Tier 2, and ideally Tier 3.</p>
-
-<p>Start with energy. What percentage of your energy costs are tied to natural gas or petroleum products that originate from Gulf states? Then move to raw materials. Petrochemicals, aluminum, specialty chemicals, plastics feedstocks — all of these have significant Gulf exposure.</p>
-
-<p>Don't overthink this. You're not building a perfect model. You're building a heat map. Red means "this breaks us if it goes away for 90 days." Yellow means "painful but survivable." Green means "minimal exposure." Anything you can't categorize goes in red until proven otherwise.</p>
-
-<p> Same principle applies here.</p>
-
-<h3>2. Identify Alternatives — Before You Need Them</h3>
-
-<p>For every red-zone dependency, you need at least one alternative source identified. Not contracted — identified. Know who they are, where they are, what their capacity looks like, and what the lead time is to switch.</p>
-
-<p>This is where most companies stall. They look at their primary supplier, see that switching costs are high, and decide to wait it out. That's a bet. And right now, it's a bad one. Nobody knows when Hormuz reopens. Could be weeks. Could be months. Could be longer.</p>
-
-<p>Alternative sourcing doesn't mean you abandon existing relationships. It means you have options. Options are leverage, and leverage is survival.</p>
-
-<h3>3. Build Buffer Stock Strategies</h3>
-
-<p>If you haven't already adjusted your inventory posture, you're competing with everyone else who just realized they should. Spot markets for Gulf-dependent materials are already moving. Prices will continue to climb as the disruption persists.</p>
-
-<p>Determine your critical materials — the ones that shut down your operations if they run out. Calculate your current days-of-supply. Then make a hard decision about how much buffer you need to carry and what that costs versus the cost of a production shutdown.</p>
-
-<p>This isn't just about physical inventory. It's about financial hedging, contract flexibility, and having pre-negotiated agreements with alternative suppliers that you can activate on short notice.</p>
-
-<h3>4. Stress-Test Your Supplier Network</h3>
-
-<p>Take your top 20 suppliers by spend and ask them a simple question: "What is your exposure to Gulf-sourced energy and materials, and what is your contingency plan?"</p>
-
-<p>You'll learn two things very quickly. First, which suppliers have actually thought about this. Second, which ones are about to become your biggest risk. The suppliers who can't answer that question coherently are the ones most likely to fail you in the next 60-90 days.</p>
-
-<p> The pattern is always the same: about 30% of suppliers have real contingency plans, about 40% have something on paper that won't survive contact with reality, and about 30% have nothing. Knowing which bucket your suppliers fall into is the first step toward managing the risk.</p>
-
-<h2>Speed Is the Variable That Matters</h2>
-
-<p>Every framework is only as good as its execution speed. The companies that will come through this disruption strongest are the ones acting now — not the ones commissioning a six-month supply chain review.</p>
-
-<p>Mid-market companies actually have an advantage here: shorter decision cycles, less bureaucracy, more direct access between leadership and operations. Use that. A mid-market procurement team that moves fast will outperform an enterprise team stuck in approval chains.</p>
-
-<p>But speed requires focus. You need someone who has done this before, who knows what to look for, and who can drive a resilience assessment to actionable recommendations in weeks, not months.</p>
-
-<h2>The Bottom Line</h2>
-
-<p>The Hormuz closure isn't a temporary disruption — it's a structural shift that will reshape supply chains for years. Companies that build resilience now will have a competitive advantage that compounds over time. Companies that wait will be playing catch-up from a position of weakness.</p>
-
-</div>
-<div class="article-sidebar">
-<div class="sidebar-label">Visual Summary</div>
-<div class="sidebar-frame-wrap"><iframe src="supply-chain-resilience-infographic.html" title="Infographic"></iframe></div>
-</div>
-</div>
-</article>
-
-
-
-<div class="article-author">
- <div class="author-card">
- <div class="author-info">
- <h3>John Foley</h3>
- <div class="author-title">Founder, Foley Strategic Advisory</div>
- <p>Specializing in supply chain strategy, procurement transformation, and logistics optimization for mid-to-large enterprises.</p>
- 
+ <!-- IMPACT STATS -->
+ <div class="mini-stats">
+ <div class="mini-stat">
+ <div class="ms-num">20%</div>
+ <div class="ms-label">of global oil supply disrupted</div>
+ </div>
+ <div class="mini-stat">
+ <div class="ms-num">$96+</div>
+ <div class="ms-label">WTI crude per barrel</div>
+ </div>
+ <div class="mini-stat">
+ <div class="ms-num">10M+</div>
+ <div class="ms-label">barrels/day production drop</div>
  </div>
  </div>
-</div>
 
-<footer>
- <div class="footer-brand">Foley <span>Strategic</span> Advisory</div>
- <div class="footer-copy">Project-Based &bull; Retainer &bull; Fractional Advisory &nbsp;|&nbsp; &copy; 2026 Foley Strategic Advisory</div>
-</footer>
+ <!-- DIVIDER -->
+ <div class="divider"></div>
+
+ <!-- FRAMEWORK LABEL -->
+ <div class="section-label">The 4-Step Framework</div>
+
+ <!-- STEP 01 -->
+ <div class="step-card">
+ <div class="step-header">
+ <span class="step-num">01</span>
+ <span class="step-title">Map Your Exposure</span>
+ </div>
+ <div class="step-body">
+ <p>A 72-hour exercise. Identify where your supply chain touches the Gulf across Tier 1, Tier 2, and Tier 3 suppliers. Start with energy, then trace raw materials: petrochemicals, aluminum, specialty chemicals, plastics feedstocks.</p>
+ <p><span class="step-emphasis">Build a heat map.</span> Anything you cannot categorize goes red until proven otherwise. Imperfect intelligence acted on quickly beats perfect intelligence that arrives too late.</p>
+ </div>
+ <div class="heat-legend">
+ <div class="heat-item"><span class="heat-dot red"></span> <span style="color:#DC3545;">Critical</span></div>
+ <div class="heat-item"><span class="heat-dot yellow"></span> <span style="color:#E8C566;">Painful</span></div>
+ <div class="heat-item"><span class="heat-dot green"></span> <span style="color:#28A745;">Minimal</span></div>
+ </div>
+ </div>
+
+ <!-- CONNECTOR -->
+ <div class="connector"></div>
+
+ <!-- STEP 02 -->
+ <div class="step-card">
+ <div class="step-header">
+ <span class="step-num">02</span>
+ <span class="step-title">Identify Alternatives</span>
+ </div>
+ <div class="step-body">
+ <p>For every red-zone dependency, identify at least one alternative source. Not contracted yet — just identified. Know who they are, where they operate, their capacity, and the lead time to switch.</p>
+ <p><span class="step-emphasis">Nobody knows when Hormuz reopens:</span> weeks, months, or longer. Options equal leverage, and right now, leverage equals survival.</p>
+ </div>
+ </div>
+
+ <!-- CONNECTOR -->
+ <div class="connector"></div>
+
+ <!-- STEP 03 -->
+ <div class="step-card">
+ <div class="step-header">
+ <span class="step-num">03</span>
+ <span class="step-title">Build Buffer Stock</span>
+ </div>
+ <div class="step-body">
+ <p>Adjust inventory posture now. If you have not started, you are already competing with everyone who just realized they should. Spot markets for Gulf-dependent materials are moving fast.</p>
+ <p>Go beyond physical inventory: <span class="step-emphasis">financial hedging, contract flexibility, and pre-negotiated backup agreements</span> all count as buffer.</p>
+ </div>
+ </div>
+
+ <!-- CONNECTOR -->
+ <div class="connector"></div>
+
+ <!-- STEP 04 -->
+ <div class="step-card">
+ <div class="step-header">
+ <span class="step-num">04</span>
+ <span class="step-title">Stress-Test Your Suppliers</span>
+ </div>
+ <div class="step-body">
+ <p>Take your top 20 suppliers by spend. Ask one question: <span class="step-emphasis">What is your exposure to Gulf-sourced energy and materials, and what is your contingency plan?</span></p>
+ <p>The pattern is consistent across industries:</p>
+ </div>
+ <div class="inline-stats">
+ <div class="inline-stat">
+ <div class="is-num real">~30%</div>
+ <div class="is-label">Real plans</div>
+ </div>
+ <div class="inline-stat">
+ <div class="is-num paper">~40%</div>
+ <div class="is-label">Paper plans</div>
+ </div>
+ <div class="inline-stat">
+ <div class="is-num none">~30%</div>
+ <div class="is-label">No plan</div>
+ </div>
+ </div>
+ </div>
+
+ <!-- DIVIDER -->
+ <div class="divider"></div>
+
+ <!-- EXAMPLE SCENARIO -->
+ <div class="section-label">Framework in Action</div>
+
+ <div class="example-card">
+ <div class="example-title">Example: Mid-Market Industrial Coatings Manufacturer</div>
+ <div class="example-scenario">
+ $800M revenue. 14 production facilities across North America. Procurement team of 6. No dedicated risk function. Supply chain managed through quarterly business reviews and a category-spend spreadsheet.
+ </div>
+
+ <div class="example-steps">
+ <div class="ex-step">
+ <span class="ex-step-num">01</span>
+ <div class="ex-step-content">
+ <strong>Map exposure.</strong> 72-hour sprint reveals: resin feedstock (petrochemical-derived) sources back to two Gulf-region refineries at Tier 2. Natural gas — 38% of energy cost — priced off benchmarks now spiking. Titanium dioxide pigment supplier uses Gulf-shipped bauxite. Result: 3 categories flagged <span class="ex-red">RED</span>, 5 flagged <span class="ex-yellow">YELLOW</span>, the rest <span class="ex-green">GREEN</span>.
+ </div>
+ </div>
+ <div class="ex-step">
+ <span class="ex-step-num">02</span>
+ <div class="ex-step-content">
+ <strong>Identify alternatives.</strong> For resin feedstock: two domestic petrochemical producers identified with available capacity and 4-6 week qualification lead time. For TiO2 pigment: one Australian-sourced alternative, higher unit cost but no Gulf dependency. Switching costs look high — but a 90-day production shutdown costs more.
+ </div>
+ </div>
+ <div class="ex-step">
+ <span class="ex-step-num">03</span>
+ <div class="ex-step-content">
+ <strong>Build buffer.</strong> Current days-of-supply on resin feedstock: 18 days. Target: 45 days. Spot purchase placed immediately for 60-day bridge stock. Finance team pre-approves a natural gas hedge at current rates. Backup supply agreement drafted with domestic resin producer — not executed yet, but ready.
+ </div>
+ </div>
+ <div class="ex-step">
+ <span class="ex-step-num">04</span>
+ <div class="ex-step-content">
+ <strong>Stress-test suppliers.</strong> Top 20 suppliers surveyed. Results: 5 have real contingency plans with alternative sourcing already activated. 9 have documented plans that have never been tested. 6 had no answer. The 6 with no answer include two sole-source suppliers — those become the priority escalation.
+ </div>
+ </div>
+ </div>
+
+ <div class="ex-result">
+ Total elapsed time: 8 days. Total out-of-pocket cost: the spot purchase and staff time. The company now has a risk posture that would have taken a Big Four engagement 12 weeks and six figures to produce.
+ </div>
+ </div>
+
+ <!-- DIVIDER -->
+ <div class="divider"></div>
+
+ <!-- CALLOUT -->
+ <div class="callout">
+ <p class="callout-text">"Speed is the variable that matters. The companies that come through strongest are acting now — not commissioning a six-month review."</p>
+ <p style="margin-top: 0.6rem; font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: #D4A843; font-style: normal;">— John Foley</p>
+ </div>
+
+ <!-- FOOTER -->
+ <div class="footer">
+ <div class="footer-url"><a href="https://foleystrategicadvisory.com">foleystrategicadvisory.com</a></div>
+ </div>
+
+</div>
 
 </body>
 </html>
