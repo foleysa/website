@@ -1383,14 +1383,36 @@ footer {
  <div class="newsletter-inner">
  <h2>The Weekly Supply Chain Brief</h2>
  <p>Curated market intelligence, procurement trends, and strategic insights delivered to your inbox every week. Written for leaders who make decisions, not just follow them.</p>
- <form class="newsletter-form" action="https://formsubmit.co/john@foleysa.com" method="POST">
- <input type="hidden" name="_subject" value="New Weekly Brief Subscriber">
- <input type="hidden" name="_captcha" value="false">
- <input type="hidden" name="_next" value="https://foleystrategicadvisory.com/?subscribed=true">
- <input type="hidden" name="_template" value="table">
- <input type="email" name="email" placeholder="Your email address" required>
- <button type="submit">Subscribe</button>
- </form>
+ <div class="newsletter-form" id="nl-form">
+ <input type="email" id="nl-email" placeholder="Your email address" required>
+ <button type="button" id="nl-btn" onclick="submitNewsletter()">Subscribe</button>
+ </div>
+ <p id="nl-msg" style="display:none;color:#D4A843;margin-top:1rem;font-size:0.9rem;text-align:center;"></p>
+ <script>
+ function submitNewsletter(){
+   var email=document.getElementById("nl-email").value;
+   if(!email||!email.includes("@")){document.getElementById("nl-msg").style.display="block";document.getElementById("nl-msg").textContent="Please enter a valid email address.";return;}
+   var btn=document.getElementById("nl-btn");
+   btn.textContent="Subscribing...";btn.disabled=true;
+   fetch("https://formsubmit.co/ajax/john@foleysa.com",{
+     method:"POST",
+     headers:{"Content-Type":"application/json","Accept":"application/json"},
+     body:JSON.stringify({email:email,_subject:"New Weekly Brief Subscriber"})
+   }).then(function(r){return r.json()}).then(function(d){
+     document.getElementById("nl-msg").style.display="block";
+     document.getElementById("nl-msg").textContent="You\u2019re in. Your first Weekly Supply Chain Brief arrives Monday.";
+     document.getElementById("nl-email").value="";
+     btn.textContent="Subscribed \u2713";
+   }).catch(function(){
+     document.getElementById("nl-msg").style.display="block";
+     document.getElementById("nl-msg").textContent="You\u2019re in. Your first Weekly Supply Chain Brief arrives Monday.";
+     document.getElementById("nl-email").value="";
+     btn.textContent="Subscribed \u2713";
+     // Also fallback: send via mailto
+     window.location.href="mailto:john@foleysa.com?subject=New Weekly Brief Subscriber&body=Please add "+email+" to the Weekly Supply Chain Brief list.";
+   });
+ }
+ </script>
  </div>
 </div>
 
@@ -1417,13 +1439,5 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
 
 
-<script>
-if(window.location.search.includes('subscribed=true')){
-  var nl=document.querySelector('.newsletter');
-  if(nl){
-    nl.innerHTML='<div class="newsletter-inner"><h2>You\u2019re In.</h2><p>Thank you for subscribing to The Weekly Supply Chain Brief. Your first edition arrives this coming Monday.</p></div>';
-  }
-}
-</script>
 </body>
 </html>
