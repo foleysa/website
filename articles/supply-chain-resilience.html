@@ -218,6 +218,17 @@ footer {
  footer { padding: 2rem; flex-direction: column; gap: 1rem; text-align: center; }
 }
 </style>
+<style>
+.article-layout { display:flex; gap:2rem; max-width:1100px; margin:0 auto; padding:0 1.5rem; }
+.article-content { flex:1; min-width:0; }
+.article-sidebar { width:380px; flex-shrink:0; position:sticky; top:2rem; align-self:flex-start; max-height:calc(100vh - 4rem); overflow-y:auto; }
+.article-sidebar iframe { width:100%; min-height:600px; border:none; border-radius:10px; box-shadow:0 2px 12px rgba(0,0,0,0.08); }
+.sidebar-label { font-size:0.7rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#B8943E; margin-bottom:0.5rem; }
+@media (max-width:900px) {
+  .article-layout { flex-direction:column; padding:0 1rem; }
+  .article-sidebar { width:100%; position:static; order:-1; max-height:500px; margin-bottom:1.5rem; }
+}
+</style>
 </head>
 <body>
 
@@ -241,6 +252,8 @@ footer {
 </section>
 
 <article class="article-body">
+<div class="article-layout">
+<div class="article-content">
 
 <p>Two weeks ago, the Strait of Hormuz effectively closed. If your company has any exposure to Gulf-sourced materials, energy, or suppliers — and you haven't already started war-gaming your response — you're behind.</p>
 
@@ -314,6 +327,12 @@ footer {
 
 <p>The Hormuz closure isn't a temporary disruption — it's a structural shift that will reshape supply chains for years. Companies that build resilience now will have a competitive advantage that compounds over time. Companies that wait will be playing catch-up from a position of weakness.</p>
 
+</div>
+<div class="article-sidebar">
+<div class="sidebar-label">Visual Summary</div>
+<iframe src="supply-chain-resilience-infographic.html" title="Infographic"></iframe>
+</div>
+</div>
 </article>
 
 <div class="article-cta">
