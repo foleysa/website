@@ -10,219 +10,219 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --navy: #0B1D33;
-  --navy-deep: #06111F;
-  --gold: #D4A843;
-  --gold-light: #E8C566;
-  --cream: #F5F1EA;
-  --cream-dark: #E8E1D4;
-  --white: #FAFAF8;
-  --slate: #4A5568;
-  --slate-light: #718096;
-  --border: rgba(212, 168, 67, 0.2);
+ --navy: #0B1D33;
+ --navy-deep: #06111F;
+ --gold: #D4A843;
+ --gold-light: #E8C566;
+ --cream: #F5F1EA;
+ --cream-dark: #E8E1D4;
+ --white: #FAFAF8;
+ --slate: #4A5568;
+ --slate-light: #718096;
+ --border: rgba(212, 168, 67, 0.2);
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'DM Sans', sans-serif;
-  color: var(--navy);
-  background: var(--white);
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
+ font-family: 'DM Sans', sans-serif;
+ color: var(--navy);
+ background: var(--white);
+ line-height: 1.7;
+ -webkit-font-smoothing: antialiased;
 }
 
 nav {
-  position: fixed;
-  top: 0; left: 0; width: 100%; z-index: 100;
-  padding: 1.5rem 4rem;
-  display: flex; justify-content: space-between; align-items: center;
-  background: rgba(11, 29, 51, 0.97);
-  backdrop-filter: blur(12px);
+ position: fixed;
+ top: 0; left: 0; width: 100%; z-index: 100;
+ padding: 1.5rem 4rem;
+ display: flex; justify-content: space-between; align-items: center;
+ background: rgba(11, 29, 51, 0.97);
+ backdrop-filter: blur(12px);
 }
 
 .nav-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.25rem; font-weight: 600;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--cream); text-decoration: none;
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 1.25rem; font-weight: 600;
+ letter-spacing: 0.12em; text-transform: uppercase;
+ color: var(--cream); text-decoration: none;
 }
 .nav-logo span { color: var(--gold); }
 
 .nav-links { display: flex; gap: 2.5rem; list-style: none; }
 .nav-links a {
-  color: rgba(245, 241, 234, 0.75); text-decoration: none;
-  font-size: 0.8rem; font-weight: 500;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  transition: color 0.3s;
+ color: rgba(245, 241, 234, 0.75); text-decoration: none;
+ font-size: 0.8rem; font-weight: 500;
+ letter-spacing: 0.1em; text-transform: uppercase;
+ transition: color 0.3s;
 }
 .nav-links a:hover { color: var(--gold); }
 
 .article-hero {
-  background: var(--navy-deep);
-  padding: 10rem 4rem 5rem;
-  position: relative;
+ background: var(--navy-deep);
+ padding: 10rem 4rem 5rem;
+ position: relative;
 }
 
 .article-hero::after {
-  content: '';
-  position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  opacity: 0.3;
+ content: '';
+ position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+ background: linear-gradient(90deg, transparent, var(--gold), transparent);
+ opacity: 0.3;
 }
 
 .article-hero-inner {
-  max-width: 800px; margin: 0 auto;
+ max-width: 800px; margin: 0 auto;
 }
 
 .article-tag {
-  font-size: 0.7rem; font-weight: 600;
-  letter-spacing: 0.25em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 2rem;
-  display: flex; align-items: center; gap: 1rem;
+ font-size: 0.7rem; font-weight: 600;
+ letter-spacing: 0.25em; text-transform: uppercase;
+ color: var(--gold); margin-bottom: 2rem;
+ display: flex; align-items: center; gap: 1rem;
 }
 .article-tag::before {
-  content: ''; width: 40px; height: 1px; background: var(--gold);
+ content: ''; width: 40px; height: 1px; background: var(--gold);
 }
 
 .article-hero h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 3rem; font-weight: 500; line-height: 1.15;
-  color: var(--cream); margin-bottom: 1.5rem;
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 3rem; font-weight: 500; line-height: 1.15;
+ color: var(--cream); margin-bottom: 1.5rem;
 }
 
 .article-meta {
-  font-size: 0.85rem; color: rgba(245, 241, 234, 0.45);
+ font-size: 0.85rem; color: rgba(245, 241, 234, 0.45);
 }
 .article-meta a { color: var(--gold); text-decoration: none; }
 
 .article-body {
-  max-width: 800px; margin: 0 auto;
-  padding: 4rem;
+ max-width: 800px; margin: 0 auto;
+ padding: 4rem;
 }
 
 .article-body p {
-  font-size: 1.05rem; color: var(--slate);
-  line-height: 1.9; margin-bottom: 1.5rem;
+ font-size: 1.05rem; color: var(--slate);
+ line-height: 1.9; margin-bottom: 1.5rem;
 }
 
 .article-body p em {
-  font-style: italic; color: var(--navy);
+ font-style: italic; color: var(--navy);
 }
 
 .article-body h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.8rem; font-weight: 600;
-  color: var(--navy); margin-top: 3rem; margin-bottom: 1.25rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(11, 29, 51, 0.06);
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 1.8rem; font-weight: 600;
+ color: var(--navy); margin-top: 3rem; margin-bottom: 1.25rem;
+ padding-top: 2rem;
+ border-top: 1px solid rgba(11, 29, 51, 0.06);
 }
 
 .article-body h2:first-of-type {
-  border-top: none; padding-top: 0; margin-top: 2rem;
+ border-top: none; padding-top: 0; margin-top: 2rem;
 }
 
 .article-body strong {
-  color: var(--navy); font-weight: 600;
+ color: var(--navy); font-weight: 600;
 }
 
 .article-cta {
-  max-width: 800px; margin: 0 auto;
-  padding: 0 4rem 4rem;
+ max-width: 800px; margin: 0 auto;
+ padding: 0 4rem 4rem;
 }
 
 .cta-box {
-  background: var(--cream);
-  padding: 3rem;
-  border-left: 4px solid var(--gold);
+ background: var(--cream);
+ padding: 3rem;
+ border-left: 4px solid var(--gold);
 }
 
 .cta-box p {
-  font-size: 1.05rem; color: var(--slate);
-  line-height: 1.8; margin-bottom: 1rem;
+ font-size: 1.05rem; color: var(--slate);
+ line-height: 1.8; margin-bottom: 1rem;
 }
 
 .cta-box p:last-child { margin-bottom: 0; }
 
 .cta-box a {
-  color: var(--gold); text-decoration: none; font-weight: 600;
+ color: var(--gold); text-decoration: none; font-weight: 600;
 }
 
 .article-author {
-  max-width: 800px; margin: 0 auto;
-  padding: 0 4rem 5rem;
-  border-top: 1px solid rgba(11, 29, 51, 0.06);
-  padding-top: 2.5rem;
+ max-width: 800px; margin: 0 auto;
+ padding: 0 4rem 5rem;
+ border-top: 1px solid rgba(11, 29, 51, 0.06);
+ padding-top: 2.5rem;
 }
 
 .author-card {
-  display: flex; gap: 2rem; align-items: start;
+ display: flex; gap: 2rem; align-items: start;
 }
 
 .author-info h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.3rem; font-weight: 600; color: var(--navy);
-  margin-bottom: 0.25rem;
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 1.3rem; font-weight: 600; color: var(--navy);
+ margin-bottom: 0.25rem;
 }
 
 .author-info .author-title {
-  font-size: 0.8rem; font-weight: 500;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 0.75rem;
+ font-size: 0.8rem; font-weight: 500;
+ letter-spacing: 0.08em; text-transform: uppercase;
+ color: var(--gold); margin-bottom: 0.75rem;
 }
 
 .author-info p {
-  font-size: 0.92rem; color: var(--slate-light); line-height: 1.75;
+ font-size: 0.92rem; color: var(--slate-light); line-height: 1.75;
 }
 
 .author-info a { color: var(--navy); text-decoration: none; }
 .author-info a:hover { color: var(--gold); }
 
 footer {
-  background: var(--navy-deep);
-  padding: 3rem 4rem;
-  display: flex; justify-content: space-between; align-items: center;
+ background: var(--navy-deep);
+ padding: 3rem 4rem;
+ display: flex; justify-content: space-between; align-items: center;
 }
 .footer-brand {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1rem; font-weight: 600;
-  letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream);
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 1rem; font-weight: 600;
+ letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream);
 }
 .footer-brand span { color: var(--gold); }
 .footer-copy { font-size: 0.78rem; color: rgba(245, 241, 234, 0.35); }
 
 @media (max-width: 768px) {
-  nav { padding: 1.25rem 2rem; }
-  .nav-links { display: none; }
-  .article-hero { padding: 8rem 2rem 3rem; }
-  .article-hero h1 { font-size: 2.2rem; }
-  .article-body { padding: 3rem 2rem; }
-  .article-cta { padding: 0 2rem 3rem; }
-  .article-author { padding: 0 2rem 3rem; padding-top: 2rem; }
-  footer { padding: 2rem; flex-direction: column; gap: 1rem; text-align: center; }
+ nav { padding: 1.25rem 2rem; }
+ .nav-links { display: none; }
+ .article-hero { padding: 8rem 2rem 3rem; }
+ .article-hero h1 { font-size: 2.2rem; }
+ .article-body { padding: 3rem 2rem; }
+ .article-cta { padding: 0 2rem 3rem; }
+ .article-author { padding: 0 2rem 3rem; padding-top: 2rem; }
+ footer { padding: 2rem; flex-direction: column; gap: 1rem; text-align: center; }
 }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="/" class="nav-logo">Foley <span>Strategic</span> Advisory</a>
-  <ul class="nav-links">
-    <li><a href="/#about">About</a></li>
-    <li><a href="/#services">Services</a></li>
-    <li><a href="/#industries">Industries</a></li>
-    <li><a href="/#insights">Insights</a></li>
-    <li><a href="/#about">About</a></li>
-  </ul>
+ <a href="/" class="nav-logo">Foley <span>Strategic</span> Advisory</a>
+ <ul class="nav-links">
+ <li><a href="/#about">About</a></li>
+ <li><a href="/#services">Services</a></li>
+ <li><a href="/#industries">Industries</a></li>
+ <li><a href="/#insights">Insights</a></li>
+ <li><a href="/#about">About</a></li>
+ </ul>
 </nav>
 
 <section class="article-hero">
-  <div class="article-hero-inner">
-    <div class="article-tag">Strategy</div>
-    <h1>The Fractional CPO: When It Makes Sense and When It Doesn't</h1>
-    <div class="article-meta">By <a href="/#about">John Foley</a> &nbsp;|&nbsp; March 2026</div>
-  </div>
+ <div class="article-hero-inner">
+ <div class="article-tag">Strategy</div>
+ <h1>The Fractional CPO: When It Makes Sense and When It Doesn't</h1>
+ <div class="article-meta">By <a href="/#about">John Foley</a> &nbsp;|&nbsp; March 2026</div>
+ </div>
 </section>
 
 <article class="article-body">
@@ -314,26 +314,26 @@ footer {
 </article>
 
 <div class="article-cta">
-  <div class="cta-box">
-    <p>If your supply chain and procurement function is running without strategic leadership — or if you're between leaders and the momentum is slipping — it might be time for a conversation about what the fractional model could look like for your organization.</p>
-    <p><a href="mailto:john@foleysa.com">john@foleysa.com</a></p>
-  </div>
+ <div class="cta-box">
+ <p>If your supply chain and procurement function is running without strategic leadership — or if you're between leaders and the momentum is slipping — it might be time for a conversation about what the fractional model could look like for your organization.</p>
+ 
+ </div>
 </div>
 
 <div class="article-author">
-  <div class="author-card">
-    <div class="author-info">
-      <h3>John Foley</h3>
-      <div class="author-title">Founder, Foley Strategic Advisory</div>
-      <p>20+ years of experience across global consulting, Fortune 50 corporate leadership, and complex operations leadership. Specializing in supply chain strategy, procurement transformation, and logistics optimization for mid-to-large enterprises.</p>
-      <p><a href="mailto:john@foleysa.com">john@foleysa.com</a></p>
-    </div>
-  </div>
+ <div class="author-card">
+ <div class="author-info">
+ <h3>John Foley</h3>
+ <div class="author-title">Founder, Foley Strategic Advisory</div>
+ <p>Specializing in supply chain strategy, procurement transformation, and logistics optimization for mid-to-large enterprises.</p>
+ 
+ </div>
+ </div>
 </div>
 
 <footer>
-  <div class="footer-brand">Foley <span>Strategic</span> Advisory</div>
-  <div class="footer-copy">Project-Based &bull; Retainer &bull; Fractional Advisory &nbsp;|&nbsp; &copy; 2026 Foley Strategic Advisory</div>
+ <div class="footer-brand">Foley <span>Strategic</span> Advisory</div>
+ <div class="footer-copy">Project-Based &bull; Retainer &bull; Fractional Advisory &nbsp;|&nbsp; &copy; 2026 Foley Strategic Advisory</div>
 </footer>
 
 </body>

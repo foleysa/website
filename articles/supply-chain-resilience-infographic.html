@@ -6,438 +6,438 @@
 <title>Supply Chain Resilience in the Hormuz Era — Foley Strategic Advisory</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+ *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html {
-    -webkit-text-size-adjust: 100%;
-    scroll-behavior: smooth;
-  }
+ html {
+ -webkit-text-size-adjust: 100%;
+ scroll-behavior: smooth;
+ }
 
-  body {
-    background: linear-gradient(170deg, #0B1D33 0%, #06111F 100%);
-    min-height: 100vh;
-    color: #8A9BB5;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    line-height: 1.55;
-    -webkit-font-smoothing: antialiased;
-  }
+ body {
+ background: linear-gradient(170deg, #0B1D33 0%, #06111F 100%);
+ min-height: 100vh;
+ color: #8A9BB5;
+ font-family: 'DM Sans', sans-serif;
+ font-size: 14px;
+ line-height: 1.55;
+ -webkit-font-smoothing: antialiased;
+ }
 
-  /* === TOP ACCENT BAR === */
-  .top-bar {
-    height: 4px;
-    background: linear-gradient(90deg, #D4A843, #E8C566, #D4A843);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-  }
+ /* === TOP ACCENT BAR === */
+ .top-bar {
+ height: 4px;
+ background: linear-gradient(90deg, #D4A843, #E8C566, #D4A843);
+ position: fixed;
+ top: 0;
+ left: 0;
+ right: 0;
+ z-index: 100;
+ }
 
-  /* === PAGE WRAPPER === */
-  .page {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 2rem 1.75rem;
-    padding-top: 2.5rem;
-  }
+ /* === PAGE WRAPPER === */
+ .page {
+ max-width: 500px;
+ margin: 0 auto;
+ padding: 2rem 1.75rem;
+ padding-top: 2.5rem;
+ }
 
-  /* === FIRM NAME === */
-  .firm-name {
-    text-align: center;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #D4A843;
-    margin-bottom: 1.75rem;
-  }
+ /* === FIRM NAME === */
+ .firm-name {
+ text-align: center;
+ font-family: 'DM Sans', sans-serif;
+ font-size: 0.7rem;
+ font-weight: 600;
+ letter-spacing: 2px;
+ text-transform: uppercase;
+ color: #D4A843;
+ margin-bottom: 1.75rem;
+ }
 
-  /* === SECTION LABELS === */
-  .section-label {
-    font-family: 'DM Sans', sans-serif;
-    color: #D4A843;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.75rem;
-  }
-  .section-label::before {
-    content: '';
-    width: 20px;
-    height: 1px;
-    background: #D4A843;
-    flex-shrink: 0;
-  }
+ /* === SECTION LABELS === */
+ .section-label {
+ font-family: 'DM Sans', sans-serif;
+ color: #D4A843;
+ font-size: 0.65rem;
+ font-weight: 700;
+ letter-spacing: 3px;
+ text-transform: uppercase;
+ display: flex;
+ align-items: center;
+ gap: 0.5rem;
+ margin-bottom: 0.75rem;
+ }
+ .section-label::before {
+ content: '';
+ width: 20px;
+ height: 1px;
+ background: #D4A843;
+ flex-shrink: 0;
+ }
 
-  /* === TITLE === */
-  .title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.65rem;
-    font-weight: 700;
-    color: #FFFFFF;
-    line-height: 1.2;
-    margin-bottom: 0.5rem;
-  }
+ /* === TITLE === */
+ .title {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 1.65rem;
+ font-weight: 700;
+ color: #FFFFFF;
+ line-height: 1.2;
+ margin-bottom: 0.5rem;
+ }
 
-  /* === SUBTITLE === */
-  .subtitle {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.85rem;
-    color: #8A9BB5;
-    margin-bottom: 1rem;
-    line-height: 1.45;
-  }
+ /* === SUBTITLE === */
+ .subtitle {
+ font-family: 'DM Sans', sans-serif;
+ font-size: 0.85rem;
+ color: #8A9BB5;
+ margin-bottom: 1rem;
+ line-height: 1.45;
+ }
 
-  /* === STATUS ROW === */
-  .status-row {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 0.25rem;
-    flex-wrap: wrap;
-  }
+ /* === STATUS ROW === */
+ .status-row {
+ display: flex;
+ align-items: center;
+ gap: 0.75rem;
+ margin-bottom: 0.25rem;
+ flex-wrap: wrap;
+ }
 
-  /* === BADGES === */
-  .badge {
-    display: inline-block;
-    padding: 0.15rem 0.6rem;
-    border-radius: 4px;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-family: 'DM Sans', sans-serif;
-  }
-  .badge-critical { background: #DC3545; color: #fff; }
-  .badge-high { background: #E85D3A; color: #fff; }
-  .badge-medium { background: rgba(212,168,67,0.2); color: #D4A843; border: 1px solid #D4A843; }
-  .badge-low { background: rgba(40,167,69,0.15); color: #28A745; border: 1px solid #28A745; }
+ /* === BADGES === */
+ .badge {
+ display: inline-block;
+ padding: 0.15rem 0.6rem;
+ border-radius: 4px;
+ font-size: 0.65rem;
+ font-weight: 700;
+ letter-spacing: 1px;
+ text-transform: uppercase;
+ font-family: 'DM Sans', sans-serif;
+ }
+ .badge-critical { background: #DC3545; color: #fff; }
+ .badge-high { background: #E85D3A; color: #fff; }
+ .badge-medium { background: rgba(212,168,67,0.2); color: #D4A843; border: 1px solid #D4A843; }
+ .badge-low { background: rgba(40,167,69,0.15); color: #28A745; border: 1px solid #28A745; }
 
-  .status-date {
-    font-size: 0.75rem;
-    color: #8A9BB5;
-    font-weight: 400;
-  }
+ .status-date {
+ font-size: 0.75rem;
+ color: #8A9BB5;
+ font-weight: 400;
+ }
 
-  /* === GOLD DIVIDER === */
-  .divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #D4A843, transparent);
-    margin: 1.25rem 0;
-  }
+ /* === GOLD DIVIDER === */
+ .divider {
+ height: 1px;
+ background: linear-gradient(90deg, transparent, #D4A843, transparent);
+ margin: 1.25rem 0;
+ }
 
-  /* === MINI STATS === */
-  .mini-stats {
-    display: flex;
-    gap: 0.6rem;
-  }
-  .mini-stat {
-    flex: 1;
-    background: rgba(18, 39, 66, 0.6);
-    border: 1px solid rgba(212, 168, 67, 0.2);
-    border-radius: 10px;
-    padding: 0.85rem 0.5rem;
-    text-align: center;
-    backdrop-filter: blur(4px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  }
-  .mini-stat .ms-num {
-    color: #D4A843;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    line-height: 1;
-  }
-  .mini-stat .ms-label {
-    color: #8A9BB5;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.7rem;
-    margin-top: 0.25rem;
-    line-height: 1.3;
-  }
+ /* === MINI STATS === */
+ .mini-stats {
+ display: flex;
+ gap: 0.6rem;
+ }
+ .mini-stat {
+ flex: 1;
+ background: rgba(18, 39, 66, 0.6);
+ border: 1px solid rgba(212, 168, 67, 0.2);
+ border-radius: 10px;
+ padding: 0.85rem 0.5rem;
+ text-align: center;
+ backdrop-filter: blur(4px);
+ box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+ }
+ .mini-stat .ms-num {
+ color: #D4A843;
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 1.8rem;
+ font-weight: 700;
+ line-height: 1;
+ }
+ .mini-stat .ms-label {
+ color: #8A9BB5;
+ font-family: 'DM Sans', sans-serif;
+ font-size: 0.7rem;
+ margin-top: 0.25rem;
+ line-height: 1.3;
+ }
 
-  /* === STEP CARDS === */
-  .card {
-    background: rgba(18, 39, 66, 0.6);
-    border: 1px solid rgba(212, 168, 67, 0.2);
-    border-radius: 10px;
-    padding: 1rem 1.15rem;
-    backdrop-filter: blur(4px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  }
-  .step-card {
-    background: rgba(18, 39, 66, 0.6);
-    border: 1px solid rgba(212, 168, 67, 0.2);
-    border-left: 3px solid #D4A843;
-    border-radius: 0 10px 10px 0;
-    padding: 1rem 1.15rem;
-    backdrop-filter: blur(4px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  }
-  .step-header {
-    display: flex;
-    align-items: center;
-    gap: 0.65rem;
-    margin-bottom: 0.6rem;
-  }
-  .step-num {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    background: linear-gradient(135deg, #D4A843, #E8C566);
-    border-radius: 6px;
-    color: #06111F;
-    font-size: 0.85rem;
-    font-weight: 700;
-    font-family: 'DM Sans', sans-serif;
-    flex-shrink: 0;
-  }
-  .step-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: #FFFFFF;
-    line-height: 1.25;
-  }
-  .step-body {
-    font-size: 0.8rem;
-    color: #8A9BB5;
-    line-height: 1.55;
-  }
-  .step-body p {
-    margin-bottom: 0.4rem;
-  }
-  .step-body p:last-child {
-    margin-bottom: 0;
-  }
-  .step-emphasis {
-    color: #cdd6e4;
-    font-weight: 500;
-  }
+ /* === STEP CARDS === */
+ .card {
+ background: rgba(18, 39, 66, 0.6);
+ border: 1px solid rgba(212, 168, 67, 0.2);
+ border-radius: 10px;
+ padding: 1rem 1.15rem;
+ backdrop-filter: blur(4px);
+ box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+ }
+ .step-card {
+ background: rgba(18, 39, 66, 0.6);
+ border: 1px solid rgba(212, 168, 67, 0.2);
+ border-left: 3px solid #D4A843;
+ border-radius: 0 10px 10px 0;
+ padding: 1rem 1.15rem;
+ backdrop-filter: blur(4px);
+ box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+ }
+ .step-header {
+ display: flex;
+ align-items: center;
+ gap: 0.65rem;
+ margin-bottom: 0.6rem;
+ }
+ .step-num {
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ width: 32px;
+ height: 32px;
+ background: linear-gradient(135deg, #D4A843, #E8C566);
+ border-radius: 6px;
+ color: #06111F;
+ font-size: 0.85rem;
+ font-weight: 700;
+ font-family: 'DM Sans', sans-serif;
+ flex-shrink: 0;
+ }
+ .step-title {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 1.15rem;
+ font-weight: 700;
+ color: #FFFFFF;
+ line-height: 1.25;
+ }
+ .step-body {
+ font-size: 0.8rem;
+ color: #8A9BB5;
+ line-height: 1.55;
+ }
+ .step-body p {
+ margin-bottom: 0.4rem;
+ }
+ .step-body p:last-child {
+ margin-bottom: 0;
+ }
+ .step-emphasis {
+ color: #cdd6e4;
+ font-weight: 500;
+ }
 
-  /* === HEAT MAP LEGEND === */
-  .heat-legend {
-    display: flex;
-    gap: 0.5rem;
-    margin-top: 0.65rem;
-    flex-wrap: wrap;
-  }
-  .heat-item {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    font-size: 0.7rem;
-    font-weight: 600;
-  }
-  .heat-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 2px;
-    flex-shrink: 0;
-  }
-  .heat-dot.red { background: #DC3545; }
-  .heat-dot.yellow { background: #E8C566; }
-  .heat-dot.green { background: #28A745; }
+ /* === HEAT MAP LEGEND === */
+ .heat-legend {
+ display: flex;
+ gap: 0.5rem;
+ margin-top: 0.65rem;
+ flex-wrap: wrap;
+ }
+ .heat-item {
+ display: flex;
+ align-items: center;
+ gap: 0.3rem;
+ font-size: 0.7rem;
+ font-weight: 600;
+ }
+ .heat-dot {
+ width: 10px;
+ height: 10px;
+ border-radius: 2px;
+ flex-shrink: 0;
+ }
+ .heat-dot.red { background: #DC3545; }
+ .heat-dot.yellow { background: #E8C566; }
+ .heat-dot.green { background: #28A745; }
 
-  /* === INLINE MINI STATS (for step 4) === */
-  .inline-stats {
-    display: flex;
-    gap: 0.4rem;
-    margin-top: 0.65rem;
-  }
-  .inline-stat {
-    flex: 1;
-    background: rgba(11, 29, 51, 0.6);
-    border: 1px solid rgba(212, 168, 67, 0.15);
-    border-radius: 6px;
-    padding: 0.5rem 0.35rem;
-    text-align: center;
-  }
-  .inline-stat .is-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.25rem;
-    font-weight: 700;
-    line-height: 1;
-  }
-  .inline-stat .is-label {
-    font-size: 0.6rem;
-    color: #8A9BB5;
-    margin-top: 0.15rem;
-    line-height: 1.25;
-  }
-  .is-num.real { color: #28A745; }
-  .is-num.paper { color: #E8C566; }
-  .is-num.none { color: #DC3545; }
+ /* === INLINE MINI STATS (for step 4) === */
+ .inline-stats {
+ display: flex;
+ gap: 0.4rem;
+ margin-top: 0.65rem;
+ }
+ .inline-stat {
+ flex: 1;
+ background: rgba(11, 29, 51, 0.6);
+ border: 1px solid rgba(212, 168, 67, 0.15);
+ border-radius: 6px;
+ padding: 0.5rem 0.35rem;
+ text-align: center;
+ }
+ .inline-stat .is-num {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 1.25rem;
+ font-weight: 700;
+ line-height: 1;
+ }
+ .inline-stat .is-label {
+ font-size: 0.6rem;
+ color: #8A9BB5;
+ margin-top: 0.15rem;
+ line-height: 1.25;
+ }
+ .is-num.real { color: #28A745; }
+ .is-num.paper { color: #E8C566; }
+ .is-num.none { color: #DC3545; }
 
-  /* === EXAMPLE SCENARIO === */
-  .example-card {
-    background: rgba(18, 39, 66, 0.6);
-    border: 1px solid rgba(212, 168, 67, 0.2);
-    border-radius: 10px;
-    padding: 1rem 1.15rem;
-    backdrop-filter: blur(4px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  }
-  .example-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #FFFFFF;
-    margin-bottom: 0.75rem;
-  }
-  .example-scenario {
-    font-size: 0.8rem;
-    color: #8A9BB5;
-    margin-bottom: 0.85rem;
-    line-height: 1.55;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid rgba(212, 168, 67, 0.1);
-  }
-  .example-steps {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-  .ex-step {
-    display: flex;
-    gap: 0.6rem;
-    align-items: flex-start;
-  }
-  .ex-step-num {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 22px;
-    height: 22px;
-    background: linear-gradient(135deg, #D4A843, #E8C566);
-    border-radius: 4px;
-    color: #06111F;
-    font-size: 0.65rem;
-    font-weight: 700;
-    font-family: 'DM Sans', sans-serif;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-  .ex-step-content {
-    font-size: 0.75rem;
-    color: #8A9BB5;
-    line-height: 1.5;
-  }
-  .ex-step-content strong {
-    color: #cdd6e4;
-    font-weight: 600;
-  }
-  .ex-step-content .ex-red { color: #DC3545; font-weight: 600; }
-  .ex-step-content .ex-yellow { color: #E8C566; font-weight: 600; }
-  .ex-step-content .ex-green { color: #28A745; font-weight: 600; }
-  .ex-result {
-    margin-top: 0.75rem;
-    padding-top: 0.65rem;
-    border-top: 1px solid rgba(212, 168, 67, 0.1);
-    font-size: 0.75rem;
-    color: #cdd6e4;
-    font-weight: 500;
-    line-height: 1.5;
-  }
+ /* === EXAMPLE SCENARIO === */
+ .example-card {
+ background: rgba(18, 39, 66, 0.6);
+ border: 1px solid rgba(212, 168, 67, 0.2);
+ border-radius: 10px;
+ padding: 1rem 1.15rem;
+ backdrop-filter: blur(4px);
+ box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+ }
+ .example-title {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 1.1rem;
+ font-weight: 700;
+ color: #FFFFFF;
+ margin-bottom: 0.75rem;
+ }
+ .example-scenario {
+ font-size: 0.8rem;
+ color: #8A9BB5;
+ margin-bottom: 0.85rem;
+ line-height: 1.55;
+ padding-bottom: 0.75rem;
+ border-bottom: 1px solid rgba(212, 168, 67, 0.1);
+ }
+ .example-steps {
+ display: flex;
+ flex-direction: column;
+ gap: 0.6rem;
+ }
+ .ex-step {
+ display: flex;
+ gap: 0.6rem;
+ align-items: flex-start;
+ }
+ .ex-step-num {
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ width: 22px;
+ height: 22px;
+ background: linear-gradient(135deg, #D4A843, #E8C566);
+ border-radius: 4px;
+ color: #06111F;
+ font-size: 0.65rem;
+ font-weight: 700;
+ font-family: 'DM Sans', sans-serif;
+ flex-shrink: 0;
+ margin-top: 1px;
+ }
+ .ex-step-content {
+ font-size: 0.75rem;
+ color: #8A9BB5;
+ line-height: 1.5;
+ }
+ .ex-step-content strong {
+ color: #cdd6e4;
+ font-weight: 600;
+ }
+ .ex-step-content .ex-red { color: #DC3545; font-weight: 600; }
+ .ex-step-content .ex-yellow { color: #E8C566; font-weight: 600; }
+ .ex-step-content .ex-green { color: #28A745; font-weight: 600; }
+ .ex-result {
+ margin-top: 0.75rem;
+ padding-top: 0.65rem;
+ border-top: 1px solid rgba(212, 168, 67, 0.1);
+ font-size: 0.75rem;
+ color: #cdd6e4;
+ font-weight: 500;
+ line-height: 1.5;
+ }
 
-  /* === CONNECTOR === */
-  .connector {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 24px;
-    position: relative;
-  }
-  .connector::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 0;
-    height: 16px;
-    border-left: 2px dashed rgba(212, 168, 67, 0.3);
-  }
-  .connector::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: calc(50% - 5px);
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 6px solid #D4A843;
-    opacity: 0.5;
-  }
+ /* === CONNECTOR === */
+ .connector {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ height: 24px;
+ position: relative;
+ }
+ .connector::before {
+ content: '';
+ position: absolute;
+ left: 50%;
+ top: 0;
+ height: 16px;
+ border-left: 2px dashed rgba(212, 168, 67, 0.3);
+ }
+ .connector::after {
+ content: '';
+ position: absolute;
+ bottom: 0;
+ left: calc(50% - 5px);
+ border-left: 5px solid transparent;
+ border-right: 5px solid transparent;
+ border-top: 6px solid #D4A843;
+ opacity: 0.5;
+ }
 
-  /* === CALLOUT BOX === */
-  .callout {
-    background: rgba(212, 168, 67, 0.08);
-    border: 1px solid rgba(212, 168, 67, 0.25);
-    border-left: 3px solid #D4A843;
-    border-radius: 0 10px 10px 0;
-    padding: 1rem 1.25rem;
-  }
-  .callout-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.05rem;
-    font-weight: 500;
-    color: #FFFFFF;
-    line-height: 1.45;
-    font-style: italic;
-  }
+ /* === CALLOUT BOX === */
+ .callout {
+ background: rgba(212, 168, 67, 0.08);
+ border: 1px solid rgba(212, 168, 67, 0.25);
+ border-left: 3px solid #D4A843;
+ border-radius: 0 10px 10px 0;
+ padding: 1rem 1.25rem;
+ }
+ .callout-text {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 1.05rem;
+ font-weight: 500;
+ color: #FFFFFF;
+ line-height: 1.45;
+ font-style: italic;
+ }
 
-  /* === FOOTER === */
-  .footer {
-    text-align: center;
-    margin-top: 1.5rem;
-    padding-top: 0.75rem;
-  }
-  .footer-name {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #FFFFFF;
-    margin-bottom: 0.15rem;
-  }
-  .footer-url {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.7rem;
-    color: #D4A843;
-    letter-spacing: 0.5px;
-  }
-  .footer-url a {
-    color: #D4A843;
-    text-decoration: none;
-  }
+ /* === FOOTER === */
+ .footer {
+ text-align: center;
+ margin-top: 1.5rem;
+ padding-top: 0.75rem;
+ }
+ .footer-name {
+ font-family: 'DM Sans', sans-serif;
+ font-size: 0.8rem;
+ font-weight: 600;
+ color: #FFFFFF;
+ margin-bottom: 0.15rem;
+ }
+ .footer-url {
+ font-family: 'DM Sans', sans-serif;
+ font-size: 0.7rem;
+ color: #D4A843;
+ letter-spacing: 0.5px;
+ }
+ .footer-url a {
+ color: #D4A843;
+ text-decoration: none;
+ }
 
-  /* === RESPONSIVE === */
-  @media (max-width: 420px) {
-    .page {
-      padding: 1.5rem 1.15rem;
-      padding-top: 2rem;
-    }
-    .title {
-      font-size: 1.4rem;
-    }
-    .mini-stat .ms-num {
-      font-size: 1.5rem;
-    }
-    .mini-stat .ms-label {
-      font-size: 0.65rem;
-    }
-    .mini-stat {
-      padding: 0.7rem 0.35rem;
-    }
-    .heat-legend {
-      gap: 0.35rem;
-    }
-  }
+ /* === RESPONSIVE === */
+ @media (max-width: 420px) {
+ .page {
+ padding: 1.5rem 1.15rem;
+ padding-top: 2rem;
+ }
+ .title {
+ font-size: 1.4rem;
+ }
+ .mini-stat .ms-num {
+ font-size: 1.5rem;
+ }
+ .mini-stat .ms-label {
+ font-size: 0.65rem;
+ }
+ .mini-stat {
+ padding: 0.7rem 0.35rem;
+ }
+ .heat-legend {
+ gap: 0.35rem;
+ }
+ }
 </style>
 </head>
 <body>
@@ -446,179 +446,179 @@
 
 <div class="page">
 
-  <!-- SECTION LABEL -->
-  <div class="section-label">Supply Chain Strategy</div>
+ <!-- SECTION LABEL -->
+ <div class="section-label">Supply Chain Strategy</div>
 
-  <!-- TITLE -->
-  <h1 class="title">Supply Chain Resilience in the Hormuz Era</h1>
+ <!-- TITLE -->
+ <h1 class="title">Supply Chain Resilience in the Hormuz Era</h1>
 
-  <!-- SUBTITLE -->
-  <p class="subtitle">A practical 4-step framework for procurement leaders navigating the most significant energy supply disruption in decades.</p>
+ <!-- SUBTITLE -->
+ <p class="subtitle">A practical 4-step framework for procurement leaders navigating the most significant energy supply disruption in decades.</p>
 
-  <!-- STATUS -->
-  <div class="status-row">
-    <span class="badge badge-critical">Critical Disruption</span>
-    <span class="status-date">February 2026 — Ongoing</span>
-  </div>
+ <!-- STATUS -->
+ <div class="status-row">
+ <span class="badge badge-critical">Critical Disruption</span>
+ <span class="status-date">February 2026 — Ongoing</span>
+ </div>
 
-  <!-- DIVIDER -->
-  <div class="divider"></div>
+ <!-- DIVIDER -->
+ <div class="divider"></div>
 
-  <!-- IMPACT STATS -->
-  <div class="mini-stats">
-    <div class="mini-stat">
-      <div class="ms-num">20%</div>
-      <div class="ms-label">of global oil supply disrupted</div>
-    </div>
-    <div class="mini-stat">
-      <div class="ms-num">$96+</div>
-      <div class="ms-label">WTI crude per barrel</div>
-    </div>
-    <div class="mini-stat">
-      <div class="ms-num">10M+</div>
-      <div class="ms-label">barrels/day production drop</div>
-    </div>
-  </div>
+ <!-- IMPACT STATS -->
+ <div class="mini-stats">
+ <div class="mini-stat">
+ <div class="ms-num">20%</div>
+ <div class="ms-label">of global oil supply disrupted</div>
+ </div>
+ <div class="mini-stat">
+ <div class="ms-num">$96+</div>
+ <div class="ms-label">WTI crude per barrel</div>
+ </div>
+ <div class="mini-stat">
+ <div class="ms-num">10M+</div>
+ <div class="ms-label">barrels/day production drop</div>
+ </div>
+ </div>
 
-  <!-- DIVIDER -->
-  <div class="divider"></div>
+ <!-- DIVIDER -->
+ <div class="divider"></div>
 
-  <!-- FRAMEWORK LABEL -->
-  <div class="section-label">The 4-Step Framework</div>
+ <!-- FRAMEWORK LABEL -->
+ <div class="section-label">The 4-Step Framework</div>
 
-  <!-- STEP 01 -->
-  <div class="step-card">
-    <div class="step-header">
-      <span class="step-num">01</span>
-      <span class="step-title">Map Your Exposure</span>
-    </div>
-    <div class="step-body">
-      <p>A 72-hour exercise. Identify where your supply chain touches the Gulf across Tier 1, Tier 2, and Tier 3 suppliers. Start with energy, then trace raw materials: petrochemicals, aluminum, specialty chemicals, plastics feedstocks.</p>
-      <p><span class="step-emphasis">Build a heat map.</span> Anything you cannot categorize goes red until proven otherwise. Imperfect intelligence acted on quickly beats perfect intelligence that arrives too late.</p>
-    </div>
-    <div class="heat-legend">
-      <div class="heat-item"><span class="heat-dot red"></span> <span style="color:#DC3545;">Critical</span></div>
-      <div class="heat-item"><span class="heat-dot yellow"></span> <span style="color:#E8C566;">Painful</span></div>
-      <div class="heat-item"><span class="heat-dot green"></span> <span style="color:#28A745;">Minimal</span></div>
-    </div>
-  </div>
+ <!-- STEP 01 -->
+ <div class="step-card">
+ <div class="step-header">
+ <span class="step-num">01</span>
+ <span class="step-title">Map Your Exposure</span>
+ </div>
+ <div class="step-body">
+ <p>A 72-hour exercise. Identify where your supply chain touches the Gulf across Tier 1, Tier 2, and Tier 3 suppliers. Start with energy, then trace raw materials: petrochemicals, aluminum, specialty chemicals, plastics feedstocks.</p>
+ <p><span class="step-emphasis">Build a heat map.</span> Anything you cannot categorize goes red until proven otherwise. Imperfect intelligence acted on quickly beats perfect intelligence that arrives too late.</p>
+ </div>
+ <div class="heat-legend">
+ <div class="heat-item"><span class="heat-dot red"></span> <span style="color:#DC3545;">Critical</span></div>
+ <div class="heat-item"><span class="heat-dot yellow"></span> <span style="color:#E8C566;">Painful</span></div>
+ <div class="heat-item"><span class="heat-dot green"></span> <span style="color:#28A745;">Minimal</span></div>
+ </div>
+ </div>
 
-  <!-- CONNECTOR -->
-  <div class="connector"></div>
+ <!-- CONNECTOR -->
+ <div class="connector"></div>
 
-  <!-- STEP 02 -->
-  <div class="step-card">
-    <div class="step-header">
-      <span class="step-num">02</span>
-      <span class="step-title">Identify Alternatives</span>
-    </div>
-    <div class="step-body">
-      <p>For every red-zone dependency, identify at least one alternative source. Not contracted yet — just identified. Know who they are, where they operate, their capacity, and the lead time to switch.</p>
-      <p><span class="step-emphasis">Nobody knows when Hormuz reopens:</span> weeks, months, or longer. Options equal leverage, and right now, leverage equals survival.</p>
-    </div>
-  </div>
+ <!-- STEP 02 -->
+ <div class="step-card">
+ <div class="step-header">
+ <span class="step-num">02</span>
+ <span class="step-title">Identify Alternatives</span>
+ </div>
+ <div class="step-body">
+ <p>For every red-zone dependency, identify at least one alternative source. Not contracted yet — just identified. Know who they are, where they operate, their capacity, and the lead time to switch.</p>
+ <p><span class="step-emphasis">Nobody knows when Hormuz reopens:</span> weeks, months, or longer. Options equal leverage, and right now, leverage equals survival.</p>
+ </div>
+ </div>
 
-  <!-- CONNECTOR -->
-  <div class="connector"></div>
+ <!-- CONNECTOR -->
+ <div class="connector"></div>
 
-  <!-- STEP 03 -->
-  <div class="step-card">
-    <div class="step-header">
-      <span class="step-num">03</span>
-      <span class="step-title">Build Buffer Stock</span>
-    </div>
-    <div class="step-body">
-      <p>Adjust inventory posture now. If you have not started, you are already competing with everyone who just realized they should. Spot markets for Gulf-dependent materials are moving fast.</p>
-      <p>Go beyond physical inventory: <span class="step-emphasis">financial hedging, contract flexibility, and pre-negotiated backup agreements</span> all count as buffer.</p>
-    </div>
-  </div>
+ <!-- STEP 03 -->
+ <div class="step-card">
+ <div class="step-header">
+ <span class="step-num">03</span>
+ <span class="step-title">Build Buffer Stock</span>
+ </div>
+ <div class="step-body">
+ <p>Adjust inventory posture now. If you have not started, you are already competing with everyone who just realized they should. Spot markets for Gulf-dependent materials are moving fast.</p>
+ <p>Go beyond physical inventory: <span class="step-emphasis">financial hedging, contract flexibility, and pre-negotiated backup agreements</span> all count as buffer.</p>
+ </div>
+ </div>
 
-  <!-- CONNECTOR -->
-  <div class="connector"></div>
+ <!-- CONNECTOR -->
+ <div class="connector"></div>
 
-  <!-- STEP 04 -->
-  <div class="step-card">
-    <div class="step-header">
-      <span class="step-num">04</span>
-      <span class="step-title">Stress-Test Your Suppliers</span>
-    </div>
-    <div class="step-body">
-      <p>Take your top 20 suppliers by spend. Ask one question: <span class="step-emphasis">What is your exposure to Gulf-sourced energy and materials, and what is your contingency plan?</span></p>
-      <p>The pattern is consistent across industries:</p>
-    </div>
-    <div class="inline-stats">
-      <div class="inline-stat">
-        <div class="is-num real">~30%</div>
-        <div class="is-label">Real plans</div>
-      </div>
-      <div class="inline-stat">
-        <div class="is-num paper">~40%</div>
-        <div class="is-label">Paper plans</div>
-      </div>
-      <div class="inline-stat">
-        <div class="is-num none">~30%</div>
-        <div class="is-label">No plan</div>
-      </div>
-    </div>
-  </div>
+ <!-- STEP 04 -->
+ <div class="step-card">
+ <div class="step-header">
+ <span class="step-num">04</span>
+ <span class="step-title">Stress-Test Your Suppliers</span>
+ </div>
+ <div class="step-body">
+ <p>Take your top 20 suppliers by spend. Ask one question: <span class="step-emphasis">What is your exposure to Gulf-sourced energy and materials, and what is your contingency plan?</span></p>
+ <p>The pattern is consistent across industries:</p>
+ </div>
+ <div class="inline-stats">
+ <div class="inline-stat">
+ <div class="is-num real">~30%</div>
+ <div class="is-label">Real plans</div>
+ </div>
+ <div class="inline-stat">
+ <div class="is-num paper">~40%</div>
+ <div class="is-label">Paper plans</div>
+ </div>
+ <div class="inline-stat">
+ <div class="is-num none">~30%</div>
+ <div class="is-label">No plan</div>
+ </div>
+ </div>
+ </div>
 
-  <!-- DIVIDER -->
-  <div class="divider"></div>
+ <!-- DIVIDER -->
+ <div class="divider"></div>
 
-  <!-- EXAMPLE SCENARIO -->
-  <div class="section-label">Framework in Action</div>
+ <!-- EXAMPLE SCENARIO -->
+ <div class="section-label">Framework in Action</div>
 
-  <div class="example-card">
-    <div class="example-title">Example: Mid-Market Industrial Coatings Manufacturer</div>
-    <div class="example-scenario">
-      $800M revenue. 14 production facilities across North America. Procurement team of 6. No dedicated risk function. Supply chain managed through quarterly business reviews and a category-spend spreadsheet.
-    </div>
+ <div class="example-card">
+ <div class="example-title">Example: Mid-Market Industrial Coatings Manufacturer</div>
+ <div class="example-scenario">
+ $800M revenue. 14 production facilities across North America. Procurement team of 6. No dedicated risk function. Supply chain managed through quarterly business reviews and a category-spend spreadsheet.
+ </div>
 
-    <div class="example-steps">
-      <div class="ex-step">
-        <span class="ex-step-num">01</span>
-        <div class="ex-step-content">
-          <strong>Map exposure.</strong> 72-hour sprint reveals: resin feedstock (petrochemical-derived) sources back to two Gulf-region refineries at Tier 2. Natural gas — 38% of energy cost — priced off benchmarks now spiking. Titanium dioxide pigment supplier uses Gulf-shipped bauxite. Result: 3 categories flagged <span class="ex-red">RED</span>, 5 flagged <span class="ex-yellow">YELLOW</span>, the rest <span class="ex-green">GREEN</span>.
-        </div>
-      </div>
-      <div class="ex-step">
-        <span class="ex-step-num">02</span>
-        <div class="ex-step-content">
-          <strong>Identify alternatives.</strong> For resin feedstock: two domestic petrochemical producers identified with available capacity and 4-6 week qualification lead time. For TiO2 pigment: one Australian-sourced alternative, higher unit cost but no Gulf dependency. Switching costs look high — but a 90-day production shutdown costs more.
-        </div>
-      </div>
-      <div class="ex-step">
-        <span class="ex-step-num">03</span>
-        <div class="ex-step-content">
-          <strong>Build buffer.</strong> Current days-of-supply on resin feedstock: 18 days. Target: 45 days. Spot purchase placed immediately for 60-day bridge stock. Finance team pre-approves a natural gas hedge at current rates. Backup supply agreement drafted with domestic resin producer — not executed yet, but ready.
-        </div>
-      </div>
-      <div class="ex-step">
-        <span class="ex-step-num">04</span>
-        <div class="ex-step-content">
-          <strong>Stress-test suppliers.</strong> Top 20 suppliers surveyed. Results: 5 have real contingency plans with alternative sourcing already activated. 9 have documented plans that have never been tested. 6 had no answer. The 6 with no answer include two sole-source suppliers — those become the priority escalation.
-        </div>
-      </div>
-    </div>
+ <div class="example-steps">
+ <div class="ex-step">
+ <span class="ex-step-num">01</span>
+ <div class="ex-step-content">
+ <strong>Map exposure.</strong> 72-hour sprint reveals: resin feedstock (petrochemical-derived) sources back to two Gulf-region refineries at Tier 2. Natural gas — 38% of energy cost — priced off benchmarks now spiking. Titanium dioxide pigment supplier uses Gulf-shipped bauxite. Result: 3 categories flagged <span class="ex-red">RED</span>, 5 flagged <span class="ex-yellow">YELLOW</span>, the rest <span class="ex-green">GREEN</span>.
+ </div>
+ </div>
+ <div class="ex-step">
+ <span class="ex-step-num">02</span>
+ <div class="ex-step-content">
+ <strong>Identify alternatives.</strong> For resin feedstock: two domestic petrochemical producers identified with available capacity and 4-6 week qualification lead time. For TiO2 pigment: one Australian-sourced alternative, higher unit cost but no Gulf dependency. Switching costs look high — but a 90-day production shutdown costs more.
+ </div>
+ </div>
+ <div class="ex-step">
+ <span class="ex-step-num">03</span>
+ <div class="ex-step-content">
+ <strong>Build buffer.</strong> Current days-of-supply on resin feedstock: 18 days. Target: 45 days. Spot purchase placed immediately for 60-day bridge stock. Finance team pre-approves a natural gas hedge at current rates. Backup supply agreement drafted with domestic resin producer — not executed yet, but ready.
+ </div>
+ </div>
+ <div class="ex-step">
+ <span class="ex-step-num">04</span>
+ <div class="ex-step-content">
+ <strong>Stress-test suppliers.</strong> Top 20 suppliers surveyed. Results: 5 have real contingency plans with alternative sourcing already activated. 9 have documented plans that have never been tested. 6 had no answer. The 6 with no answer include two sole-source suppliers — those become the priority escalation.
+ </div>
+ </div>
+ </div>
 
-    <div class="ex-result">
-      Total elapsed time: 8 days. Total out-of-pocket cost: the spot purchase and staff time. The company now has a risk posture that would have taken a Big Four engagement 12 weeks and six figures to produce.
-    </div>
-  </div>
+ <div class="ex-result">
+ Total elapsed time: 8 days. Total out-of-pocket cost: the spot purchase and staff time. The company now has a risk posture that would have taken a Big Four engagement 12 weeks and six figures to produce.
+ </div>
+ </div>
 
-  <!-- DIVIDER -->
-  <div class="divider"></div>
+ <!-- DIVIDER -->
+ <div class="divider"></div>
 
-  <!-- CALLOUT -->
-  <div class="callout">
-    <p class="callout-text">"Speed is the variable that matters. The companies that come through strongest are acting now — not commissioning a six-month review."</p>
-    <p style="margin-top: 0.6rem; font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: #D4A843; font-style: normal;">— John Foley</p>
-  </div>
+ <!-- CALLOUT -->
+ <div class="callout">
+ <p class="callout-text">"Speed is the variable that matters. The companies that come through strongest are acting now — not commissioning a six-month review."</p>
+ <p style="margin-top: 0.6rem; font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: #D4A843; font-style: normal;">— John Foley</p>
+ </div>
 
-  <!-- FOOTER -->
-  <div class="footer">
-    <div class="footer-url"><a href="https://foleystrategicadvisory.com">foleystrategicadvisory.com</a></div>
-  </div>
+ <!-- FOOTER -->
+ <div class="footer">
+ <div class="footer-url"><a href="https://foleystrategicadvisory.com">foleystrategicadvisory.com</a></div>
+ </div>
 
 </div>
 

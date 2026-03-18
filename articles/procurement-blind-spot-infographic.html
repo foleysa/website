@@ -6,76 +6,76 @@
 <title>What Your Dashboard Isn't Showing You — Foley Strategic Advisory</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-  body {
-    background: linear-gradient(170deg, #0B1D33 0%, #06111F 100%);
-    min-height: 100vh;
-    color: #8A9BB5;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    line-height: 1.55;
-    -webkit-font-smoothing: antialiased;
-  }
-  .top-bar { height: 4px; background: linear-gradient(90deg, #D4A843, #E8C566, #D4A843); position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
-  .page { max-width: 500px; margin: 0 auto; padding: 2rem 1.75rem; padding-top: 2.5rem; }
-  .firm-name { text-align: center; font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #D4A843; margin-bottom: 1.75rem; }
-  .section-label { font-family: 'DM Sans', sans-serif; color: #D4A843; font-size: 0.65rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
-  .section-label::before { content: ''; width: 20px; height: 1px; background: #D4A843; flex-shrink: 0; }
-  .title { font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 700; color: #FFFFFF; line-height: 1.2; margin-bottom: 0.5rem; }
-  .subtitle { font-family: 'DM Sans', sans-serif; font-size: 0.85rem; color: #8A9BB5; margin-bottom: 1rem; line-height: 1.45; }
-  .badge { display: inline-block; padding: 0.15rem 0.6rem; border-radius: 4px; font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; font-family: 'DM Sans', sans-serif; }
-  .badge-critical { background: #DC3545; color: #fff; }
-  .badge-high { background: #E85D3A; color: #fff; }
-  .divider { height: 1px; background: linear-gradient(90deg, transparent, #D4A843, transparent); margin: 1.25rem 0; }
+ *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+ html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+ body {
+ background: linear-gradient(170deg, #0B1D33 0%, #06111F 100%);
+ min-height: 100vh;
+ color: #8A9BB5;
+ font-family: 'DM Sans', sans-serif;
+ font-size: 14px;
+ line-height: 1.55;
+ -webkit-font-smoothing: antialiased;
+ }
+ .top-bar { height: 4px; background: linear-gradient(90deg, #D4A843, #E8C566, #D4A843); position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
+ .page { max-width: 500px; margin: 0 auto; padding: 2rem 1.75rem; padding-top: 2.5rem; }
+ .firm-name { text-align: center; font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #D4A843; margin-bottom: 1.75rem; }
+ .section-label { font-family: 'DM Sans', sans-serif; color: #D4A843; font-size: 0.65rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+ .section-label::before { content: ''; width: 20px; height: 1px; background: #D4A843; flex-shrink: 0; }
+ .title { font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 700; color: #FFFFFF; line-height: 1.2; margin-bottom: 0.5rem; }
+ .subtitle { font-family: 'DM Sans', sans-serif; font-size: 0.85rem; color: #8A9BB5; margin-bottom: 1rem; line-height: 1.45; }
+ .badge { display: inline-block; padding: 0.15rem 0.6rem; border-radius: 4px; font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; font-family: 'DM Sans', sans-serif; }
+ .badge-critical { background: #DC3545; color: #fff; }
+ .badge-high { background: #E85D3A; color: #fff; }
+ .divider { height: 1px; background: linear-gradient(90deg, transparent, #D4A843, transparent); margin: 1.25rem 0; }
 
-  /* BLIND SPOT CARDS — RED LEFT BORDER */
-  .risk-card {
-    background: rgba(18, 39, 66, 0.6);
-    border: 1px solid rgba(212, 168, 67, 0.2);
-    border-left: 3px solid #DC3545;
-    border-radius: 0 10px 10px 0;
-    padding: 1rem 1.15rem;
-    backdrop-filter: blur(4px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-    margin-bottom: 0.6rem;
-  }
-  .risk-card:last-of-type { margin-bottom: 0; }
-  .risk-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
-  .risk-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 700; color: #FFFFFF; line-height: 1.25; }
-  .risk-body { font-size: 0.78rem; color: #8A9BB5; line-height: 1.55; }
-  .risk-body p { margin-bottom: 0.35rem; }
-  .risk-body p:last-child { margin-bottom: 0; }
-  .risk-emphasis { color: #cdd6e4; font-weight: 500; }
+ /* BLIND SPOT CARDS — RED LEFT BORDER */
+ .risk-card {
+ background: rgba(18, 39, 66, 0.6);
+ border: 1px solid rgba(212, 168, 67, 0.2);
+ border-left: 3px solid #DC3545;
+ border-radius: 0 10px 10px 0;
+ padding: 1rem 1.15rem;
+ backdrop-filter: blur(4px);
+ box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+ margin-bottom: 0.6rem;
+ }
+ .risk-card:last-of-type { margin-bottom: 0; }
+ .risk-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
+ .risk-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 700; color: #FFFFFF; line-height: 1.25; }
+ .risk-body { font-size: 0.78rem; color: #8A9BB5; line-height: 1.55; }
+ .risk-body p { margin-bottom: 0.35rem; }
+ .risk-body p:last-child { margin-bottom: 0; }
+ .risk-emphasis { color: #cdd6e4; font-weight: 500; }
 
-  /* STEP CARDS — GOLD LEFT BORDER */
-  .step-card {
-    background: rgba(18, 39, 66, 0.6);
-    border: 1px solid rgba(212, 168, 67, 0.2);
-    border-left: 3px solid #D4A843;
-    border-radius: 0 10px 10px 0;
-    padding: 1rem 1.15rem;
-    backdrop-filter: blur(4px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  }
-  .step-header { display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.5rem; }
-  .step-num { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: linear-gradient(135deg, #D4A843, #E8C566); border-radius: 6px; color: #06111F; font-size: 0.85rem; font-weight: 700; font-family: 'DM Sans', sans-serif; flex-shrink: 0; }
-  .step-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 700; color: #FFFFFF; line-height: 1.25; }
-  .step-body { font-size: 0.78rem; color: #8A9BB5; line-height: 1.5; }
-  .step-emphasis { color: #cdd6e4; font-weight: 500; }
-  .connector { display: flex; align-items: center; justify-content: center; height: 24px; position: relative; }
-  .connector::before { content: ''; position: absolute; left: 50%; top: 0; height: 16px; border-left: 2px dashed rgba(212, 168, 67, 0.3); }
-  .connector::after { content: ''; position: absolute; bottom: 0; left: calc(50% - 5px); border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 6px solid #D4A843; opacity: 0.5; }
-  .callout { background: rgba(212, 168, 67, 0.08); border: 1px solid rgba(212, 168, 67, 0.25); border-left: 3px solid #D4A843; border-radius: 0 10px 10px 0; padding: 1rem 1.25rem; }
-  .callout-text { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 500; color: #FFFFFF; line-height: 1.45; font-style: italic; }
-  .footer { text-align: center; margin-top: 1.5rem; padding-top: 0.75rem; }
-  .footer-name { font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 600; color: #FFFFFF; margin-bottom: 0.15rem; }
-  .footer-url { font-family: 'DM Sans', sans-serif; font-size: 0.7rem; color: #D4A843; letter-spacing: 0.5px; }
-  .footer-url a { color: #D4A843; text-decoration: none; }
-  @media (max-width: 420px) {
-    .page { padding: 1.5rem 1.15rem; padding-top: 2rem; }
-    .title { font-size: 1.4rem; }
-  }
+ /* STEP CARDS — GOLD LEFT BORDER */
+ .step-card {
+ background: rgba(18, 39, 66, 0.6);
+ border: 1px solid rgba(212, 168, 67, 0.2);
+ border-left: 3px solid #D4A843;
+ border-radius: 0 10px 10px 0;
+ padding: 1rem 1.15rem;
+ backdrop-filter: blur(4px);
+ box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+ }
+ .step-header { display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.5rem; }
+ .step-num { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: linear-gradient(135deg, #D4A843, #E8C566); border-radius: 6px; color: #06111F; font-size: 0.85rem; font-weight: 700; font-family: 'DM Sans', sans-serif; flex-shrink: 0; }
+ .step-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 700; color: #FFFFFF; line-height: 1.25; }
+ .step-body { font-size: 0.78rem; color: #8A9BB5; line-height: 1.5; }
+ .step-emphasis { color: #cdd6e4; font-weight: 500; }
+ .connector { display: flex; align-items: center; justify-content: center; height: 24px; position: relative; }
+ .connector::before { content: ''; position: absolute; left: 50%; top: 0; height: 16px; border-left: 2px dashed rgba(212, 168, 67, 0.3); }
+ .connector::after { content: ''; position: absolute; bottom: 0; left: calc(50% - 5px); border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 6px solid #D4A843; opacity: 0.5; }
+ .callout { background: rgba(212, 168, 67, 0.08); border: 1px solid rgba(212, 168, 67, 0.25); border-left: 3px solid #D4A843; border-radius: 0 10px 10px 0; padding: 1rem 1.25rem; }
+ .callout-text { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 500; color: #FFFFFF; line-height: 1.45; font-style: italic; }
+ .footer { text-align: center; margin-top: 1.5rem; padding-top: 0.75rem; }
+ .footer-name { font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 600; color: #FFFFFF; margin-bottom: 0.15rem; }
+ .footer-url { font-family: 'DM Sans', sans-serif; font-size: 0.7rem; color: #D4A843; letter-spacing: 0.5px; }
+ .footer-url a { color: #D4A843; text-decoration: none; }
+ @media (max-width: 420px) {
+ .page { padding: 1.5rem 1.15rem; padding-top: 2rem; }
+ .title { font-size: 1.4rem; }
+ }
 </style>
 </head>
 <body>
@@ -84,106 +84,106 @@
 
 <div class="page">
 
-  <div class="firm-name">Foley Strategic Advisory</div>
+ <div class="firm-name">Foley Strategic Advisory</div>
 
-  <div class="section-label">Procurement Analytics</div>
+ <div class="section-label">Procurement Analytics</div>
 
-  <h1 class="title">What Your Dashboard Isn't Showing You</h1>
+ <h1 class="title">What Your Dashboard Isn't Showing You</h1>
 
-  <p class="subtitle">3 blind spots every procurement leader needs to fix — before the next disruption finds them first.</p>
+ <p class="subtitle">3 blind spots every procurement leader needs to fix — before the next disruption finds them first.</p>
 
-  <div class="divider"></div>
+ <div class="divider"></div>
 
-  <!-- BLIND SPOT 1 -->
-  <div class="risk-card">
-    <div class="risk-header">
-      <span class="badge badge-critical">Critical</span>
-      <span class="risk-title">Supplier Financial Health</span>
-    </div>
-    <div class="risk-body">
-      <p>Your dashboard shows on-time delivery and quality scores. It doesn't show that your critical Tier 1 supplier's debt-to-equity ratio just tripled.</p>
-      <p><span class="risk-emphasis">Warning signs appear in supplier financials 6-12 months before failure.</span> But procurement teams don't monitor financials — that's "finance's job." By the time the force majeure notice arrives, it's too late to qualify an alternative.</p>
-    </div>
-  </div>
+ <!-- BLIND SPOT 1 -->
+ <div class="risk-card">
+ <div class="risk-header">
+ <span class="badge badge-critical">Critical</span>
+ <span class="risk-title">Supplier Financial Health</span>
+ </div>
+ <div class="risk-body">
+ <p>Your dashboard shows on-time delivery and quality scores. It doesn't show that your critical Tier 1 supplier's debt-to-equity ratio just tripled.</p>
+ <p><span class="risk-emphasis">Warning signs appear in supplier financials 6-12 months before failure.</span> But procurement teams don't monitor financials — that's "finance's job." By the time the force majeure notice arrives, it's too late to qualify an alternative.</p>
+ </div>
+ </div>
 
-  <!-- BLIND SPOT 2 -->
-  <div class="risk-card">
-    <div class="risk-header">
-      <span class="badge badge-high">High</span>
-      <span class="risk-title">Geographic Concentration Risk</span>
-    </div>
-    <div class="risk-body">
-      <p>You think you're diversified because you have 4 suppliers for a critical component. But all 4 are in the same industrial park in Shenzhen. Or all 4 source raw materials from the same Gulf petrochemical complex.</p>
-      <p><span class="risk-emphasis">The Hormuz closure exposed this:</span> companies with "zero Gulf exposure" discovered their Tier 2 and 3 suppliers were 40%+ Gulf-dependent.</p>
-    </div>
-  </div>
+ <!-- BLIND SPOT 2 -->
+ <div class="risk-card">
+ <div class="risk-header">
+ <span class="badge badge-high">High</span>
+ <span class="risk-title">Geographic Concentration Risk</span>
+ </div>
+ <div class="risk-body">
+ <p>You think you're diversified because you have 4 suppliers for a critical component. But all 4 are in the same industrial park in Shenzhen. Or all 4 source raw materials from the same Gulf petrochemical complex.</p>
+ <p><span class="risk-emphasis">The Hormuz closure exposed this:</span> companies with "zero Gulf exposure" discovered their Tier 2 and 3 suppliers were 40%+ Gulf-dependent.</p>
+ </div>
+ </div>
 
-  <!-- BLIND SPOT 3 -->
-  <div class="risk-card">
-    <div class="risk-header">
-      <span class="badge badge-high">High</span>
-      <span class="risk-title">Sub-Tier Dependencies</span>
-    </div>
-    <div class="risk-body">
-      <p>Most procurement teams have visibility to Tier 1. Maybe Tier 2 for critical categories. Below that is a black box — and that's where the real risk lives.</p>
-      <p><span class="risk-emphasis">A single sub-component supplier in Taiwan, a rare earth processor in China, a specialty chemical plant in India</span> — these bottlenecks exist in every supply chain and almost nobody maps them.</p>
-    </div>
-  </div>
+ <!-- BLIND SPOT 3 -->
+ <div class="risk-card">
+ <div class="risk-header">
+ <span class="badge badge-high">High</span>
+ <span class="risk-title">Sub-Tier Dependencies</span>
+ </div>
+ <div class="risk-body">
+ <p>Most procurement teams have visibility to Tier 1. Maybe Tier 2 for critical categories. Below that is a black box — and that's where the real risk lives.</p>
+ <p><span class="risk-emphasis">A single sub-component supplier in Taiwan, a rare earth processor in China, a specialty chemical plant in India</span> — these bottlenecks exist in every supply chain and almost nobody maps them.</p>
+ </div>
+ </div>
 
-  <div class="divider"></div>
+ <div class="divider"></div>
 
-  <!-- WHAT TO DO -->
-  <div class="section-label">What to Do About It</div>
+ <!-- WHAT TO DO -->
+ <div class="section-label">What to Do About It</div>
 
-  <div class="step-card">
-    <div class="step-header">
-      <span class="step-num">01</span>
-      <span class="step-title">Real-Time Risk Dashboards</span>
-    </div>
-    <div class="step-body">Build supplier risk visibility that goes beyond spend analytics. Financial health scores, news monitoring, geographic heat maps — not just backward-looking KPIs.</div>
-  </div>
+ <div class="step-card">
+ <div class="step-header">
+ <span class="step-num">01</span>
+ <span class="step-title">Real-Time Risk Dashboards</span>
+ </div>
+ <div class="step-body">Build supplier risk visibility that goes beyond spend analytics. Financial health scores, news monitoring, geographic heat maps — not just backward-looking KPIs.</div>
+ </div>
 
-  <div class="connector"></div>
+ <div class="connector"></div>
 
-  <div class="step-card">
-    <div class="step-header">
-      <span class="step-num">02</span>
-      <span class="step-title">Contractual Sub-Tier Disclosure</span>
-    </div>
-    <div class="step-body">Require Tier 1 suppliers to disclose their critical sub-tier dependencies. Make it a condition of doing business — not a request they can ignore.</div>
-  </div>
+ <div class="step-card">
+ <div class="step-header">
+ <span class="step-num">02</span>
+ <span class="step-title">Contractual Sub-Tier Disclosure</span>
+ </div>
+ <div class="step-body">Require Tier 1 suppliers to disclose their critical sub-tier dependencies. Make it a condition of doing business — not a request they can ignore.</div>
+ </div>
 
-  <div class="connector"></div>
+ <div class="connector"></div>
 
-  <div class="step-card">
-    <div class="step-header">
-      <span class="step-num">03</span>
-      <span class="step-title">Quarterly Concentration Analysis</span>
-    </div>
-    <div class="step-body">Map geographic and single-source dependencies across the full supplier network. Not annually — quarterly. The risk landscape shifts faster than most teams realize.</div>
-  </div>
+ <div class="step-card">
+ <div class="step-header">
+ <span class="step-num">03</span>
+ <span class="step-title">Quarterly Concentration Analysis</span>
+ </div>
+ <div class="step-body">Map geographic and single-source dependencies across the full supplier network. Not annually — quarterly. The risk landscape shifts faster than most teams realize.</div>
+ </div>
 
-  <div class="connector"></div>
+ <div class="connector"></div>
 
-  <div class="step-card">
-    <div class="step-header">
-      <span class="step-num">04</span>
-      <span class="step-title">Risk-Weighted Sourcing</span>
-    </div>
-    <div class="step-body">Stop evaluating suppliers on price, quality, and delivery alone. Add a weighted risk score to every sourcing event. The cheapest option with concentrated risk is not the cheapest option.</div>
-  </div>
+ <div class="step-card">
+ <div class="step-header">
+ <span class="step-num">04</span>
+ <span class="step-title">Risk-Weighted Sourcing</span>
+ </div>
+ <div class="step-body">Stop evaluating suppliers on price, quality, and delivery alone. Add a weighted risk score to every sourcing event. The cheapest option with concentrated risk is not the cheapest option.</div>
+ </div>
 
-  <div class="divider"></div>
+ <div class="divider"></div>
 
-  <div class="callout">
-    <p class="callout-text">"The most dangerous risk is the one your dashboard was never designed to show you."</p>
-    <p style="margin-top: 0.6rem; font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: #D4A843; font-style: normal;">— John Foley</p>
-  </div>
+ <div class="callout">
+ <p class="callout-text">"The most dangerous risk is the one your dashboard was never designed to show you."</p>
+ <p style="margin-top: 0.6rem; font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: #D4A843; font-style: normal;">— John Foley</p>
+ </div>
 
-  <div class="footer">
-    <div class="footer-name">John Foley</div>
-    <div class="footer-url"><a href="https://foleystrategicadvisory.com">foleystrategicadvisory.com</a></div>
-  </div>
+ <div class="footer">
+ <div class="footer-name">John Foley</div>
+ <div class="footer-url"><a href="https://foleystrategicadvisory.com">foleystrategicadvisory.com</a></div>
+ </div>
 
 </div>
 

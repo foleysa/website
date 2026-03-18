@@ -6,334 +6,334 @@
 <title>The Maersk Surcharge Is Just the Start — Foley Strategic Advisory</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+ *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html {
-    -webkit-text-size-adjust: 100%;
-    scroll-behavior: smooth;
-  }
+ html {
+ -webkit-text-size-adjust: 100%;
+ scroll-behavior: smooth;
+ }
 
-  body {
-    background: linear-gradient(170deg, #0B1D33 0%, #06111F 100%);
-    min-height: 100vh;
-    color: #8A9BB5;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    line-height: 1.55;
-    -webkit-font-smoothing: antialiased;
-  }
+ body {
+ background: linear-gradient(170deg, #0B1D33 0%, #06111F 100%);
+ min-height: 100vh;
+ color: #8A9BB5;
+ font-family: 'DM Sans', sans-serif;
+ font-size: 14px;
+ line-height: 1.55;
+ -webkit-font-smoothing: antialiased;
+ }
 
-  /* === TOP ACCENT BAR === */
-  .top-bar {
-    height: 4px;
-    background: linear-gradient(90deg, #D4A843, #E8C566, #D4A843);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-  }
+ /* === TOP ACCENT BAR === */
+ .top-bar {
+ height: 4px;
+ background: linear-gradient(90deg, #D4A843, #E8C566, #D4A843);
+ position: fixed;
+ top: 0;
+ left: 0;
+ right: 0;
+ z-index: 100;
+ }
 
-  /* === PAGE WRAPPER === */
-  .page {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 2rem 1.75rem;
-    padding-top: 2.5rem;
-  }
+ /* === PAGE WRAPPER === */
+ .page {
+ max-width: 500px;
+ margin: 0 auto;
+ padding: 2rem 1.75rem;
+ padding-top: 2.5rem;
+ }
 
-  /* === FIRM NAME === */
-  .firm-name {
-    text-align: center;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #D4A843;
-    margin-bottom: 1.75rem;
-  }
+ /* === FIRM NAME === */
+ .firm-name {
+ text-align: center;
+ font-family: 'DM Sans', sans-serif;
+ font-size: 0.7rem;
+ font-weight: 600;
+ letter-spacing: 2px;
+ text-transform: uppercase;
+ color: #D4A843;
+ margin-bottom: 1.75rem;
+ }
 
-  /* === SECTION LABELS === */
-  .section-label {
-    font-family: 'DM Sans', sans-serif;
-    color: #D4A843;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.75rem;
-  }
-  .section-label::before {
-    content: '';
-    width: 20px;
-    height: 1px;
-    background: #D4A843;
-    flex-shrink: 0;
-  }
+ /* === SECTION LABELS === */
+ .section-label {
+ font-family: 'DM Sans', sans-serif;
+ color: #D4A843;
+ font-size: 0.65rem;
+ font-weight: 700;
+ letter-spacing: 3px;
+ text-transform: uppercase;
+ display: flex;
+ align-items: center;
+ gap: 0.5rem;
+ margin-bottom: 0.75rem;
+ }
+ .section-label::before {
+ content: '';
+ width: 20px;
+ height: 1px;
+ background: #D4A843;
+ flex-shrink: 0;
+ }
 
-  /* === TITLE === */
-  .title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.65rem;
-    font-weight: 700;
-    color: #FFFFFF;
-    line-height: 1.2;
-    margin-bottom: 0.5rem;
-  }
+ /* === TITLE === */
+ .title {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 1.65rem;
+ font-weight: 700;
+ color: #FFFFFF;
+ line-height: 1.2;
+ margin-bottom: 0.5rem;
+ }
 
-  /* === SUBTITLE === */
-  .subtitle {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.85rem;
-    color: #8A9BB5;
-    margin-bottom: 1rem;
-    line-height: 1.45;
-  }
+ /* === SUBTITLE === */
+ .subtitle {
+ font-family: 'DM Sans', sans-serif;
+ font-size: 0.85rem;
+ color: #8A9BB5;
+ margin-bottom: 1rem;
+ line-height: 1.45;
+ }
 
-  /* === STATUS ROW === */
-  .status-row {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 0.25rem;
-    flex-wrap: wrap;
-  }
+ /* === STATUS ROW === */
+ .status-row {
+ display: flex;
+ align-items: center;
+ gap: 0.75rem;
+ margin-bottom: 0.25rem;
+ flex-wrap: wrap;
+ }
 
-  /* === BADGES === */
-  .badge {
-    display: inline-block;
-    padding: 0.15rem 0.6rem;
-    border-radius: 4px;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-family: 'DM Sans', sans-serif;
-  }
-  .badge-critical { background: #DC3545; color: #fff; }
-  .badge-high { background: #E85D3A; color: #fff; }
+ /* === BADGES === */
+ .badge {
+ display: inline-block;
+ padding: 0.15rem 0.6rem;
+ border-radius: 4px;
+ font-size: 0.65rem;
+ font-weight: 700;
+ letter-spacing: 1px;
+ text-transform: uppercase;
+ font-family: 'DM Sans', sans-serif;
+ }
+ .badge-critical { background: #DC3545; color: #fff; }
+ .badge-high { background: #E85D3A; color: #fff; }
 
-  .status-date {
-    font-size: 0.75rem;
-    color: #8A9BB5;
-    font-weight: 400;
-  }
+ .status-date {
+ font-size: 0.75rem;
+ color: #8A9BB5;
+ font-weight: 400;
+ }
 
-  /* === GOLD DIVIDER === */
-  .divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #D4A843, transparent);
-    margin: 1.25rem 0;
-  }
+ /* === GOLD DIVIDER === */
+ .divider {
+ height: 1px;
+ background: linear-gradient(90deg, transparent, #D4A843, transparent);
+ margin: 1.25rem 0;
+ }
 
-  /* === MINI STATS === */
-  .mini-stats {
-    display: flex;
-    gap: 0.6rem;
-  }
-  .mini-stat {
-    flex: 1;
-    background: rgba(18, 39, 66, 0.6);
-    border: 1px solid rgba(212, 168, 67, 0.2);
-    border-radius: 10px;
-    padding: 0.85rem 0.5rem;
-    text-align: center;
-    backdrop-filter: blur(4px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  }
-  .mini-stat .ms-num {
-    color: #D4A843;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    line-height: 1;
-  }
-  .mini-stat .ms-num-small {
-    color: #D4A843;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    line-height: 1;
-  }
-  .mini-stat .ms-label {
-    color: #8A9BB5;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.7rem;
-    margin-top: 0.25rem;
-    line-height: 1.3;
-  }
+ /* === MINI STATS === */
+ .mini-stats {
+ display: flex;
+ gap: 0.6rem;
+ }
+ .mini-stat {
+ flex: 1;
+ background: rgba(18, 39, 66, 0.6);
+ border: 1px solid rgba(212, 168, 67, 0.2);
+ border-radius: 10px;
+ padding: 0.85rem 0.5rem;
+ text-align: center;
+ backdrop-filter: blur(4px);
+ box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+ }
+ .mini-stat .ms-num {
+ color: #D4A843;
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 1.8rem;
+ font-weight: 700;
+ line-height: 1;
+ }
+ .mini-stat .ms-num-small {
+ color: #D4A843;
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 1.4rem;
+ font-weight: 700;
+ line-height: 1;
+ }
+ .mini-stat .ms-label {
+ color: #8A9BB5;
+ font-family: 'DM Sans', sans-serif;
+ font-size: 0.7rem;
+ margin-top: 0.25rem;
+ line-height: 1.3;
+ }
 
-  /* === CARDS === */
-  .card {
-    background: rgba(18, 39, 66, 0.6);
-    border: 1px solid rgba(212, 168, 67, 0.2);
-    border-radius: 10px;
-    padding: 1rem 1.15rem;
-    backdrop-filter: blur(4px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-    margin-bottom: 0.6rem;
-  }
-  .card:last-child {
-    margin-bottom: 0;
-  }
-  .card-title {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #FFFFFF;
-    margin-bottom: 0.35rem;
-  }
-  .card-body {
-    font-size: 0.78rem;
-    color: #8A9BB5;
-    line-height: 1.5;
-  }
-  .card-stat {
-    color: #D4A843;
-    font-weight: 600;
-  }
+ /* === CARDS === */
+ .card {
+ background: rgba(18, 39, 66, 0.6);
+ border: 1px solid rgba(212, 168, 67, 0.2);
+ border-radius: 10px;
+ padding: 1rem 1.15rem;
+ backdrop-filter: blur(4px);
+ box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+ margin-bottom: 0.6rem;
+ }
+ .card:last-child {
+ margin-bottom: 0;
+ }
+ .card-title {
+ font-family: 'DM Sans', sans-serif;
+ font-size: 0.8rem;
+ font-weight: 600;
+ color: #FFFFFF;
+ margin-bottom: 0.35rem;
+ }
+ .card-body {
+ font-size: 0.78rem;
+ color: #8A9BB5;
+ line-height: 1.5;
+ }
+ .card-stat {
+ color: #D4A843;
+ font-weight: 600;
+ }
 
-  /* === STEP CARDS === */
-  .step-card {
-    background: rgba(18, 39, 66, 0.6);
-    border: 1px solid rgba(212, 168, 67, 0.2);
-    border-left: 3px solid #D4A843;
-    border-radius: 0 10px 10px 0;
-    padding: 1rem 1.15rem;
-    backdrop-filter: blur(4px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  }
-  .step-header {
-    display: flex;
-    align-items: center;
-    gap: 0.65rem;
-    margin-bottom: 0.5rem;
-  }
-  .step-num {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    background: linear-gradient(135deg, #D4A843, #E8C566);
-    border-radius: 6px;
-    color: #06111F;
-    font-size: 0.85rem;
-    font-weight: 700;
-    font-family: 'DM Sans', sans-serif;
-    flex-shrink: 0;
-  }
-  .step-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #FFFFFF;
-    line-height: 1.25;
-  }
-  .step-body {
-    font-size: 0.78rem;
-    color: #8A9BB5;
-    line-height: 1.5;
-  }
-  .step-emphasis {
-    color: #cdd6e4;
-    font-weight: 500;
-  }
+ /* === STEP CARDS === */
+ .step-card {
+ background: rgba(18, 39, 66, 0.6);
+ border: 1px solid rgba(212, 168, 67, 0.2);
+ border-left: 3px solid #D4A843;
+ border-radius: 0 10px 10px 0;
+ padding: 1rem 1.15rem;
+ backdrop-filter: blur(4px);
+ box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+ }
+ .step-header {
+ display: flex;
+ align-items: center;
+ gap: 0.65rem;
+ margin-bottom: 0.5rem;
+ }
+ .step-num {
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ width: 32px;
+ height: 32px;
+ background: linear-gradient(135deg, #D4A843, #E8C566);
+ border-radius: 6px;
+ color: #06111F;
+ font-size: 0.85rem;
+ font-weight: 700;
+ font-family: 'DM Sans', sans-serif;
+ flex-shrink: 0;
+ }
+ .step-title {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 1.1rem;
+ font-weight: 700;
+ color: #FFFFFF;
+ line-height: 1.25;
+ }
+ .step-body {
+ font-size: 0.78rem;
+ color: #8A9BB5;
+ line-height: 1.5;
+ }
+ .step-emphasis {
+ color: #cdd6e4;
+ font-weight: 500;
+ }
 
-  /* === CONNECTOR === */
-  .connector {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 24px;
-    position: relative;
-  }
-  .connector::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 0;
-    height: 16px;
-    border-left: 2px dashed rgba(212, 168, 67, 0.3);
-  }
-  .connector::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: calc(50% - 5px);
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 6px solid #D4A843;
-    opacity: 0.5;
-  }
+ /* === CONNECTOR === */
+ .connector {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ height: 24px;
+ position: relative;
+ }
+ .connector::before {
+ content: '';
+ position: absolute;
+ left: 50%;
+ top: 0;
+ height: 16px;
+ border-left: 2px dashed rgba(212, 168, 67, 0.3);
+ }
+ .connector::after {
+ content: '';
+ position: absolute;
+ bottom: 0;
+ left: calc(50% - 5px);
+ border-left: 5px solid transparent;
+ border-right: 5px solid transparent;
+ border-top: 6px solid #D4A843;
+ opacity: 0.5;
+ }
 
-  /* === CALLOUT BOX === */
-  .callout {
-    background: rgba(212, 168, 67, 0.08);
-    border: 1px solid rgba(212, 168, 67, 0.25);
-    border-left: 3px solid #D4A843;
-    border-radius: 0 10px 10px 0;
-    padding: 1rem 1.25rem;
-  }
-  .callout-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.05rem;
-    font-weight: 500;
-    color: #FFFFFF;
-    line-height: 1.45;
-    font-style: italic;
-  }
+ /* === CALLOUT BOX === */
+ .callout {
+ background: rgba(212, 168, 67, 0.08);
+ border: 1px solid rgba(212, 168, 67, 0.25);
+ border-left: 3px solid #D4A843;
+ border-radius: 0 10px 10px 0;
+ padding: 1rem 1.25rem;
+ }
+ .callout-text {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 1.05rem;
+ font-weight: 500;
+ color: #FFFFFF;
+ line-height: 1.45;
+ font-style: italic;
+ }
 
-  /* === FOOTER === */
-  .footer {
-    text-align: center;
-    margin-top: 1.5rem;
-    padding-top: 0.75rem;
-  }
-  .footer-name {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #FFFFFF;
-    margin-bottom: 0.15rem;
-  }
-  .footer-url {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.7rem;
-    color: #D4A843;
-    letter-spacing: 0.5px;
-  }
-  .footer-url a {
-    color: #D4A843;
-    text-decoration: none;
-  }
+ /* === FOOTER === */
+ .footer {
+ text-align: center;
+ margin-top: 1.5rem;
+ padding-top: 0.75rem;
+ }
+ .footer-name {
+ font-family: 'DM Sans', sans-serif;
+ font-size: 0.8rem;
+ font-weight: 600;
+ color: #FFFFFF;
+ margin-bottom: 0.15rem;
+ }
+ .footer-url {
+ font-family: 'DM Sans', sans-serif;
+ font-size: 0.7rem;
+ color: #D4A843;
+ letter-spacing: 0.5px;
+ }
+ .footer-url a {
+ color: #D4A843;
+ text-decoration: none;
+ }
 
-  /* === RESPONSIVE === */
-  @media (max-width: 420px) {
-    .page {
-      padding: 1.5rem 1.15rem;
-      padding-top: 2rem;
-    }
-    .title {
-      font-size: 1.4rem;
-    }
-    .mini-stat .ms-num {
-      font-size: 1.5rem;
-    }
-    .mini-stat .ms-num-small {
-      font-size: 1.2rem;
-    }
-    .mini-stat .ms-label {
-      font-size: 0.65rem;
-    }
-    .mini-stat {
-      padding: 0.7rem 0.35rem;
-    }
-  }
+ /* === RESPONSIVE === */
+ @media (max-width: 420px) {
+ .page {
+ padding: 1.5rem 1.15rem;
+ padding-top: 2rem;
+ }
+ .title {
+ font-size: 1.4rem;
+ }
+ .mini-stat .ms-num {
+ font-size: 1.5rem;
+ }
+ .mini-stat .ms-num-small {
+ font-size: 1.2rem;
+ }
+ .mini-stat .ms-label {
+ font-size: 0.65rem;
+ }
+ .mini-stat {
+ padding: 0.7rem 0.35rem;
+ }
+ }
 </style>
 </head>
 <body>
@@ -342,142 +342,142 @@
 
 <div class="page">
 
-  <!-- FIRM NAME -->
-  <div class="firm-name">Foley Strategic Advisory</div>
+ <!-- FIRM NAME -->
+ <div class="firm-name">Foley Strategic Advisory</div>
 
-  <!-- SECTION LABEL -->
-  <div class="section-label">Shipping &amp; Logistics</div>
+ <!-- SECTION LABEL -->
+ <div class="section-label">Shipping &amp; Logistics</div>
 
-  <!-- TITLE -->
-  <h1 class="title">The Maersk Surcharge Is Just the Start</h1>
+ <!-- TITLE -->
+ <h1 class="title">The Maersk Surcharge Is Just the Start</h1>
 
-  <!-- SUBTITLE -->
-  <p class="subtitle">Why shipping costs are structural, not temporary — and 5 actions procurement leaders should take now.</p>
+ <!-- SUBTITLE -->
+ <p class="subtitle">Why shipping costs are structural, not temporary — and 5 actions procurement leaders should take now.</p>
 
-  <!-- STATUS -->
-  <div class="status-row">
-    <span class="badge badge-critical">Critical</span>
-    <span class="status-date">March 2026 — Ongoing</span>
-  </div>
+ <!-- STATUS -->
+ <div class="status-row">
+ <span class="badge badge-critical">Critical</span>
+ <span class="status-date">March 2026 — Ongoing</span>
+ </div>
 
-  <!-- DIVIDER -->
-  <div class="divider"></div>
+ <!-- DIVIDER -->
+ <div class="divider"></div>
 
-  <!-- IMPACT STATS -->
-  <div class="mini-stats">
-    <div class="mini-stat">
-      <div class="ms-num-small">$200/$400</div>
-      <div class="ms-label">per TEU / FEU surcharge</div>
-    </div>
-    <div class="mini-stat">
-      <div class="ms-num">40-60%</div>
-      <div class="ms-label">container rate increase since Feb</div>
-    </div>
-    <div class="mini-stat">
-      <div class="ms-num">+14</div>
-      <div class="ms-label">days added to transit times</div>
-    </div>
-  </div>
+ <!-- IMPACT STATS -->
+ <div class="mini-stats">
+ <div class="mini-stat">
+ <div class="ms-num-small">$200/$400</div>
+ <div class="ms-label">per TEU / FEU surcharge</div>
+ </div>
+ <div class="mini-stat">
+ <div class="ms-num">40-60%</div>
+ <div class="ms-label">container rate increase since Feb</div>
+ </div>
+ <div class="mini-stat">
+ <div class="ms-num">+14</div>
+ <div class="ms-label">days added to transit times</div>
+ </div>
+ </div>
 
-  <!-- DIVIDER -->
-  <div class="divider"></div>
+ <!-- DIVIDER -->
+ <div class="divider"></div>
 
-  <!-- WHY STRUCTURAL -->
-  <div class="section-label">Why This Is Structural</div>
+ <!-- WHY STRUCTURAL -->
+ <div class="section-label">Why This Is Structural</div>
 
-  <div class="card">
-    <div class="card-title">Rerouting Distance</div>
-    <div class="card-body">Cape of Good Hope adds <span class="card-stat">3,000-4,000 nautical miles</span> per voyage. Asia-to-Europe transit has gone from 30 days to 44. Every round trip ties up a ship for two extra weeks — and there are no new ships coming.</div>
-  </div>
+ <div class="card">
+ <div class="card-title">Rerouting Distance</div>
+ <div class="card-body">Cape of Good Hope adds <span class="card-stat">3,000-4,000 nautical miles</span> per voyage. Asia-to-Europe transit has gone from 30 days to 44. Every round trip ties up a ship for two extra weeks — and there are no new ships coming.</div>
+ </div>
 
-  <div class="card">
-    <div class="card-title">Compounding Costs</div>
-    <div class="card-body">Fuel, insurance, and port fees are stacking simultaneously. Gulf transit insurance premiums are up <span class="card-stat">300%+</span>. Bunker fuel consumption rises with every extra mile. These costs don't unwind when headlines fade.</div>
-  </div>
+ <div class="card">
+ <div class="card-title">Compounding Costs</div>
+ <div class="card-body">Fuel, insurance, and port fees are stacking simultaneously. Gulf transit insurance premiums are up <span class="card-stat">300%+</span>. Bunker fuel consumption rises with every extra mile. These costs don't unwind when headlines fade.</div>
+ </div>
 
-  <div class="card">
-    <div class="card-title">Effective Capacity Reduction</div>
-    <div class="card-body">Longer voyages mean fewer round trips per ship per year. The global fleet hasn't grown — but the route network just got <span class="card-stat">15-20% longer</span>. That's a structural capacity squeeze with no quick fix.</div>
-  </div>
+ <div class="card">
+ <div class="card-title">Effective Capacity Reduction</div>
+ <div class="card-body">Longer voyages mean fewer round trips per ship per year. The global fleet hasn't grown — but the route network just got <span class="card-stat">15-20% longer</span>. That's a structural capacity squeeze with no quick fix.</div>
+ </div>
 
-  <div class="card">
-    <div class="card-title">Every Carrier Is Moving</div>
-    <div class="card-body">Hapag-Lloyd, CMA CGM, and MSC have all followed Maersk with similar surcharges. This isn't one carrier's pricing decision — it's the market repricing around a new reality. Expect <span class="card-stat">2-3 years</span> of elevated costs minimum.</div>
-  </div>
+ <div class="card">
+ <div class="card-title">Every Carrier Is Moving</div>
+ <div class="card-body">Hapag-Lloyd, CMA CGM, and MSC have all followed Maersk with similar surcharges. This isn't one carrier's pricing decision — it's the market repricing around a new reality. Expect <span class="card-stat">2-3 years</span> of elevated costs minimum.</div>
+ </div>
 
-  <!-- DIVIDER -->
-  <div class="divider"></div>
+ <!-- DIVIDER -->
+ <div class="divider"></div>
 
-  <!-- 5 ACTIONS -->
-  <div class="section-label">5 Actions for Procurement Leaders</div>
+ <!-- 5 ACTIONS -->
+ <div class="section-label">5 Actions for Procurement Leaders</div>
 
-  <!-- STEP 01 -->
-  <div class="step-card">
-    <div class="step-header">
-      <span class="step-num">01</span>
-      <span class="step-title">Model Total Landed Cost</span>
-    </div>
-    <div class="step-body">Not just unit price. Freight, insurance, duties, inventory carrying costs, lead time buffers. Most procurement teams only track FOB price — that number is now dangerously incomplete.</div>
-  </div>
+ <!-- STEP 01 -->
+ <div class="step-card">
+ <div class="step-header">
+ <span class="step-num">01</span>
+ <span class="step-title">Model Total Landed Cost</span>
+ </div>
+ <div class="step-body">Not just unit price. Freight, insurance, duties, inventory carrying costs, lead time buffers. Most procurement teams only track FOB price — that number is now dangerously incomplete.</div>
+ </div>
 
-  <div class="connector"></div>
+ <div class="connector"></div>
 
-  <!-- STEP 02 -->
-  <div class="step-card">
-    <div class="step-header">
-      <span class="step-num">02</span>
-      <span class="step-title">Renegotiate Freight Terms</span>
-    </div>
-    <div class="step-body">If you're on annual contracts, you're exposed. Push for index-based or quarterly adjustments. Lock in what you can — but build in flexibility for a market that's still moving.</div>
-  </div>
+ <!-- STEP 02 -->
+ <div class="step-card">
+ <div class="step-header">
+ <span class="step-num">02</span>
+ <span class="step-title">Renegotiate Freight Terms</span>
+ </div>
+ <div class="step-body">If you're on annual contracts, you're exposed. Push for index-based or quarterly adjustments. Lock in what you can — but build in flexibility for a market that's still moving.</div>
+ </div>
 
-  <div class="connector"></div>
+ <div class="connector"></div>
 
-  <!-- STEP 03 -->
-  <div class="step-card">
-    <div class="step-header">
-      <span class="step-num">03</span>
-      <span class="step-title">Nearshore What You Can</span>
-    </div>
-    <div class="step-body">Mexico, Central America, Eastern Europe. The math on nearshoring just changed dramatically. Run the total landed cost comparison again with current freight rates — the answer will surprise you.</div>
-  </div>
+ <!-- STEP 03 -->
+ <div class="step-card">
+ <div class="step-header">
+ <span class="step-num">03</span>
+ <span class="step-title">Nearshore What You Can</span>
+ </div>
+ <div class="step-body">Mexico, Central America, Eastern Europe. The math on nearshoring just changed dramatically. Run the total landed cost comparison again with current freight rates — the answer will surprise you.</div>
+ </div>
 
-  <div class="connector"></div>
+ <div class="connector"></div>
 
-  <!-- STEP 04 -->
-  <div class="step-card">
-    <div class="step-header">
-      <span class="step-num">04</span>
-      <span class="step-title">Build Inventory Buffers</span>
-    </div>
-    <div class="step-body">Safety stock calculations based on pre-Hormuz lead times are wrong. Recalculate for critical items using current transit times. The cost of carrying extra inventory is less than the cost of a stockout.</div>
-  </div>
+ <!-- STEP 04 -->
+ <div class="step-card">
+ <div class="step-header">
+ <span class="step-num">04</span>
+ <span class="step-title">Build Inventory Buffers</span>
+ </div>
+ <div class="step-body">Safety stock calculations based on pre-Hormuz lead times are wrong. Recalculate for critical items using current transit times. The cost of carrying extra inventory is less than the cost of a stockout.</div>
+ </div>
 
-  <div class="connector"></div>
+ <div class="connector"></div>
 
-  <!-- STEP 05 -->
-  <div class="step-card">
-    <div class="step-header">
-      <span class="step-num">05</span>
-      <span class="step-title">Diversify Carriers</span>
-    </div>
-    <div class="step-body">If you're 80% with one carrier, you have no leverage. Split volume across 3+ carriers minimum. Concentration risk in logistics is just as dangerous as concentration risk in your supply base.</div>
-  </div>
+ <!-- STEP 05 -->
+ <div class="step-card">
+ <div class="step-header">
+ <span class="step-num">05</span>
+ <span class="step-title">Diversify Carriers</span>
+ </div>
+ <div class="step-body">If you're 80% with one carrier, you have no leverage. Split volume across 3+ carriers minimum. Concentration risk in logistics is just as dangerous as concentration risk in your supply base.</div>
+ </div>
 
-  <!-- DIVIDER -->
-  <div class="divider"></div>
+ <!-- DIVIDER -->
+ <div class="divider"></div>
 
-  <!-- CALLOUT -->
-  <div class="callout">
-    <p class="callout-text">"Companies that treat this as temporary will get crushed. The math on global shipping just changed."</p>
-    <p style="margin-top: 0.6rem; font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: #D4A843; font-style: normal;">— John Foley</p>
-  </div>
+ <!-- CALLOUT -->
+ <div class="callout">
+ <p class="callout-text">"Companies that treat this as temporary will get crushed. The math on global shipping just changed."</p>
+ <p style="margin-top: 0.6rem; font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: #D4A843; font-style: normal;">— John Foley</p>
+ </div>
 
-  <!-- FOOTER -->
-  <div class="footer">
-    <div class="footer-name">John Foley</div>
-    <div class="footer-url"><a href="https://foleystrategicadvisory.com">foleystrategicadvisory.com</a></div>
-  </div>
+ <!-- FOOTER -->
+ <div class="footer">
+ <div class="footer-name">John Foley</div>
+ <div class="footer-url"><a href="https://foleystrategicadvisory.com">foleystrategicadvisory.com</a></div>
+ </div>
 
 </div>
 
