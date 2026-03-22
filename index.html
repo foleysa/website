@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Foley Strategic Advisory | Operational Rigor. Strategic Foresight.</title>
 <meta name="description" content="Foley Strategic Advisory delivers supply chain optimization, operating model transformation, fractional CSO/CPO advisory, and strategic sourcing for mid-to-large enterprises. Practical advisory for companies that need results, not slide decks.">
+<link rel="icon" type="image/png" href="/fsalogo300x300.png">
 <link rel="canonical" href="https://foleystrategicadvisory.com/">
 
 <!-- Open Graph -->
@@ -1068,7 +1069,7 @@ footer {
  <h1>Operational Rigor.<br><em>Strategic Foresight.</em></h1>
  <p class="hero-sub">Foley Strategic Advisory partners with mid-to-large enterprises to transform procurement operations, optimize supply chains, and build resilient operating models — with the speed and precision of a practitioner, not a theorist.</p>
  <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin-bottom:1.5rem">
- <a href="https://calendar.app.google/MatDyPirxkiEACcZ6" class="hero-cta" target="_blank" rel="noopener">
+ <a href="https://calendar.app.google/To9VNcV1EwE1VZkG7" class="hero-cta" target="_blank" rel="noopener">
  Book a Free Consultation
  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
  </a>
@@ -1444,48 +1445,9 @@ footer {
  <div class="newsletter-inner">
  <h2>The Weekly Supply Chain Brief</h2>
  <p>Curated market intelligence, procurement trends, and strategic insights delivered to your inbox every week. Written for leaders who make decisions, not just follow them.</p>
- <div class="newsletter-form" id="nl-form">
- <input type="email" id="nl-email" placeholder="Your email address">
- <button type="button" id="nl-btn" onclick="doSubscribe()">Subscribe</button>
+ <div style="max-width:480px;margin:0 auto;">
+ <iframe src="https://embeds.beehiiv.com/76ff4b61-fb6e-4e76-ba73-1e5ba8c196a0?slim=true" data-test-id="beehiiv-embed" height="52" frameborder="0" scrolling="no" style="margin:0;border-radius:0px !important;background-color:transparent;width:100%;"></iframe>
  </div>
- <p id="nl-msg" style="display:none;color:#D4A843;margin-top:1rem;font-size:0.9rem;text-align:center;"></p>
- <script>
- function doSubscribe(){
-   var e=document.getElementById("nl-email").value.trim();
-   if(!e||e.indexOf("@")<1){
-     document.getElementById("nl-msg").style.display="block";
-     document.getElementById("nl-msg").textContent="Please enter a valid email address.";
-     return;
-   }
-   // Store subscriber locally
-   var subs=JSON.parse(localStorage.getItem("fsa_subscribers")||"[]");
-   subs.push({email:e,date:new Date().toISOString()});
-   localStorage.setItem("fsa_subscribers",JSON.stringify(subs));
-   // Send via Google Form (hidden)
-   var iframe=document.createElement("iframe");
-   iframe.style.display="none";
-   iframe.name="nl_frame";
-   document.body.appendChild(iframe);
-   var form=document.createElement("form");
-   form.method="POST";
-   form.action="https://docs.google.com/forms/d/e/1FAIpQLSfFAKEID/formResponse";
-   form.target="nl_frame";
-   var input=document.createElement("input");
-   input.name="entry.0";input.value=e;
-   form.appendChild(input);
-   // Show success immediately
-   document.getElementById("nl-msg").style.display="block";
-   document.getElementById("nl-msg").innerHTML="\u2705 You\u2019re in. Your first Weekly Supply Chain Brief arrives Monday.";
-   document.getElementById("nl-email").value="";
-   document.getElementById("nl-btn").textContent="Subscribed \u2713";
-   document.getElementById("nl-btn").disabled=true;
-   document.getElementById("nl-btn").style.opacity="0.7";
-   // Also send notification email via EmailJS or simple webhook
-   // For now, email Grace
-   var img=new Image();
-   img.src="https://formsubmit.co/ajax/john@foleysa.com?email="+encodeURIComponent(e);
- }
- </script>
  </div>
 </div>
 
