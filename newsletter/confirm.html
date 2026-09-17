@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subscription confirmed — Foley Strategic Advisory</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0B1D33;--gold:#D4A843;--cream:#FAF9F6;--text:#6B7280}
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--cream);font-family:'DM Sans',sans-serif;color:#1A1A1A;padding:32px}
+.card{max-width:520px;background:var(--navy);color:#fff;border-radius:16px;padding:40px 36px}
+.label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+h1{font-family:'Cormorant Garamond',serif;font-size:36px;line-height:1.15;margin:0 0 16px}
+p{color:rgba(255,255,255,.65);line-height:1.65;margin:0 0 28px}
+a{display:inline-block;background:var(--gold);color:var(--navy);font-weight:600;text-decoration:none;padding:12px 20px;border-radius:8px}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="label">Weekly Supply Chain Brief</div>
+    <h1 id="title">Confirming…</h1>
+    <p id="copy"></p>
+    <a href="/#newsletter">Back to Foley Strategic Advisory</a>
+  </div>
+<script>
+const status = new URLSearchParams(location.search).get('status');
+const title = document.getElementById('title');
+const copy = document.getElementById('copy');
+if (status === 'ok') {
+  title.textContent = 'You are confirmed.';
+  copy.textContent = 'You are on the Foley Strategic Advisory first-party list for the Weekly Supply Chain Brief. Issue #1 is staged and has not been sent.';
+} else {
+  title.textContent = 'This confirmation link is not valid.';
+  copy.textContent = 'It may have expired. Submit the form on the site again to receive a new confirmation email.';
+}
+</script>
+</body>
+</html>

@@ -207,12 +207,17 @@ a{color:inherit;text-decoration:none}
 .newsletter-inner .section-title{color:var(--white);margin-bottom:16px}
 .newsletter-desc{font-size:16px;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:12px}
 .newsletter-detail{font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(255,255,255,.35);letter-spacing:.5px;margin-bottom:36px}
-.newsletter-form{display:flex;gap:12px;max-width:480px;margin:0 auto}
+.newsletter-form{display:flex;gap:12px;max-width:480px;margin:0 auto;position:relative}
 .newsletter-input{flex:1;padding:14px 20px;border-radius:var(--radius-sm);border:1px solid var(--border-dark);background:var(--navy-mid);color:var(--white);font-family:'DM Sans',sans-serif;font-size:15px;outline:none;transition:border-color .3s}
 .newsletter-input::placeholder{color:rgba(255,255,255,.3)}
 .newsletter-input:focus{border-color:var(--gold)}
 .newsletter-btn{padding:14px 28px;background:var(--gold);color:var(--navy);font-family:'DM Sans',sans-serif;font-weight:600;font-size:15px;border:none;border-radius:var(--radius-sm);cursor:pointer;transition:all .3s;white-space:nowrap}
 .newsletter-btn:hover{background:var(--gold-light);transform:translateY(-1px)}
+.newsletter-btn:disabled{opacity:.6;cursor:wait;transform:none}
+.nl-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.newsletter-status{margin-top:16px;font-size:14px;line-height:1.55;color:rgba(255,255,255,.7);min-height:1.5em}
+.newsletter-status.ok{color:var(--gold-light)}
+.newsletter-status.err{color:var(--signal-red)}
 .newsletter-topics{display:flex;justify-content:center;gap:24px;margin-top:32px;flex-wrap:wrap}
 .nl-topic{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.5px;color:rgba(255,255,255,.4);display:flex;align-items:center;gap:6px}
 .nl-topic::before{content:'';width:4px;height:4px;background:var(--gold);border-radius:50%}
@@ -448,11 +453,13 @@ a{color:inherit;text-decoration:none}
   <div class="section-label reveal" style="color:var(--gold)">Stay Sharp</div>
   <div class="section-title reveal">The Weekly Supply Chain Brief</div>
   <p class="newsletter-desc reveal">Commodity moves, tariff shifts, supplier signals, and AI developments — distilled into one actionable brief every week. Written for procurement and supply chain leaders who don't have time to chase the news.</p>
-  <div class="newsletter-detail reveal">Free · Weekly · No spam · Unsubscribe anytime</div>
-  <form class="newsletter-form reveal" action="https://subscribe-forms.beehiiv.com/89cd1711-5d4a-4a7d-855c-e1da0679db95" method="POST" target="_blank">
-    <input type="email" name="email" class="newsletter-input" placeholder="Enter your email" required>
+  <div class="newsletter-detail reveal">Free · Weekly · Double opt-in · Unsubscribe anytime · First-party list</div>
+  <form class="newsletter-form reveal" id="fsaNewsletterForm" action="/api/subscribe" method="POST">
+    <label class="nl-hp" aria-hidden="true">Company <input type="text" name="company" tabindex="-1" autocomplete="off"></label>
+    <input type="email" name="email" class="newsletter-input" placeholder="Enter your email" required autocomplete="email">
     <button type="submit" class="newsletter-btn">Subscribe</button>
   </form>
+  <p class="newsletter-status" id="fsaNewsletterStatus" role="status"></p>
   <div class="newsletter-topics reveal">
     <span class="nl-topic">Commodity Prices</span>
     <span class="nl-topic">Tariff Updates</span>
@@ -515,7 +522,7 @@ a{color:inherit;text-decoration:none}
     </div>
     <div class="footer-col"><h5>Services</h5><a href="#services">Operating Model</a><a href="#services">Supply Chain</a><a href="#services">Strategic Sourcing</a><a href="#services">Fractional CSO/CPO</a></div>
     <div class="footer-col"><h5>Platform</h5><a href="#max">Max Intelligence</a><a href="#max">Cross-Domain Trace</a><a href="#max">Market Signals</a><a href="#contact">Book Consultation</a></div>
-    <div class="footer-col"><h5>Company</h5><a href="#about">About the Founder</a><a href="/insights">Insights</a><a href="#industries">Industries</a><a href="#contact">Contact</a></div>
+    <div class="footer-col"><h5>Company</h5><a href="#about">About the Founder</a><a href="/insights">Insights</a><a href="#newsletter">Weekly Brief</a><a href="#contact">Contact</a></div>
   </div>
   <div class="footer-bottom">
     <div class="footer-copy">© 2026 Foley Strategic Advisory · Chicago, IL</div>
@@ -530,6 +537,37 @@ window.addEventListener('scroll',updateNav,{passive:true});updateNav();
 const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const siblings=Array.from(e.target.parentElement.querySelectorAll('.reveal'));setTimeout(()=>e.target.classList.add('visible'),siblings.indexOf(e.target)*60);ro.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -30px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(ev){ev.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)window.scrollTo({top:t.offsetTop-72,behavior:'smooth'})})});
+(function(){
+  const form=document.getElementById('fsaNewsletterForm');
+  const status=document.getElementById('fsaNewsletterStatus');
+  if(!form||!status)return;
+  function setStatus(kind,text){status.className='newsletter-status'+(kind?' '+kind:'');status.textContent=text;}
+  form.addEventListener('submit',async function(ev){
+    ev.preventDefault();
+    const btn=form.querySelector('button[type="submit"]');
+    const email=form.email.value;
+    const company=form.company.value;
+    btn.disabled=true;
+    setStatus('','Sending confirmation…');
+    try{
+      const res=await fetch('/api/subscribe',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({email,company})});
+      const data=await res.json().catch(()=>({}));
+      if(res.ok&&data.ok){
+        const extra=data.confirmUrl?' Use the confirm link shown in the local mailer log.':' Check your inbox to confirm — we will not add you until you do.';
+        setStatus('ok','Confirm to join the first-party list.'+extra);
+        form.reset();
+      }else if(res.status===404){
+        setStatus('err','First-party signup is staged. This host does not serve /api yet (GitHub Pages cannot). After the Origin/Vercel cutover the list stays with FSA — no Kit, no Beehiiv.');
+      }else{
+        setStatus('err',data.error==='invalid_email'?'Please enter a valid email.':'Could not subscribe. Try again or email john@foleysa.com.');
+      }
+    }catch(err){
+      setStatus('err','First-party signup is staged and the mailer API is not reachable on this host yet.');
+    }finally{
+      btn.disabled=false;
+    }
+  });
+})();
 </script>
 </body>
 </html>
