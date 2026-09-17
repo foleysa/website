@@ -226,6 +226,9 @@ a{color:inherit;text-decoration:none}
 .insight-bottom{padding:14px 24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
 .insight-date{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-tertiary)}
 .insight-link{font-size:13px;font-weight:600;color:var(--gold)}
+.insights-more{margin-top:40px;text-align:center}
+.insights-more a{font-size:15px;font-weight:600;color:var(--gold);transition:color .2s}
+.insights-more a:hover{color:var(--navy)}
 
 /* INDUSTRIES */
 #industries{padding:100px 0;background:var(--white)}
@@ -271,6 +274,8 @@ a{color:inherit;text-decoration:none}
 @media(max-width:768px){
   .container{padding:0 24px}.nav{padding:0 24px}
   .nav-links{display:none}.nav-toggle{display:block}
+  .nav-links.show{display:flex;flex-direction:column;align-items:flex-start;position:absolute;top:72px;left:0;right:0;padding:24px;gap:20px;background:rgba(250,249,246,.98);box-shadow:0 12px 32px rgba(11,29,51,.08)}
+  .nav.dark-zone .nav-links.show{background:rgba(11,29,51,.98)}
   .about-grid{grid-template-columns:1fr;gap:48px}
   .services-grid,.insights-grid,.max-features,.watch-grid,.why-grid{grid-template-columns:1fr}
   .engage-steps{grid-template-columns:1fr}
@@ -296,7 +301,7 @@ a{color:inherit;text-decoration:none}
     <li><a href="#about">Founder</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#max">Max Platform</a></li>
-    <li><a href="#insights">Insights</a></li>
+    <li><a href="/insights">Insights</a></li>
     <li><a href="#industries">Industries</a></li>
     <li><a href="#contact" class="nav-cta">Book a Consultation</a></li>
   </ul>
@@ -465,6 +470,7 @@ a{color:inherit;text-decoration:none}
     <div class="insight-card reveal"><div class="insight-top"><div class="insight-cat">Supply Chain</div><h3>Supply Chain Resilience in the Hormuz Era</h3><p>A practical 4-step framework for navigating energy supply disruption at scale.</p></div><div class="insight-bottom"><div class="insight-date">Mar 2026</div><a href="articles/supply-chain-resilience.html" target="_blank" rel="noopener" class="insight-link">Read →</a></div></div>
     <div class="insight-card reveal"><div class="insight-top"><div class="insight-cat">Strategy</div><h3>The Fractional CPO: When Does It Make Sense?</h3><p>Every company above $500M needs supply chain leadership. Not every company needs it full-time.</p></div><div class="insight-bottom"><div class="insight-date">Mar 2026</div><a href="articles/fractional-cpo.html" target="_blank" rel="noopener" class="insight-link">Read →</a></div></div>
   </div>
+  <div class="insights-more reveal"><a href="/insights">View all Insights →</a></div>
 </div></section>
 
 <section id="industries"><div class="container">
@@ -506,7 +512,7 @@ a{color:inherit;text-decoration:none}
     </div>
     <div class="footer-col"><h5>Services</h5><a href="#services">Operating Model</a><a href="#services">Supply Chain</a><a href="#services">Strategic Sourcing</a><a href="#services">Fractional CSO/CPO</a></div>
     <div class="footer-col"><h5>Platform</h5><a href="#max">Max Intelligence</a><a href="#max">Cross-Domain Trace</a><a href="#max">Market Signals</a><a href="#contact">Book Consultation</a></div>
-    <div class="footer-col"><h5>Company</h5><a href="#about">About the Founder</a><a href="#insights">Insights</a><a href="#industries">Industries</a><a href="#contact">Contact</a></div>
+    <div class="footer-col"><h5>Company</h5><a href="#about">About the Founder</a><a href="/insights">Insights</a><a href="#industries">Industries</a><a href="#contact">Contact</a></div>
   </div>
   <div class="footer-bottom">
     <div class="footer-copy">© 2026 Foley Strategic Advisory · Chicago, IL</div>
