@@ -22,7 +22,9 @@ export function loadConfig(env = process.env) {
       : path.join(REPO_ROOT, 'mailer/data/subscribers.json'),
     publicBase,
     allowLiveSend: env.ALLOW_LIVE_SEND === 'true',
-    revealConfirm: env.MAILER_DEV_REVEAL_CONFIRM === 'true',
+    // Reveal the confirm URL only when no live DOI email can go out (mock, or explicit flag).
+    revealConfirm: env.MAILER_DEV_REVEAL_CONFIRM === 'true'
+      || (env.MAILER_DEV_REVEAL_CONFIRM !== 'false' && String(env.MAILER_PROVIDER || 'mock') === 'mock'),
     // Product policy: Weekly Supply Chain Brief stays on Soft HOLD.
     softHold: true,
     brand: 'Foley Strategic Advisory',

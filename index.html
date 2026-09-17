@@ -460,6 +460,7 @@ a{color:inherit;text-decoration:none}
     <button type="submit" class="newsletter-btn">Subscribe</button>
   </form>
   <p class="newsletter-status" id="fsaNewsletterStatus" role="status"></p>
+  <p class="newsletter-status" id="fsaNewsletterConfirmWrap" hidden><a class="insight-link" id="fsaNewsletterConfirm" href="#">Confirm subscription</a></p>
   <div class="newsletter-topics reveal">
     <span class="nl-topic">Commodity Prices</span>
     <span class="nl-topic">Tariff Updates</span>
@@ -540,21 +541,30 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click'
 (function(){
   const form=document.getElementById('fsaNewsletterForm');
   const status=document.getElementById('fsaNewsletterStatus');
+  const confirmWrap=document.getElementById('fsaNewsletterConfirmWrap');
+  const confirmLink=document.getElementById('fsaNewsletterConfirm');
   if(!form||!status)return;
   function setStatus(kind,text){status.className='newsletter-status'+(kind?' '+kind:'');status.textContent=text;}
+  function hideConfirm(){if(confirmWrap)confirmWrap.hidden=true;}
   form.addEventListener('submit',async function(ev){
     ev.preventDefault();
     const btn=form.querySelector('button[type="submit"]');
     const email=form.email.value;
     const company=form.company.value;
     btn.disabled=true;
+    hideConfirm();
     setStatus('','Sending confirmation…');
     try{
       const res=await fetch('/api/subscribe',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({email,company})});
       const data=await res.json().catch(()=>({}));
       if(res.ok&&data.ok){
-        const extra=data.confirmUrl?' Use the confirm link shown in the local mailer log.':' Check your inbox to confirm — we will not add you until you do.';
-        setStatus('ok','Confirm to join the first-party list.'+extra);
+        if(data.confirmUrl&&confirmLink&&confirmWrap){
+          setStatus('ok','Confirm to join the first-party list. No email was sent (mock / Soft HOLD). Use the confirm link.');
+          confirmLink.href=data.confirmUrl;
+          confirmWrap.hidden=false;
+        }else{
+          setStatus('ok','Check your inbox to confirm — we will not add you until you do.');
+        }
         form.reset();
       }else if(res.status===404){
         setStatus('err','First-party signup is staged. This host does not serve /api yet (GitHub Pages cannot). After the Origin/Vercel cutover the list stays with FSA — no Kit, no Beehiiv.');

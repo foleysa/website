@@ -78,6 +78,8 @@ test('provider factory defaults to mock', () => {
   assert.equal(createProvider({ provider: 'mock' }).name, 'mock');
   assert.equal(createProvider(loadConfig({ MAILER_PROVIDER: 'resend', RESEND_API_KEY: 're_x' })).name, 'resend');
   assert.equal(createProvider(loadConfig({ MAILER_PROVIDER: 'postmark', POSTMARK_SERVER_TOKEN: 'pm_x' })).name, 'postmark');
+  assert.equal(loadConfig({}).revealConfirm, true);
+  assert.equal(loadConfig({ MAILER_PROVIDER: 'resend', MAILER_DEV_REVEAL_CONFIRM: 'false' }).revealConfirm, false);
 });
 
 test('subscribe + confirm + unsub HTTP path (mock, no live send)', async () => {
