@@ -22,7 +22,7 @@
 :root{--navy:#0B1D33;--navy-mid:#122A47;--navy-light:#1A3558;--gold:#D4A843;--gold-light:#E8C566;--cream:#FAF9F6;--white:#FFFFFF;--text-primary:#1A1A1A;--text-secondary:#6B7280;--text-tertiary:#9CA3AF;--border:#E5E7EB;--border-dark:#1E3A5F;--radius-sm:8px;--radius-md:12px;--shadow-card:0 1px 3px rgba(11,29,51,0.04),0 8px 24px rgba(11,29,51,0.06)}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-primary);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-primary);-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 
 /* NAV — same as index.html */
@@ -44,18 +44,21 @@ a{color:inherit;text-decoration:none}
 .section-label{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
 
 /* HERO — same navy language as home / insights */
-.page-hero{background:var(--navy);padding:160px 0 88px;position:relative;overflow:hidden;flex:1;display:flex;align-items:center}
+.page-hero{background:var(--navy);padding:160px 0 88px;position:relative;overflow:hidden}
 .page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 75% 35%,rgba(212,168,67,.07) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 15% 75%,rgba(176,204,255,.04) 0%,transparent 60%);pointer-events:none}
 .page-hero::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(212,168,67,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(212,168,67,.025) 1px,transparent 1px);background-size:72px 72px;pointer-events:none}
 .page-hero-inner{position:relative;z-index:2;max-width:640px}
 .page-hero h1{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(44px,6vw,72px);line-height:1.08;color:var(--white);margin-bottom:20px}
-.page-hero p{font-size:17px;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:36px}
+.page-hero p{font-size:17px;color:rgba(255,255,255,.6);line-height:1.7;max-width:560px}
+
+/* CREAM BAND — same page body as home / insights */
+.missing-actions{padding:80px 0 120px}
 .cta-row{display:flex;gap:16px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:15px;padding:14px 28px;border-radius:8px;transition:all .3s}
 .btn-gold{background:var(--gold);color:var(--navy)}
 .btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
-.btn-outline{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,.2)}
-.btn-outline:hover{border-color:var(--gold);color:var(--gold-light);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--navy);border:1.5px solid var(--navy)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
 
 /* FOOTER — same as index.html */
 .footer{background:var(--navy);padding:64px 0 40px;border-top:1px solid rgba(255,255,255,.06)}
@@ -81,6 +84,7 @@ a{color:inherit;text-decoration:none}
   .footer-inner{grid-template-columns:1fr;gap:32px}
   .footer-bottom{flex-direction:column;gap:16px;align-items:flex-start}
   .page-hero{padding:132px 0 64px}
+  .missing-actions{padding:64px 0 80px}
 }
 </style>
 </head>
@@ -106,12 +110,17 @@ a{color:inherit;text-decoration:none}
     <div class="section-label">404</div>
     <h1>This page isn't here.</h1>
     <p>The path you followed doesn't match a page on Foley Strategic Advisory. Head home, or browse Insights for the latest from the field.</p>
+  </div>
+</header>
+
+<main class="missing-actions">
+  <div class="container">
     <div class="cta-row">
       <a class="btn btn-gold" href="/">Back home</a>
       <a class="btn btn-outline" href="/insights">Browse Insights</a>
     </div>
   </div>
-</header>
+</main>
 
 <footer class="footer"><div class="container">
   <div class="footer-inner">
