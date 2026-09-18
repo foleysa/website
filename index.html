@@ -567,7 +567,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click'
         }
         form.reset();
       }else if(res.status===404){
-        setStatus('err','First-party signup is staged. This host does not serve /api yet (GitHub Pages cannot). After the Origin/Vercel cutover the list stays with FSA — no Kit, no Beehiiv.');
+        setStatus('err','First-party signup is staged. This host does not serve /api yet (GitHub Pages cannot). After Origin is git SoT and Vercel serves the domain, the list stays with FSA — no Kit, no Beehiiv.');
       }else{
         setStatus('err',data.error==='invalid_email'?'Please enter a valid email.':'Could not subscribe. Try again or email john@foleysa.com.');
       }

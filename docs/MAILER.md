@@ -22,7 +22,7 @@ Resend is the default when John adds keys because the brief is an HTML artifact,
 - Issue #1 drop zone: `newsletter/issues/0001/`.
 - CLI dry-run: `npm run mailer:send -- --issue 0001 --allow-placeholder`.
 - Local site + API: `npm run mailer` → http://127.0.0.1:8787
-- Vercel functions in `/api` share the same handlers (Origin’s documented deploy path is Vercel, not Origin hosting).
+- Vercel functions in `/api` share the same handlers. Destination is **Origin (git SoT) → Vercel** (Origin App). There is no documented Origin-native site host.
 
 ## Soft HOLD locks
 
@@ -51,8 +51,10 @@ npm run mailer:send -- --issue 0001 --allow-placeholder
 npm run mailer:export         # CSV of the first-party store (gitignored)
 ```
 
-## GitHub Pages vs this form
+## Pages is leaving — merge on Origin
 
-`foleystrategicadvisory.com` is still GitHub Pages today (`server: GitHub.com`). Pages cannot run `/api/*`. Merging the form to `main` before the domain is on a host that serves the Vercel/API functions will make Subscribe fail closed (honest error, no Beehiiv fallback). That is intentional: we will not keep leaking the list to a third party.
+`foleystrategicadvisory.com` is still GitHub Pages today (`server: GitHub.com`). Pages cannot run `/api/*`. John decision: Origin is git SoT; the public site leaves Pages for Origin→Vercel.
 
-John unlock: merge after the Origin/Vercel cutover, or keep this branch until DNS points at the API host. See `docs/ORIGIN-CUTOVER.md` and `docs/JOHN-UNLOCKS.md`.
+Merge this form onto the **Origin-hosted** default branch after Vercel serves the domain (or keep Subscribe on the Vercel URL until then). Do not merge Beehiiv removal onto GitHub Pages as the live path — Subscribe fails closed on purpose (no third-party fallback).
+
+See `docs/ORIGIN-CUTOVER.md` and `docs/JOHN-UNLOCKS.md`.

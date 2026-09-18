@@ -2,9 +2,9 @@
 
 Public site for [foleystrategicadvisory.com](https://foleystrategicadvisory.com). FSA brand only.
 
-- Live domain today: GitHub Pages (see `docs/ORIGIN-CUTOVER.md`).
+- Git SoT: **Cursor Origin** (leave GitHub). Public site: leave GitHub Pages via Origin→Vercel. See `docs/ORIGIN-CUTOVER.md`.
 - First-party Weekly Supply Chain Brief mailer (Soft HOLD): `docs/MAILER.md`.
-- John unlocks (DNS, API keys): `docs/JOHN-UNLOCKS.md`.
+- John unlocks (Origin detach, DNS, API keys): `docs/JOHN-UNLOCKS.md`.
 
 ```bash
 npm test

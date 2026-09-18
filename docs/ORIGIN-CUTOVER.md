@@ -1,58 +1,82 @@
-# Origin as source of truth — keep the domain live
+# Origin is the source of truth — leave GitHub Pages
 
-Cursor Origin is a **git forge**, not a website host. Official docs: [Origin](https://cursor.com/docs/origin).
+**John HARD CORRECT (2026-09-17):** Cursor Origin is git source of truth. The public site leaves GitHub Pages. Do not keep GitHub as SoT. Soft HOLD: no live email.
 
-> Origin is Cursor's git forge for storing and sharing code. Use it to host repositories, sync projects from GitHub, and browse your team's Origin repos in the browser.
+Official Origin docs: [Origin](https://cursor.com/docs/origin).
 
-For Origin-hosted repos, Origin is the git source of truth. For GitHub mirrors, GitHub stays the source of truth ([Origin](https://cursor.com/docs/origin), [Mirror a GitHub repository](https://cursor.com/docs/origin/mirror-github)).
+> Origin is Cursor's git forge for storing and sharing code.
 
-There is **no** documented Origin Pages, custom-domain site hosting, or serverless runtime. The documented “publish a live URL” path is **Vercel** attached to the repo ([Repository settings → Apps](https://cursor.com/docs/origin/settings), [Cloud Environment Setup — Publish to a live URL](https://cursor.com/docs/cloud-agent/setup)).
+> For Origin-hosted repos, Origin is the source of truth. For synced repos, GitHub stays the source of truth and Origin is the mirror.
+
+A GitHub **mirror is a transfer step only**. The end state is an **Origin-hosted** repo (created on Origin, or mirrored then **Detach from GitHub**). Lingering as a GitHub mirror is the opposite of this decision ([Mirror](https://cursor.com/docs/origin/mirror-github), [Detach](https://cursor.com/docs/origin/settings)).
+
+## Destination: Origin → Vercel (not Origin-native hosting)
+
+There is **no** documented Origin Pages, custom-domain web host, or request runtime. Guess discarded: “point `foleystrategicadvisory.com` at Origin and it serves the site.”
+
+The documented public-URL path is the **Vercel** Origin App on an Origin-hosted repo ([Repository settings → Apps](https://cursor.com/docs/origin/settings), [Publish to a live URL](https://cursor.com/docs/cloud-agent/setup)):
+
+```
+John / Claude  →  Origin git (SoT)  →  Vercel (Origin App)  →  foleystrategicadvisory.com
+                                      static HTML + /api mailer
+GitHub / Pages = leftover archive only. Not SoT. Not the live host.
+```
+
+Depot and Buildkite also attach only to **Origin-hosted** repos, not GitHub mirrors ([Settings](https://cursor.com/docs/origin/settings)). Another reason not to stay mirrored.
+
+If Cursor later ships Origin-native static hosting, revisit. Until the docs say so, Vercel is the destination.
 
 ## What is true today (checked 2026-09-17)
 
 | Layer | Reality | Proof |
 |---|---|---|
-| Public domain | `https://foleystrategicadvisory.com/` | `curl -sI` → `server: GitHub.com`, Pages HTTPS cert for apex + www, `cname: foleystrategicadvisory.com` |
-| GitHub Pages | `main` / root, HTTPS enforced | `gh api repos/foleysa/website/pages` |
-| Git remote | `github.com/foleysa/website` | this checkout |
-| Parallel deploy | `https://website-smoky-psi-51.vercel.app` | GitHub repo `homepageUrl`; `curl -sI` → `server: Vercel`. Same Beehiiv form as Pages at check time. |
-| Origin git | Not the remote on this repo | John has not claimed a codebase namespace / mirrored yet |
+| Public domain | `https://foleystrategicadvisory.com/` still on Pages | `curl -sI` → `server: GitHub.com` |
+| GitHub Pages | `main` / root, HTTPS on apex + www | `gh api repos/foleysa/website/pages` |
+| Git remote on this checkout | `github.com/foleysa/website` | not Origin yet |
+| Parallel Vercel | `https://website-smoky-psi-51.vercel.app` | `server: Vercel` — today it tracks GitHub `main`, not Origin |
+| Origin git | Not SoT yet | John has not claimed a codebase namespace / detached |
 
-Guess discarded: “point the domain at Origin and it will serve the site.” That is not a documented product.
+## How to make Origin SoT (pick one)
 
-## Target architecture
+**Preferred — import then detach (keeps history)**
 
-```
-John / Claude  →  Origin git (SoT, after detach)
-                      │
-                      ├─ Vercel (documented Origin app)  →  foleystrategicadvisory.com
-                      │       static HTML + /api mailer
-                      │
-                      └─ GitHub (optional mirror or leftover Pages, then retire)
-```
+1. Claim the Origin codebase name (`{owner}` in `https://cursor.com/codebase/{owner}/{repo}`). Beta: **cannot rename** ([Origin](https://cursor.com/docs/origin)).
+2. Connect the Cursor GitHub app. **Sync from GitHub** `foleysa/website` ([Mirror](https://cursor.com/docs/origin/mirror-github)).
+3. **Immediately Detach from GitHub** (Settings → General → Danger Zone). Origin becomes SoT. Pushes to `https://origin.cursor.com/{owner}/{repo}.git` stay on Origin. The GitHub repo is unchanged leftover ([Settings](https://cursor.com/docs/origin/settings)).
+4. Point local/agent remotes at that Origin URL. Stop treating `github.com/foleysa/website` as upstream.
 
-Keep GitHub Pages serving the live domain until Vercel’s custom domain is green. Email DNS (SPF/DKIM) is independent of the site CNAME.
+While still mirrored, `git push` to the Origin clone URL **goes to GitHub** ([Clone, Push & Pull](https://cursor.com/docs/origin/git)). That window should be minutes, not the operating model.
 
-## Cutover sequence (John-gated steps marked)
+**Alternative — create on Origin and push (SoT from the first push)**
 
-1. **John:** Claim the Origin codebase name at [cursor.com/codebase](https://cursor.com/codebase). Beta: the `{owner}` namespace cannot be changed later ([Origin](https://cursor.com/docs/origin)).
-2. **John:** Connect the Cursor GitHub app; **Sync from GitHub** `foleysa/website`. GitHub remains SoT; Origin is the mirror ([Mirror](https://cursor.com/docs/origin/mirror-github)).
-3. Keep Pages + current DNS. Do not delete the `CNAME` file or the Pages custom domain in this step.
-4. Confirm the existing Vercel project (`website-smoky-psi-51`) deploys this branch / `main`. Or **John:** link Vercel under Origin repo Settings → Apps ([Settings](https://cursor.com/docs/origin/settings)).
-5. **John:** In Vercel, add `foleystrategicadvisory.com` and `www`. Lower DNS TTL first (e.g. 300s) at the current DNS host.
-6. **John:** When Vercel shows the domain verified on a preview/alias, flip the public records:
-   - Today Pages uses GitHub’s apex/www records (A / CNAME per GitHub’s current Pages docs).
-   - Replace them with Vercel’s records from the Vercel domain UI. Do not invent IPs here; copy what Vercel displays that day.
-7. Probe `https://foleystrategicadvisory.com/` until `server` is `Vercel` and `/api/health` returns `softHold: true`.
-8. Only then turn off GitHub Pages custom domain (or leave Pages on a `*.github.io` fallback). Remove or stop treating `CNAME` as the live host.
-9. **John (later):** Settings → General → Detach from GitHub if Origin should become git SoT. GitHub repo is not deleted ([Settings](https://cursor.com/docs/origin/settings)). After detach, Depot/Buildkite CI apply to Origin-hosted repos only; Vercel still deploys.
+1. Claim the codebase name.
+2. **New** repo on Origin (Internal or Private) ([Create a repository](https://cursor.com/docs/origin/create-repository)).
+3. `git remote add origin https://origin.cursor.com/{owner}/{repo}.git` and `git push -u origin main`.
+4. Do not add a GitHub push URL. Dual-push is documented only for people *evaluating* both remotes — not this cutover.
 
-## Mailer implication
+Do **not** use “keep GitHub as SoT and Origin as a browse mirror.”
 
-`/api/subscribe`, `/api/confirm`, `/api/unsubscribe`, `/api/health` run on Vercel Node, not on GitHub Pages and not on Origin. The file subscriber store is for local ownership and export. Vercel’s filesystem is ephemeral — John unlock for production persistence is in `docs/JOHN-UNLOCKS.md` (Turso/Neon or similar). Do not put emails in git.
+## Site leaves GitHub Pages
+
+Zero-downtime overlap is fine. Staying on Pages is not.
+
+1. **John:** On the **Origin-hosted** repo, Settings → Apps → **Vercel**. Link the account so pushes deploy and PRs get previews. Reuse or replace `website-smoky-psi-51` so production tracks **Origin**, not GitHub.
+2. **John:** Add `foleystrategicadvisory.com` and `www` in Vercel. Lower DNS TTL (e.g. 300s).
+3. **John:** When Vercel shows the domain verified, replace GitHub Pages A/CNAME records with **the records Vercel displays that day**. Do not invent IPs.
+4. Probe `https://foleystrategicadvisory.com/` until `server` is `Vercel` and `/api/health` returns `softHold: true`.
+5. **John:** Disable the GitHub Pages custom domain. Delete or ignore the repo `CNAME` file. Do not leave Pages as a fallback host.
+6. GitHub `foleysa/website` may remain as a frozen archive. It is not SoT and must not serve the domain.
+
+Email SPF/DKIM is a separate DNS change (`docs/JOHN-UNLOCKS.md`). Soft HOLD: no live send.
+
+## Mailer
+
+`/api/*` runs on Vercel Node attached to Origin. Not on GitHub Pages. Not on Origin itself. File store is local/owned; Vercel disk is ephemeral — durable store is a John unlock. Do not commit emails.
+
+Merge this mailer onto the **Origin** default branch after Vercel is the public host (or ship Subscribe only on the Vercel URL until then). Do not merge Beehiiv removal onto GitHub Pages as the live path.
 
 ## What this PR does vs does not
 
-**Does:** document the real Origin role; keep the domain on Pages until John flips DNS; scaffold a Vercel-ready first-party mailer so the deploy path can carry Issue #1 later.
+**Does:** lock the decision (Origin SoT, Pages off, Origin→Vercel destination); keep Soft HOLD; first-party mailer scaffolding.
 
-**Does not:** claim an Origin namespace, change live DNS, detach GitHub, or send mail.
+**Does not:** claim the Origin namespace, detach GitHub, flip DNS, or send mail. Those are John unlocks.
