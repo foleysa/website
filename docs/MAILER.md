@@ -57,4 +57,4 @@ npm run mailer:export         # CSV of the first-party store (gitignored)
 
 Merge this form onto the **Origin-hosted** default branch after Vercel serves the domain (or keep Subscribe on the Vercel URL until then). Do not merge Beehiiv removal onto GitHub Pages as the live path — Subscribe fails closed on purpose (no third-party fallback).
 
-See `docs/ORIGIN-CUTOVER.md` and `docs/JOHN-UNLOCKS.md`.
+Fleet Origin SoT (website + Procuro + terminal): `docs/ORIGIN-CUTOVER.md` and `docs/JOHN-UNLOCKS.md`.

@@ -1,10 +1,12 @@
-# John unlocks — Origin SoT, Pages off, Soft HOLD
+# John unlocks — whole fleet to Origin, Soft HOLD
 
-John HARD CORRECT: **Cursor Origin** is git source of truth. The public site **leaves GitHub Pages**. Do not stay on GitHub as SoT.
+**Everything** to Cursor Origin as git SoT: website, Procuro, terminal, and any foleysa repo found later. Public FSA site leaves GitHub Pages. Terminal leaves `github.io`. Do not keep GitHub as SoT.
 
-Soft HOLD stays on. No live Issue #1. No John_OK / Kit / Beehiiv blast.
+Soft HOLD stays on. No live Issue #1. No John_OK / Kit / Beehiiv blast from any repo.
 
-## Block live send (already true)
+Inventory and per-repo deploy notes: `docs/ORIGIN-CUTOVER.md`.
+
+## Block live send (already true on website)
 
 - `mailer/src/config.js` → `softHold: true`
 - `ALLOW_LIVE_SEND` unset
@@ -12,81 +14,90 @@ Soft HOLD stays on. No live Issue #1. No John_OK / Kit / Beehiiv blast.
 - `--list` and `--to` refused
 - Imported filenames matching `john_ok`, `kit`, `beehiiv`, `convertkit` refused
 
-## Unlock A — Origin is git SoT (required, not optional)
+## Unlock A — Origin SoT for the whole fleet (required)
 
-Do this first. A GitHub mirror is only the import. Detach is the decision.
+One codebase name, then **every** repo.
+
+Visible remotes (2026-09-18): `foleysa/website`, `foleysa/Procuro`, `foleysa/terminal`. If John has private repos this token could not list, run the same steps.
 
 1. Open [cursor.com/codebase](https://cursor.com/codebase) and claim the codebase name. Beta: **cannot change `{owner}` later**.
-2. Confirm Origin access (Pro / Teams / Enterprise; not free) ([Origin](https://cursor.com/docs/origin)).
-3. Import history: **Sync from GitHub** `foleysa/website` (needs Cursor GitHub app + GitHub admin) **or** create a New Origin repo and `git push` this tree to `https://origin.cursor.com/{owner}/{repo}.git`.
-4. If you synced: **Detach from GitHub** immediately (Settings → General → Danger Zone). Origin is now SoT. Pushes no longer flow to GitHub ([Settings](https://cursor.com/docs/origin/settings)).
-5. Set the git remote on laptops and agents to the Origin clone URL. Stop using `github.com/foleysa/website` as upstream.
-6. Confirm in the Origin UI: repo icon is **Origin-hosted**, not “synced from GitHub.”
+2. Confirm Origin access (Pro / Teams / Enterprise) ([Origin](https://cursor.com/docs/origin)).
+3. Connect the Cursor GitHub app (for Sync).
+4. For **each** repo:
+   - Sync from GitHub **or** New Origin repo + `git push` to `https://origin.cursor.com/{owner}/{repo}.git`.
+   - If synced: **Detach from GitHub immediately**.
+   - Confirm the icon is Origin-hosted.
+5. Repoint remotes on laptops, this Cloud Agent environment, Replit (Procuro), and Vercel projects. Stop using `github.com/foleysa/*` as upstream.
+6. After detach, open PRs on **Origin**. Agents on a leftover mirror still open GitHub PRs — that is the failure mode to avoid.
 
-Do not leave the repo as a GitHub mirror. Do not dual-push to GitHub. Cloud agents on a mirror still open **GitHub** PRs; after detach they open **Origin** PRs ([Create a repository](https://cursor.com/docs/origin/create-repository)).
+Do not dual-push. Do not leave website done and Procuro/terminal on GitHub.
 
-## Unlock B — Public site: Origin → Vercel (leave Pages)
+Suggested order: **website** (live custom domain) → **terminal** (github.io) → **Procuro** (largest, Replit + monorepo). Same rules either order.
 
-No documented Origin-native site host. Destination is the Vercel Origin App.
+## Unlock B — website leaves Pages (Origin → Vercel)
 
-1. On the **Origin-hosted** repo: Settings → Apps → **Vercel**. Production must track Origin, not GitHub. Existing preview: https://website-smoky-psi-51.vercel.app (today it follows GitHub `main` — retarget after detach).
-2. Add `foleystrategicadvisory.com` + `www` in Vercel.
-3. Lower DNS TTL, then point records at **what Vercel shows**.
-4. Confirm `curl -sI https://foleystrategicadvisory.com` → `server: Vercel` and `GET /api/health` → `softHold: true`.
-5. **Turn off GitHub Pages** for this domain. Do not keep Pages as fallback.
-6. Merge this PR on **Origin** (or keep Subscribe on the Vercel URL until `/api` is on the public host). Do not merge Beehiiv removal onto Pages as the live path.
+1. Origin-hosted `website` → Apps → **Vercel**. Production tracks Origin. Retarget https://website-smoky-psi-51.vercel.app (today it follows GitHub `main`).
+2. Add `foleystrategicadvisory.com` + `www`.
+3. Lower TTL; point DNS at **what Vercel shows**.
+4. Prove `server: Vercel` and `GET /api/health` → `softHold: true`.
+5. **Turn off GitHub Pages** for this domain. No fallback.
+6. Merge this mailer PR on **Origin** (or keep Subscribe on the Vercel URL until `/api` is public). Do not merge Beehiiv removal onto Pages as the live path.
 
-Overlap Pages + Vercel for a short DNS TTL window is fine. Staying on Pages is not.
+## Unlock C — terminal leaves github.io (Origin → Vercel)
 
-## Unlock C — DNS for email (SPF / DKIM / DMARC)
+1. Origin-hosted `terminal` → Vercel (own project or a path John chooses).
+2. Prove a Vercel URL serves the same static terminal.
+3. Turn off Pages on `foleysa/terminal` (`https://foleysa.github.io/terminal/` today).
+4. Optional: custom domain later. None exists now.
 
-Two domains already exist. Copy records from the ESP dashboard after John picks a FROM. Soft HOLD: keys may be stored; do not send Issue #1.
+## Unlock D — Procuro git + runtime retarget
+
+Procuro is the product app. Brand stays off the FSA marketing site.
+
+1. Origin-hosted `procuro` (or the name John picked) after Unlock A.
+2. Point Replit git at Origin (current notes assume Replit workflows; no production URL on the GitHub homepage).
+3. If John wants Vercel previews for `command-center`, attach Vercel on the **Origin-hosted** repo — not the GitHub leftover.
+4. API/Postgres stay on a real host (Replit or other). Origin does not run Express. Secrets stay out of git.
+5. Replace GitHub Actions assumptions after detach (Origin Apps: Vercel; Depot/Buildkite if needed).
+
+## Unlock E — mail DNS + keys (website only; Soft HOLD)
+
+Keys may be stored. Do not send Issue #1.
 
 | Domain | Current use (observed) |
 |---|---|
 | `foleystrategicadvisory.com` | Public site (Pages today → Vercel after Unlock B) |
-| `foleysa.com` | Public mailbox `john@foleysa.com` on the site |
+| `foleysa.com` | Mailbox `john@foleysa.com` on the site |
 
-**Recommendation:** send the brief from a **subdomain** of the site, e.g. `updates.foleystrategicadvisory.com` or `brief.foleystrategicadvisory.com` ([Resend: verified domains](https://resend.com/docs/dashboard/domains/introduction)). Keep `john@foleysa.com` as `MAIL_REPLY_TO` unless John says otherwise.
+Send from a **subdomain** of the site ([Resend domains](https://resend.com/docs/dashboard/domains/introduction)). Keep `john@foleysa.com` as `MAIL_REPLY_TO` unless John says otherwise.
 
-1. Create a Resend account (preferred) or Postmark server.
-2. Verify the sending domain. Paste **their** SPF, DKIM, and (optional) DMARC at the DNS host. One SPF TXT per host. Start DMARC at `p=none`.
-3. Set `MAIL_FROM` on the verified domain (shape only: `brief@updates.foleystrategicadvisory.com`).
-4. Set `RESEND_API_KEY` or `POSTMARK_SERVER_TOKEN` on the **Vercel project attached to Origin** (and local `.env`, never git).
-5. Set `MAILER_SECRET` to a long random string.
-6. Set `MAILER_PUBLIC_BASE=https://foleystrategicadvisory.com`.
-7. Leave `MAILER_DEV_REVEAL_CONFIRM` unset/false on production.
+1. Resend (preferred) or Postmark.
+2. Paste **their** SPF, DKIM, optional DMARC. One SPF TXT per host. DMARC start `p=none`.
+3. `MAIL_FROM` on the verified domain.
+4. API key + `MAILER_SECRET` on the **Vercel project attached to Origin `website`**.
+5. `MAILER_PUBLIC_BASE=https://foleystrategicadvisory.com`.
+6. `MAILER_DEV_REVEAL_CONFIRM` off in production.
 
-## Unlock D — durable list store
+## Unlock F — durable list store (website)
 
-Local/Phase 1 store: `mailer/data/subscribers.json` (gitignored).
+`mailer/data/subscribers.json` is local/owned. Vercel disk is ephemeral. Before public signup: Turso/Neon (or similar), then `npm run mailer:export` as the portable copy.
 
-Vercel disk is not durable. Before public signup:
+## Unlock G — Issue #1 HTML (still Soft HOLD)
 
-1. Pick a database John controls (Turso, Neon, or similar).
-2. Point `SUBSCRIBER_STORE` at it (adapter TBD in Phase 2).
-3. Keep `npm run mailer:export` as the portable copy of record.
-
-## Unlock E — Issue #1 content (still Soft HOLD)
-
-1. Drop real HTML in `newsletter/issues/0001/body.html`.
-2. Set `subject` / `preheader` / `"status": "ready"` in `meta.json`.
+1. Drop HTML in `website` `newsletter/issues/0001/body.html`.
+2. Set `subject` / `preheader` / `"status": "ready"`.
 3. Dry-run: `npm run mailer:send -- --issue 0001`.
-4. No live send in this phase.
+4. No live send.
 
-## Unlock F — lift Soft HOLD (later PR, not this one)
+## Unlock H — lift Soft HOLD (later Origin PR)
 
-Only after A–E, a confirmed first-party list exists, and John says the hold is off:
-
-1. Flip `softHold` in `mailer/src/config.js` in a dedicated PR **on Origin**.
-2. Set `ALLOW_LIVE_SEND=true` on the Vercel host for that send window.
-3. Run with `--live --i-understand-soft-hold`.
-4. Still refuse John_OK / Kit / Beehiiv files.
+Only after A–G, a confirmed first-party list, and John says the hold is off — on **Origin `website`**, not GitHub.
 
 ## Not unlocks / do not do
 
-- Do not keep GitHub as source of truth or as the live host.
+- Do not keep any foleysa repo on GitHub as SoT.
+- Do not keep Pages or `github.io` as the live host after the Vercel (or chosen Origin path) URL is green.
 - Do not paste Kit, Beehiiv, or John_OK CSVs into `mailer/data`.
-- Do not send from a Procuro brand or domain.
-- Do not invent open rates, subscriber counts, or savings metrics.
-- Do not turn off Pages **before** Vercel HTTPS for the custom domain is confirmed — then turn Pages off.
+- Do not send FSA mail from a Procuro brand or domain.
+- Do not invent metrics or Procuro production URLs.
+- Do not turn off website Pages **before** Vercel HTTPS is confirmed — then turn Pages off.
