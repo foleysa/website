@@ -25,6 +25,24 @@ If a product already runs on Replit (Procuro), **git still moves to Origin**. Ru
 
 If Cursor later ships Origin-native hosting, revisit. Until the docs say so, Vercel is the Origin path for public URLs.
 
+## Discovery — is Origin already claimed? (2026-09-18, Soft HOLD)
+
+**No detach. No login prompt.** This Cloud Agent used the Origin CLI on the box (`/exec-daemon/tools/origin`) plus unauthenticated HTTP.
+
+| Probe | Result |
+|---|---|
+| `origin auth status` / `origin repo list` / `origin api` | **Not authenticated.** CLI: stored logins are disabled on hosted agent VMs; the host is supposed to inject `CURSOR_AUTH_TOKEN` (or `CURSOR_API_KEY`). Both were **unset** in this environment. |
+| `https://origin.cursor.com/{guess}/{repo}.git/info/refs` | **401** `www-authenticate: Basic realm="git-keeper"` for every guess (`foleysa`, `foley`, `john`, `johnfoley`, `johnefoley`, `fsa`, `foleystrategicadvisory`, `john-foley`, `FoleySA` × website/procuro/terminal). 401 here does **not** prove the namespace exists or does not — git-keeper does not distinguish. |
+| `https://cursor.com/codebase` and `/codebase/foleysa` | Cloudflare bot wall (`authenticator.cursor.sh`). No namespace page body. |
+| Cloud Agent env / run | Repos: `github.com/foleysa/website` only. Run owner: John Foley `john@foleysa.com` (Cursor user `375001778`). That is the **Cursor account**, not an Origin `{owner}` slug. |
+| Run events | No Origin namespace or MCP Origin auth event. |
+
+**Namespace URL:** not observed.  
+**Origin repos:** none listed (auth never succeeded).  
+**Exact blocker:** this VM has no Origin session (`CURSOR_AUTH_TOKEN` / `CURSOR_API_KEY` missing; `origin auth login` disabled for stored logins). A later agent **with** an injected token can run `origin repo list --json org,name,mirrorStatus` and `origin namespace access list <slug>` — still Soft HOLD, no detach.
+
+John may already have claimed a codebase in the browser. This agent cannot see it.
+
 ## Fleet inventory (checked 2026-09-18)
 
 Visible to this agent on `github.com/foleysa` — **three public repos**, none archived. `gh repo list foleysa` returned only these. Private repos, if any, were not visible; use the same recipe.

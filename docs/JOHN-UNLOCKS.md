@@ -14,6 +14,18 @@ Inventory and per-repo deploy notes: `docs/ORIGIN-CUTOVER.md`.
 - `--list` and `--to` refused
 - Imported filenames matching `john_ok`, `kit`, `beehiiv`, `convertkit` refused
 
+## Discovery (2026-09-18 Soft HOLD — no detach)
+
+This agent **could not** read whether Origin is already claimed.
+
+- **Blocker:** Cloud Agent VM: `origin` CLI present; stored logins disabled; `CURSOR_AUTH_TOKEN` and `CURSOR_API_KEY` unset. `origin repo list` fails before any namespace is returned.
+- Unauthenticated `origin.cursor.com/{slug}/…git` → 401 git-keeper for all guessed slugs (not a yes/no on claim).
+- `cursor.com/codebase` → Cloudflare challenge.
+- Known Cursor identity only: John Foley `john@foleysa.com` (user `375001778`) — not an Origin namespace URL.
+
+**Not found:** codebase owner/namespace URL, Origin repo list.  
+**Next probe (still no detach):** run `origin repo list --json org,name,mirrorStatus` from a session that has `CURSOR_AUTH_TOKEN` or `CURSOR_API_KEY`.
+
 ## Unlock A — Origin SoT for the whole fleet (required)
 
 One codebase name, then **every** repo.
