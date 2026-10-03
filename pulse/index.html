@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Procuro Pulse — Box price band</title>
+<meta name="description" content="Illustrative corrugated box price band from your last paid price per thousand square feet.">
+<link rel="canonical" href="https://foleystrategicadvisory.com/pulse/">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0B1D33;--navy-mid:#122A47;--gold:#D4A843;--gold-light:#E8C566;--cream:#FAF9F6;--white:#FFFFFF;--text-primary:#1A1A1A;--text-secondary:#6B7280;--text-tertiary:#9CA3AF;--border:#E5E7EB;--box-face:#C4A574;--box-edge:#8B6914;--box-shadow:#5C4A2A;--radius-md:12px;--shadow-card:0 1px 3px rgba(11,29,51,0.04),0 8px 24px rgba(11,29,51,0.08)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-primary);min-height:100vh;-webkit-font-smoothing:antialiased}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--gold-light)}
+.page{max-width:720px;margin:0 auto;padding:32px 24px 64px}
+.back{font-size:14px;color:var(--text-secondary);display:inline-block;margin-bottom:24px}
+.back:hover{color:var(--navy)}
+.hero-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.page-title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(28px,5vw,40px);color:var(--navy);margin-bottom:8px}
+
+/* Calculator face */
+.calculator-face{margin:32px 0 40px;padding:28px 24px 32px;background:linear-gradient(165deg,var(--navy-mid) 0%,var(--navy) 100%);border-radius:var(--radius-md);box-shadow:var(--shadow-card);border:1px solid rgba(212,168,67,0.2)}
+.face-title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:22px;color:var(--white);text-align:center;margin-bottom:20px}
+.box-scene{display:flex;justify-content:center;margin-bottom:24px;perspective:800px}
+.plain-box{width:min(100%,320px);background:linear-gradient(145deg,#D4B896 0%,var(--box-face) 35%,#A8895C 100%);border:2px solid var(--box-edge);border-radius:4px;box-shadow:8px 12px 0 var(--box-shadow),inset 0 1px 0 rgba(255,255,255,0.25);padding:20px 18px 18px;position:relative}
+.plain-box::before{content:'';position:absolute;top:0;left:12%;right:12%;height:3px;background:rgba(139,105,20,0.35);border-radius:0 0 2px 2px}
+.unit-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:rgba(11,29,51,0.65);text-align:center;margin-bottom:14px}
+.last-row{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.last-row label{font-size:13px;font-weight:600;color:var(--navy)}
+.last-row input{width:88px;font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:500;padding:8px 10px;border:2px solid var(--box-edge);border-radius:6px;background:var(--white);color:var(--navy);text-align:center}
+.last-row input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,168,67,0.35)}
+.last-row .dollar{font-family:'JetBrains Mono',monospace;font-size:18px;color:var(--navy);font-weight:500}
+.outputs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.out-cell{text-align:center;padding:10px 6px;background:rgba(250,249,246,0.55);border-radius:6px;border:1px solid rgba(139,105,20,0.25)}
+.out-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:rgba(11,29,51,0.55);margin-bottom:4px}
+.out-value{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:26px;color:var(--navy);min-height:32px;line-height:1.2}
+.out-value:empty::before{content:''}
+.band-lines{border-top:1px dashed rgba(139,105,20,0.4);padding-top:14px;display:flex;flex-direction:column;gap:8px}
+.band-line{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--navy);text-align:center;min-height:1.25em}
+.band-line:empty{display:block}
+
+/* Formula section */
+.formula{margin-top:8px;padding:28px 0;border-top:1px solid var(--border)}
+.formula h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;color:var(--navy);margin-bottom:16px}
+.formula ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.formula li{font-size:15px;color:var(--text-secondary);line-height:1.55;padding-left:16px;position:relative}
+.formula li::before{content:'';position:absolute;left:0;top:10px;width:6px;height:6px;background:var(--gold);border-radius:50%}
+.disclaimer{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:12px}
+.privacy{font-size:14px;color:var(--text-tertiary);line-height:1.6}
+</style>
+</head>
+<body>
+<main class="page">
+<a href="/" class="back">← Foley Strategic Advisory</a>
+<p class="hero-label">Procuro Pulse</p>
+<h1 class="page-title">Corrugated box price band</h1>
+
+<section class="calculator-face" aria-label="Box price calculator">
+<h2 class="face-title">A plain brown shipping box</h2>
+<div class="box-scene">
+<div class="plain-box">
+<p class="unit-label">per thousand square feet</p>
+<div class="last-row">
+<label for="last-price">Last price</label>
+<span class="dollar">$</span>
+<input type="text" id="last-price" inputmode="decimal" autocomplete="off" spellcheck="false" aria-describedby="band-lines">
+</div>
+<div class="outputs">
+<div class="out-cell"><div class="out-label">Fair</div><div class="out-value" id="out-fair" aria-live="polite"></div></div>
+<div class="out-cell"><div class="out-label">Low</div><div class="out-value" id="out-low" aria-live="polite"></div></div>
+<div class="out-cell"><div class="out-label">High</div><div class="out-value" id="out-high" aria-live="polite"></div></div>
+</div>
+<div class="band-lines" id="band-lines">
+<div class="band-line" id="line-low" aria-live="polite"></div>
+<div class="band-line" id="line-high" aria-live="polite"></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="formula">
+<h2>How we get there</h2>
+<ul>
+<li>Box price index rose ~7.7% Aug 2025 to Aug 2026 (locked, rounded, Aug 2026 preliminary)</li>
+<li>~two thirds paper (assumption)</li>
+<li>Rest of lift ~7.1% (assumption, not from index)</li>
+<li>Band 8% either side (assumption)</li>
+<li>Diesel ~$6.38/gal week ending Sep 28, 2026 — NOT in this price</li>
+</ul>
+<p class="disclaimer">Illustrative, not a quote. Prefer the band.</p>
+<p class="privacy">We do not keep your price; we do not have other buyers' invoices.</p>
+</section>
+</main>
+<script>
+const YOY = 0.077;
+const PAPER = 2 / 3;
+const RESIDUAL = 0.071;
+const BAND_LOW = 0.92;
+const BAND_HIGH = 1.08;
+
+/** @typedef {{ lastPrice: number | null, fair: number | null, low: number | null, high: number | null }} PulseBand */
+
+/**
+ * Single input drives three rounded outputs, or all null when blank.
+ * @param {number | null} lastPrice
+ * @returns {PulseBand}
+ */
+function derivePulseBand(lastPrice) {
+  if (lastPrice === null || !Number.isFinite(lastPrice)) {
+    return { lastPrice: null, fair: null, low: null, high: null };
+  }
+  const fair = Math.round(
+    lastPrice * (PAPER * (1 + YOY) + (1 - PAPER) * (1 + RESIDUAL))
+  );
+  const low = Math.round(fair * BAND_LOW);
+  const high = Math.round(fair * BAND_HIGH);
+  return { lastPrice, fair, low, high };
+}
+
+function parseLastInput(raw) {
+  const trimmed = String(raw).trim();
+  if (trimmed === '') return null;
+  const n = Number(trimmed);
+  if (!Number.isFinite(n) || n < 0) return null;
+  return n;
+}
+
+function formatMoney(n) {
+  return '$' + n.toLocaleString('en-US', { maximumFractionDigits: 0 });
+}
+
+const inputEl = document.getElementById('last-price');
+const outFair = document.getElementById('out-fair');
+const outLow = document.getElementById('out-low');
+const outHigh = document.getElementById('out-high');
+const lineLow = document.getElementById('line-low');
+const lineHigh = document.getElementById('line-high');
+
+function render() {
+  const lastPrice = parseLastInput(inputEl.value);
+  const band = derivePulseBand(lastPrice);
+
+  if (band.fair === null) {
+    outFair.textContent = '';
+    outLow.textContent = '';
+    outHigh.textContent = '';
+    lineLow.textContent = '';
+    lineHigh.textContent = '';
+    return;
+  }
+
+  outFair.textContent = String(band.fair);
+  outLow.textContent = String(band.low);
+  outHigh.textContent = String(band.high);
+  lineLow.textContent = 'Low band: ' + formatMoney(band.low) + ' per thousand square feet';
+  lineHigh.textContent = 'High band: ' + formatMoney(band.high) + ' per thousand square feet';
+}
+
+inputEl.addEventListener('input', render);
+render();
+</script>
+</body>
+</html>
