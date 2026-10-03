@@ -1,0 +1,10 @@
+.env
+.env.local
+.env.*.local
+node_modules/
+.vercel
+mailer/data/*.json
+mailer/data/*.jsonl
+mailer/outbox/
+!mailer/data/.gitkeep
+.DS_Store
