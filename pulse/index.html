@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Procuro Pulse — Plain Box Fair Price Math</title>
+<meta name="description" content="Step-by-step fair price math for a plain single-wall 32 ECT shipping box. Public index and diesel inputs, no jargon, no sales call required.">
+<link rel="canonical" href="https://foleystrategicadvisory.com/pulse/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<meta property="og:title" content="Procuro Pulse — Plain Box Fair Price Math">
+<meta property="og:description" content="How to turn public corrugated index and diesel data into a fair price and ±8% band for a plain 32 ECT box.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://foleystrategicadvisory.com/pulse/">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0B1D33;--gold:#D4A843;--cream:#FAF9F6;--white:#FFFFFF;--text:#1A1A1A;--muted:#5B6472;--border:#E5E7EB;--paper:#F3F0E8}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:18px;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:42rem;margin:0 auto;padding:2.5rem 1.25rem 4rem}
+.top{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:2rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
+.brand{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:1.15rem;color:var(--navy);letter-spacing:.02em}
+.brand span{color:var(--gold)}
+.kicker{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.85rem,4vw,2.35rem);font-weight:700;line-height:1.2;color:var(--navy);margin:.35rem 0 .75rem}
+.lede{font-size:1.05rem;color:var(--muted);max-width:38rem}
+.privacy{margin-top:1.25rem;padding:1rem 1.1rem;background:var(--white);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;font-size:.95rem;color:var(--muted)}
+.privacy strong{color:var(--text);font-weight:600}
+h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.45rem;font-weight:700;color:var(--navy);margin:2.25rem 0 .75rem}
+h3{font-size:1rem;font-weight:600;color:var(--navy);margin:1.25rem 0 .4rem}
+p,li{font-size:1rem}
+ul,ol{padding-left:1.25rem;margin:.5rem 0 1rem}
+li{margin:.35rem 0}
+.spec{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1rem 1.15rem;margin:1rem 0}
+.spec dt{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:.65rem}
+.spec dt:first-child{margin-top:0}
+.spec dd{font-size:1rem;margin:.15rem 0 0}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:1rem 0}
+@media(min-width:520px){.stats{grid-template-columns:repeat(3,1fr)}}
+.stat{background:var(--paper);border:1px solid var(--border);border-radius:8px;padding:.85rem .75rem;text-align:center}
+.stat .num{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.65rem;font-weight:700;color:var(--navy);line-height:1.1}
+.stat .lbl{font-size:.78rem;color:var(--muted);margin-top:.25rem;line-height:1.35}
+.assump{font-size:.95rem;color:var(--muted);background:var(--white);padding:.85rem 1rem;border-radius:8px;border:1px dashed var(--border);margin:1rem 0}
+.step{position:relative;background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1rem 1.1rem 1rem 3rem;margin:.65rem 0}
+.steps{counter-reset:step}
+.step::before{counter-increment:step;content:counter(step);position:absolute;left:1rem;top:1rem;width:1.65rem;height:1.65rem;background:var(--gold);color:var(--navy);font-weight:700;font-size:.85rem;border-radius:6px;display:flex;align-items:center;justify-content:center}
+.step-title{font-weight:600;color:var(--navy);margin-bottom:.35rem}
+.formula{font-family:'JetBrains Mono',monospace;font-size:.82rem;background:var(--paper);padding:.75rem .85rem;border-radius:6px;overflow-x:auto;margin:.5rem 0;line-height:1.5}
+.result{background:var(--navy);color:var(--white);border-radius:10px;padding:1.15rem 1.25rem;margin:1.5rem 0}
+.result .big{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.75rem;font-weight:700;color:var(--gold);margin:.25rem 0}
+.result .range{font-size:1.05rem;color:rgba(255,255,255,.85)}
+.foot{margin-top:2.5rem;padding-top:1.25rem;border-top:1px solid var(--border);font-size:.88rem;color:var(--muted)}
+.foot a{color:var(--navy);font-weight:500}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="top">
+    <div>
+      <div class="kicker">Procuro Pulse · Sprint 1</div>
+      <div class="brand"><span>Pulse</span> — fair price math</div>
+    </div>
+    <a href="/" class="kicker" style="text-decoration:none">Foley Strategic Advisory</a>
+  </header>
+
+  <h1>What should a plain corrugated box cost right now?</h1>
+  <p class="lede">This page shows the math for one standard SKU so you can check a supplier quote without a briefing call. Every input below is public data or a number you already have from your last purchase.</p>
+
+  <div class="privacy">
+    <strong>Privacy:</strong> We do not keep your price. We do not have other buyers’ invoices. Nothing on this page asks you to submit a quote or payment.
+  </div>
+
+  <h2>The box we mean</h2>
+  <dl class="spec">
+    <dt>Product</dt>
+    <dd>Plain shipping box — single wall, 32 ECT, no print</dd>
+    <dt>Price unit</dt>
+    <dd>Dollars per thousand square feet (MSF) of board</dd>
+  </dl>
+
+  <h2>Public inputs (as of this write-up)</h2>
+  <div class="stats">
+    <div class="stat">
+      <div class="num">465.6</div>
+      <div class="lbl">U.S. corrugated box index — Aug 2025</div>
+    </div>
+    <div class="stat">
+      <div class="num">501.4</div>
+      <div class="lbl">Same index — Aug 2026 (preliminary)</div>
+    </div>
+    <div class="stat">
+      <div class="num">$6.38</div>
+      <div class="lbl">Highway diesel — week of 28 Sep 2026</div>
+    </div>
+  </div>
+  <p>The index moved from 465.6 to 501.4 — about <strong>7.7% higher</strong>. Treat the 2026 figure as preliminary until the government series is final.</p>
+
+  <h2>What we assume about cost mix</h2>
+  <p class="assump">For this plain box, we treat roughly <strong>two-thirds</strong> of the price as paper (it tracks the box index) and about <strong>one-tenth</strong> as freight (it tracks highway diesel). The remaining share covers converting, margin, and other fixed pieces — we leave that slice flat in this model.</p>
+
+  <h2>Worked example — follow the steps</h2>
+  <p>Suppose your <strong>last price was $90 per MSF</strong>, from when the index was 465.6. For diesel, use the EIA highway diesel price from that same period — here <strong>$3.73/gal</strong> (late Aug 2025), a public number you can swap for your own week if you prefer.</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-title">Split your old price into slices</div>
+      <p>Paper slice: $90 × ⅔ = <strong>$60.00</strong><br>
+      Freight slice: $90 × ⅒ = <strong>$9.00</strong><br>
+      Other (flat): $90 − $60 − $9 = <strong>$21.00</strong></p>
+    </div>
+    <div class="step">
+      <div class="step-title">Update the paper slice with the index</div>
+      <p>Index ratio: 501.4 ÷ 465.6 = 1.077 (about +7.7%)<br>
+      New paper: $60.00 × 1.077 = <strong>$64.62</strong></p>
+    </div>
+    <div class="step">
+      <div class="step-title">Update the freight slice with diesel</div>
+      <p>Diesel ratio: $6.38 ÷ $3.73 = 1.711<br>
+      New freight: $9.00 × 1.711 = <strong>$15.40</strong> (rounds to the nearest cent in your spreadsheet)</p>
+    </div>
+    <div class="step">
+      <div class="step-title">Add the slices</div>
+      <p>Fair price ≈ $64.62 + $15.40 + $21.00 = <strong>$101.02</strong> → about <strong>$101 per MSF</strong>.</p>
+      <p class="formula">Fair ≈ Old × [ ⅔×(501.4/465.6) + ⅒×(6.38/3.73) + 7/30×1 ]</p>
+    </div>
+    <div class="step">
+      <div class="step-title">Apply the fairness band (±8%)</div>
+      <p>Suppliers and mills rarely land on the exact cent. We use a <strong>±8%</strong> band around the fair price:</p>
+      <p>Low: $101 × 0.92 ≈ <strong>$93</strong><br>
+      High: $101 × 1.08 ≈ <strong>$109</strong></p>
+    </div>
+  </div>
+
+  <div class="result">
+    <div class="kicker" style="color:var(--gold);margin-bottom:.35rem">Your example, restated</div>
+    <div>Last price: $90 / MSF → fair price today: <span class="big">~$101 / MSF</span></div>
+    <div class="range">Reasonable quote band: about <strong>$93–$109</strong> / MSF</div>
+  </div>
+
+  <h2>How to use this on your own quote</h2>
+  <ol>
+    <li>Confirm the SKU matches: plain, single wall, 32 ECT, no print.</li>
+    <li>Plug in <em>your</em> last MSF price and the index value from that month.</li>
+    <li>Use current index 501.4 (preliminary) and diesel $6.38 for the week of 28 Sep 2026.</li>
+    <li>Run the same slice math, then apply ±8%.</li>
+    <li>If a quote sits far outside the band, ask what changed — board grade, delivery distance, minimums, or a new surcharge — before you accept the increase.</li>
+  </ol>
+
+  <p class="foot">Procuro Pulse is an transparency-first project from <a href="/">Foley Strategic Advisory</a>. Sprint 1 is this public formula only — no invoice upload, no payment links, no outreach fund.</p>
+</main>
+</body>
+</html>
