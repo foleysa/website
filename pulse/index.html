@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Procuro Pulse — Plain Box Fair Price</title>
+<meta name="description" content="Check a plain shipping box quote against public index and diesel data. Enter your last price per thousand square feet — fair, low, and high update instantly.">
+<link rel="canonical" href="https://foleystrategicadvisory.com/pulse/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<meta property="og:title" content="Procuro Pulse — Plain Box Fair Price">
+<meta property="og:description" content="Live fair price math for a plain brown shipping box — no account, no invoice upload.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://foleystrategicadvisory.com/pulse/">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0B1D33;--navy-mid:#122A47;--gold:#D4A843;--gold-light:#E8C566;--cream:#FAF9F6;--white:#FFFFFF;--text-primary:#1A1A1A;--text-secondary:#6B7280;--border:#E5E7EB;--box-face:#B8895A;--box-side:#8B5E34;--box-flap:#A67647;--shadow-card:0 1px 3px rgba(11,29,51,0.06),0 12px 32px rgba(11,29,51,0.12)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:var(--text-primary);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+.pulse-hero{background:var(--navy);padding:88px 24px 72px;position:relative;overflow:hidden}
+.pulse-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 80% 20%,rgba(212,168,67,.08) 0%,transparent 65%);pointer-events:none}
+.pulse-hero-inner{max-width:960px;margin:0 auto;position:relative;z-index:1}
+.pulse-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:2rem;flex-wrap:wrap}
+.pulse-kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.pulse-title{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:clamp(2rem,5vw,2.75rem);color:var(--white);line-height:1.15;max-width:16ch}
+.pulse-home{font-size:13px;font-weight:500;color:rgba(255,255,255,.55)}
+.pulse-home:hover{color:var(--gold-light)}
+
+.face-grid{display:grid;grid-template-columns:1fr;gap:2rem;align-items:center}
+@media(min-width:768px){.face-grid{grid-template-columns:minmax(200px,280px) 1fr;gap:2.5rem}}
+
+.box-scene{display:flex;justify-content:center;padding:1rem 0}
+.box-3d{width:min(240px,70vw);aspect-ratio:1;position:relative;transform-style:preserve-3d;transform:rotateX(-12deg) rotateY(-28deg)}
+.box-body{position:absolute;inset:12% 8% 18% 8%;background:linear-gradient(145deg,var(--box-face) 0%,var(--box-side) 100%);border-radius:4px;box-shadow:var(--shadow-card),inset 0 1px 0 rgba(255,255,255,.25)}
+.box-body::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;background:rgba(0,0,0,.12);transform:translateX(-50%)}
+.box-flap-left,.box-flap-right{position:absolute;top:8%;height:14%;background:var(--box-flap);border-radius:3px 3px 0 0}
+.box-flap-left{left:8%;right:50%;transform-origin:bottom left;transform:rotateX(38deg) skewY(-2deg)}
+.box-flap-right{left:50%;right:8%;transform-origin:bottom right;transform:rotateX(38deg) skewY(2deg)}
+.box-label{position:absolute;bottom:22%;left:50%;transform:translateX(-50%);font-size:11px;font-weight:600;letter-spacing:.04em;color:rgba(255,255,255,.85);text-shadow:0 1px 2px rgba(0,0,0,.25);white-space:nowrap}
+
+.face-card{background:rgba(255,255,255,.06);border:1px solid rgba(212,168,67,.25);border-radius:16px;padding:1.75rem 1.5rem;backdrop-filter:blur(8px)}
+.face-card h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.65rem;font-weight:700;color:var(--white);margin-bottom:.35rem}
+.face-sub{font-size:15px;color:rgba(255,255,255,.55);margin-bottom:1.5rem}
+
+.input-block{margin-bottom:1.5rem}
+.input-block label{display:block;font-size:13px;font-weight:600;color:var(--gold-light);margin-bottom:.5rem}
+.input-row{display:flex;align-items:stretch;max-width:320px;border:1px solid rgba(255,255,255,.15);border-radius:10px;overflow:hidden;background:rgba(11,29,51,.5)}
+.input-row:focus-within{border-color:var(--gold);box-shadow:0 0 0 2px rgba(212,168,67,.25)}
+.input-prefix,.input-suffix{display:flex;align-items:center;padding:0 14px;font-size:15px;font-weight:500;color:rgba(255,255,255,.5);background:rgba(0,0,0,.15)}
+.input-prefix{color:var(--gold)}
+.input-row input{flex:1;min-width:0;border:none;background:transparent;color:var(--white);font-family:'DM Sans',sans-serif;font-size:1.25rem;font-weight:600;padding:14px 8px;outline:none}
+.input-row input::placeholder{color:rgba(255,255,255,.25);font-weight:400}
+.input-suffix{font-size:12px;line-height:1.25;text-align:left;max-width:7.5rem}
+
+.outputs{display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem}
+@media(max-width:420px){.outputs{grid-template-columns:1fr}}
+.out-cell{background:rgba(11,29,51,.45);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:.85rem .75rem;text-align:center;min-height:5.5rem;display:flex;flex-direction:column;justify-content:center}
+.out-cell.highlight{border-color:rgba(212,168,67,.45);background:rgba(212,168,67,.1)}
+.out-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:.35rem}
+.out-value{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.5rem,4vw,1.85rem);font-weight:700;color:var(--white);min-height:1.2em}
+.out-cell.highlight .out-value{color:var(--gold-light)}
+.out-value:empty::after{content:''}
+.face-note{margin-top:1.25rem;font-size:13px;color:rgba(255,255,255,.45);line-height:1.5}
+
+.pulse-body{max-width:42rem;margin:0 auto;padding:3rem 1.25rem 4rem}
+.section-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+h2.math-h{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.5rem;font-weight:700;color:var(--navy);margin:2rem 0 .75rem}
+h2.math-h:first-of-type{margin-top:0}
+.privacy{padding:1rem 1.1rem;background:var(--white);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;font-size:15px;color:var(--text-secondary);margin-bottom:1.5rem}
+.privacy strong{color:var(--text-primary)}
+p,li{font-size:16px;color:var(--text-secondary)}
+ul,ol{padding-left:1.25rem;margin:.5rem 0 1rem}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:1rem 0}
+@media(min-width:520px){.stats{grid-template-columns:repeat(3,1fr)}}
+.stat{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:.85rem .75rem;text-align:center;box-shadow:var(--shadow-card)}
+.stat .num{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.5rem;font-weight:700;color:var(--navy)}
+.stat .lbl{font-size:12px;color:var(--text-secondary);margin-top:.25rem;line-height:1.35}
+.assump{font-size:15px;background:var(--white);padding:1rem;border-radius:10px;border:1px dashed var(--border);margin:1rem 0}
+.step{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1rem 1.1rem 1rem 2.75rem;margin:.5rem 0;position:relative;box-shadow:var(--shadow-card)}
+.steps{counter-reset:step}
+.step::before{counter-increment:step;content:counter(step);position:absolute;left:1rem;top:1rem;width:1.5rem;height:1.5rem;background:var(--gold);color:var(--navy);font-weight:700;font-size:12px;border-radius:6px;display:flex;align-items:center;justify-content:center}
+.step-title{font-weight:600;color:var(--navy);margin-bottom:.25rem;font-size:15px}
+.formula{font-family:'JetBrains Mono',monospace;font-size:12px;background:#F3F0E8;padding:.65rem .75rem;border-radius:6px;overflow-x:auto;margin:.5rem 0;line-height:1.5;color:var(--navy)}
+.foot{margin-top:2.5rem;padding-top:1.25rem;border-top:1px solid var(--border);font-size:14px;color:var(--text-secondary)}
+.foot a{color:var(--navy);font-weight:600}
+</style>
+</head>
+<body>
+
+<section class="pulse-hero" aria-labelledby="pulse-heading">
+  <div class="pulse-hero-inner">
+    <header class="pulse-top">
+      <div>
+        <p class="pulse-kicker">Procuro Pulse · Sprint 1</p>
+        <h1 class="pulse-title" id="pulse-heading">Fair price for a plain box</h1>
+      </div>
+      <a href="/" class="pulse-home">Foley Strategic Advisory</a>
+    </header>
+
+    <div class="face-grid">
+      <div class="box-scene" aria-hidden="true">
+        <div class="box-3d">
+          <div class="box-flap-left"></div>
+          <div class="box-flap-right"></div>
+          <div class="box-body">
+            <span class="box-label">Plain shipping box</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="face-card">
+        <h2>Plain brown shipping box</h2>
+        <p class="face-sub">No print. Enter what you paid last time — priced per thousand square feet of board.</p>
+
+        <div class="input-block">
+          <label for="last-price">Your last price</label>
+          <div class="input-row">
+            <span class="input-prefix">$</span>
+            <input id="last-price" name="last-price" type="text" inputmode="decimal" autocomplete="off" placeholder="90" aria-describedby="unit-hint">
+            <span class="input-suffix" id="unit-hint">per thousand square feet</span>
+          </div>
+        </div>
+
+        <div class="outputs" role="region" aria-live="polite" aria-label="Calculated prices">
+          <div class="out-cell highlight">
+            <div class="out-label">Fair</div>
+            <div class="out-value" id="out-fair"></div>
+          </div>
+          <div class="out-cell">
+            <div class="out-label">Low</div>
+            <div class="out-value" id="out-low"></div>
+          </div>
+          <div class="out-cell">
+            <div class="out-label">High</div>
+            <div class="out-value" id="out-high"></div>
+          </div>
+        </div>
+
+        <p class="face-note">We do not save what you type. Fair, low, and high use public index and diesel data below (±8% band).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="pulse-body">
+  <div class="privacy">
+    <strong>Privacy:</strong> We do not keep your price. We do not have other buyers’ invoices. Nothing here uploads quotes or takes payment.
+  </div>
+
+  <p class="section-label">The math</p>
+  <h2 class="math-h">Which box this formula describes</h2>
+  <p>Plain corrugated shipping box — <strong>single wall, 32 ECT</strong>, no print. Prices are quoted in dollars per thousand square feet of board (industry shorthand MSF — we spell it out on the calculator above).</p>
+
+  <h2 class="math-h">Public inputs</h2>
+  <div class="stats">
+    <div class="stat">
+      <div class="num">465.6</div>
+      <div class="lbl">U.S. corrugated box index — Aug 2025</div>
+    </div>
+    <div class="stat">
+      <div class="num">501.4</div>
+      <div class="lbl">Same index — Aug 2026 (preliminary)</div>
+    </div>
+    <div class="stat">
+      <div class="num">$6.38</div>
+      <div class="lbl">Highway diesel — week of 28 Sep 2026</div>
+    </div>
+  </div>
+  <p>The index rose from 465.6 to 501.4 — about <strong>7.7% higher</strong>. The 2026 value is still preliminary.</p>
+
+  <h2 class="math-h">Cost mix</h2>
+  <p class="assump">Roughly <strong>two-thirds</strong> of the price tracks paper (box index). About <strong>one-tenth</strong> tracks freight (highway diesel). The rest — converting, margin, other — stays flat in this model.</p>
+
+  <h2 class="math-h">Steps (same logic as the calculator)</h2>
+  <p>For diesel when you last bought, we use <strong>$3.73/gal</strong> (EIA highway diesel, late Aug 2025, alongside index 465.6). Swap in your week if you have it.</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-title">Split your old price</div>
+      <p>Paper: last × ⅔ · Freight: last × ⅒ · Other: the remainder (7/30 of last).</p>
+    </div>
+    <div class="step">
+      <div class="step-title">Move paper with the index</div>
+      <p>Paper slice × (501.4 ÷ 465.6).</p>
+    </div>
+    <div class="step">
+      <div class="step-title">Move freight with diesel</div>
+      <p>Freight slice × ($6.38 ÷ $3.73).</p>
+    </div>
+    <div class="step">
+      <div class="step-title">Add slices, then band</div>
+      <p>Fair = sum of updated slices. Low = fair × 0.92. High = fair × 1.08 (±8%).</p>
+      <p class="formula">Fair = last × [ ⅔×(501.4/465.6) + ⅒×(6.38/3.73) + 7/30 ]</p>
+    </div>
+  </div>
+
+  <p><strong>Checkpoint:</strong> last price <strong>$90</strong> → fair about <strong>$101</strong>, band about <strong>$93–$109</strong> per thousand square feet.</p>
+
+  <p class="foot">Procuro Pulse — transparency-first, from <a href="/">Foley Strategic Advisory</a>. Sprint 1: this page only. No invoice collection, payment links, or outreach fund.</p>
+</main>
+
+<script>
+(function () {
+  var INDEX_OLD = 465.6;
+  var INDEX_NEW = 501.4;
+  var DIESEL_OLD = 3.73;
+  var DIESEL_NEW = 6.38;
+  var W_PAPER = 2 / 3;
+  var W_FREIGHT = 1 / 10;
+  var W_OTHER = 7 / 30;
+  var BAND = 0.08;
+
+  var multiplier =
+    W_PAPER * (INDEX_NEW / INDEX_OLD) +
+    W_FREIGHT * (DIESEL_NEW / DIESEL_OLD) +
+    W_OTHER;
+
+  var input = document.getElementById('last-price');
+  var outFair = document.getElementById('out-fair');
+  var outLow = document.getElementById('out-low');
+  var outHigh = document.getElementById('out-high');
+
+  function parsePrice(raw) {
+    var trimmed = String(raw).trim();
+    if (trimmed === '') return null;
+    var cleaned = trimmed.replace(/,/g, '').replace(/^\$/, '');
+    if (cleaned === '' || cleaned === '.') return null;
+    var n = Number(cleaned);
+    if (!Number.isFinite(n) || n < 0) return null;
+    return n;
+  }
+
+  function formatMoney(n) {
+    return '$' + Math.round(n).toLocaleString('en-US');
+  }
+
+  function clearOutputs() {
+    outFair.textContent = '';
+    outLow.textContent = '';
+    outHigh.textContent = '';
+  }
+
+  function recalc() {
+    var last = parsePrice(input.value);
+    if (last === null) {
+      clearOutputs();
+      return;
+    }
+    var fair = last * multiplier;
+    var low = fair * (1 - BAND);
+    var high = fair * (1 + BAND);
+    outFair.textContent = formatMoney(fair);
+    outLow.textContent = formatMoney(low);
+    outHigh.textContent = formatMoney(high);
+  }
+
+  input.addEventListener('input', recalc);
+  input.addEventListener('change', recalc);
+})();
+</script>
+</body>
+</html>
